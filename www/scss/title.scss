@@ -1,0 +1,134 @@
+@import 'global';
+
+#bar-title {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 816px;
+	height: 95px;
+	background: url("../img/bg-default.png") no-repeat right top 1px;
+	background-size: 1024px 768px;
+	z-index: 5;
+
+
+	#curTime {
+		font-family: $font-stack-kelson_sansregular;
+		font-size: $font-size-en-xxs;
+		line-height: 20px;
+		color: $color-white;
+		position: absolute;
+		top: 0px;
+		right: 12px;
+	}
+
+
+	.mis-sj {
+		color: $color-green;
+		font-size: $font-size-en-xxs;
+		line-height: $font-size-en-xxs;
+		margin-bottom: 9px;
+	}
+
+	.mis-wrap {
+		position: absolute;
+		top: 20px;
+	}
+
+	.mis-no-wrap {
+		@extend .mis-wrap;
+		left: 0;
+		width: 88px;
+
+		.mis-no {
+			color: $color-green;
+			font-family: $font-stack-kelson_sansregular;
+			font-size: $font-size-en-xl;
+			line-height: $font-size-en-xl;
+			opacity: 0.5;
+		}
+	}
+
+
+
+	.mis-tit-wrap {
+		@extend .mis-wrap;
+		left: 93px;
+		width: 250px;
+
+		.mis-tit {
+			color: $color-green;
+			font-size: $font-size-ko-l;
+			line-height: $font-size-ko-l + 2;
+		}
+	}
+
+
+	.mis-step-wrap {
+		@extend .mis-wrap;
+		right: 12px;
+		width: 457px;
+
+
+		.mis-step {
+			display: table;
+			width: 100%;
+			height: 60px;
+			overflow: hidden;
+
+			.mis-step-item {
+				display: table-cell;
+				padding: 6px 5px;
+				height: 60px;
+				position: relative;
+
+
+				.mis-step-inner {
+					position: absolute;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: 0;
+					background: url("../img/icon-rec-2.png") no-repeat 5px 45px;
+					background-size: 14.5px 6px;
+				}
+
+				.step {
+					font-family: $font-stack-kelson_sansbold;
+					font-size: $font-size-en-xs;
+					line-height: $font-size-en-xs;
+					color: $color-white;
+					border-bottom: 1px solid $color-white;
+					display: inline-block;
+					position: absolute;
+					top: 6px;
+					left: 5px;
+				}
+
+				.mis-no {
+					color: $color-green;
+					font-family: $font-stack-kelson_sansbold;
+					font-size: $font-size-en-r;
+					line-height: $font-size-en-r;
+					opacity: 0.5;
+					position: absolute;
+					top: 24px;
+					left: 5px;
+				}
+
+				.tit {
+					position: absolute;
+					top: 24px;
+					left: 70px;
+					color: $color-green;
+					font-size: $font-size-ko-s;
+					line-height: $font-size-ko-s + 4;
+				}
+			}
+			.mis-step-item.current {
+				background: url("../img/bg-tit-step.png") repeat center center;
+			}
+		}
+	}
+
+
+}

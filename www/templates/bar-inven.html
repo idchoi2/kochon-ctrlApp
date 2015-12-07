@@ -1,0 +1,82 @@
+<div id="bar-inven" class="scope-inven">
+
+
+
+
+	<div class="inven-list">
+		<ul>
+			<li ng-repeat="inven in misn.list" ng-class="{current: misn.curMisnNo == $index, started: inven.curPer > 0, completed: inven.curPer === 100}">
+				<a ng-click="GoMission($index)">
+					<div class="icon icon-{{ $index }}">
+						<span class="mat-{{ $index }}"></span>
+						<span class="lock"></span>
+						<span class="per-cir-wrap">
+							<span class="per">{{ inven.curPer }}%</span>
+							<span class="circle">
+
+								<svg viewBox="0 0 32 32"><circle r="16" cx="16" cy="16"  stroke-dasharray="{{ inven.curPer }} 100"></circle></svg>
+
+							</span>
+						</span>
+					</div>
+					<div class="tit-wrap">
+								<span class="no-wrap">
+									<span class="mat">MATERIAL</span>
+									<span class="no">{{ inven.no }}</span>
+								</span>
+						<div class="tit"><span class="" ng-bind-html="inven.invenTit"></span></div>
+					</div>
+				</a>
+			</li>
+		</ul>
+	</div>
+
+	<script>
+
+
+
+
+	</script>
+
+
+
+	<ion-tabs class="tabs-bottom" delegate-handle="mission-tabs">
+		<ion-tab title="Tab 1">
+			<ion-nav-view name="tab-tab1" class="mission-cnt">
+				<div ng-include src="'templates/mission1.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Tab 2">
+			<ion-nav-view name="tab-tab2" class="mission-cnt">
+				<div ng-include src="'templates/mission2.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Tab 3">
+			<ion-nav-view name="tab-tab3" class="mission-cnt">
+				<div ng-include src="'templates/mission3.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Tab 4">
+			<ion-nav-view name="tab-tab4" class="mission-cnt">
+				<div ng-include src="'templates/mission4.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Tab 5">
+			<ion-nav-view name="tab-tab5" class="mission-cnt">
+				<div ng-include src="'templates/mission5.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Tab 6">
+			<ion-nav-view name="tab-tab6" class="mission-cnt">
+				<div ng-include src="'templates/mission6.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+		<ion-tab title="Tab 7">
+			<ion-nav-view name="tab-tab7" class="mission-cnt final">
+				<div ng-include src="'templates/mission7.html'"></div>
+			</ion-nav-view>
+		</ion-tab>
+	</ion-tabs>
+
+
+</div>

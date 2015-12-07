@@ -1,0 +1,134 @@
+<ion-content class="cnt" padding="false" scroll="true">
+	<div id="Mission3">
+
+
+
+		<!-- 타이틀 -->
+		<div class="tit-wrap">
+			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+		</div>
+		<!-- //타이틀 -->
+
+
+
+		<!-- 페이지 0 -->
+		<div class="page step step-3" ng-show="misn.curPage === 0">
+			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+		</div>
+		<!-- //페이지 0 -->
+
+
+
+		<!-- 페이지 1 -->
+		<div class="page text-center" ng-show="misn.curPage === 1" style="padding-top: 95px;">
+			<p class="para">
+				CJR 바이러스는 인플루엔자 바이러스의 변종으로<br/>
+				호흡기계를 침범하여 신체 증상을 야기합니다.<br/>
+				CJR 바이러스에 감염되어 증상이 나타난 <span class="red b">신체 기관 두 곳을</span><br/>
+				인체모형에서 찾아 연구노트에 기록하세요.
+			</p>
+			<div class="hint-wrap" style="padding: 33px 0">
+				<button class="btn-hint" ng-class="{blur: hintOpen3}" ng-click="hintOpen3 = true;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen3">
+					<div class="cnt">
+						인체 모형은 1층 제1실험실에 있습니다.<br/>
+						위치는 지도에서 확인할 수 있습니다.
+					</div>
+					<button class="btn-close" ng-click="hintOpen3 = false;"></button>
+				</span>
+			</div>
+			<button class="btn-confirm" ng-click="GoPage(2)"></button>
+		</div>
+		<!-- //페이지 1 -->
+
+
+
+		<!-- 페이지 2 -->
+		<div class="page text-center" ng-show="misn.curPage === 2" style="padding-top: 30px;">
+			<p class="para" style="margin-bottom: 25px;">
+				CJR 바이러스에 감염된 것으로 예상되는 신체 기관의 모형을 입력하세요.<br/>
+				모형 뒷면에 부착되어 있는 코드를  AR 미디어에 인식하세요.
+			</p>
+
+
+			<input type="hidden" ng-model="misn.misn3Organ.ar1"/>
+			<input type="hidden" ng-model="misn.misn3Organ.ar2"/>
+
+
+			<div class="ar-frame-wrap" style="margin-bottom: 25px;">
+				<div class="ar-frame">
+
+					<div class="ar-item" ng-show="misn.misn3Organ.ar1">
+						<img src="img/ar/ar-3-01.png" id="ar31" style="width: 191.5px; height: 147.5px;" />
+					</div>
+					<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 0));" ng-hide="misn.misn3Organ.ar1"></a>
+				</div>
+				<div class="ar-frame">
+					<div class="ar-item" ng-show="misn.misn3Organ.ar2">
+						<img src="img/ar/ar-3-02.png" id="ar32" style="width: 191.5px; height: 147.5px;" />
+					</div>
+					<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 0));" ng-hide="misn.misn3Organ.ar2"></a>
+				</div>
+			</div>
+
+			<button class="btn-complete" ng-show="misn.misn3Organ.ar1 && misn.misn3Organ.ar2" ng-click="GoPage(3)"></button>
+		</div>
+		<!-- //페이지 2 -->
+
+
+
+		<!-- 페이지 3 -->
+		<div class="page text-center" ng-show="misn.curPage === 3" style="padding-top: 42px;">
+			<p class="para mb-30" ng-hide="processing">
+				무항생제 유정란을 획득하셨습니다.<br/>
+				연구소 보관함에 무항생제 유정란을 보관하시겠습니까?
+				<br/>
+			</p>
+			<p class="para mb-30" ng-show="processing">
+				무항생제 유정란을 연구소 보관함에 저장하고 있습니다.<br/><br/>
+			</p>
+			<div class="mb-30">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-progress" ng-show="processing">
+						<span class="circle">
+							<svg viewBox="0 0 32 32"><circle r="16" cx="16" cy="16"  stroke-dasharray="{{ invenItemCurPer }} 100"></circle></svg>
+						</span>
+					</div>
+					<div class="inven-item-wrap" ng-hide="processing">
+						<img src="img/inven/item-3.png" class="inven-item" style="width: 157.5px; height: 157.5px;" />
+					</div>
+					<div class="inven-item-success-wrap">
+						SUCCESS
+					</div>
+				</div>
+			</div>
+			<div class="inven-item-result-wrap" ng-show="processing">
+				{{invenItemCurPerResult}}%
+			</div>
+			<div ng-hide="processing">
+				<button class="btn-save" ng-click="GetInvenItem(2, 4, 289, -68);"></button>
+			</div>
+		</div>
+		<!-- //페이지 3 -->
+
+
+		<!-- 페이지 4 -->
+		<div class="page text-center" ng-show="misn.curPage === 4" style="padding-top: 42px;">
+			<p class="para mb-30">
+				‘무항생제 유정란’이 연구소 보관함에 저장되었습니다.<br/>
+				<span class="green b">‘바이러스에 감염된 기관을 찾아라’</span> 미션을 성공적으로 완료하였습니다.
+			</p>
+			<div class="mb-40">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-success-wrap" style="display: block">
+						SUCCESS
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //페이지 4 -->
+
+
+
+	</div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-view view-title="Intro" ng-init="LoginCheck(true, '/welcome'); CheckMission();">
+    <ion-content padding="false" scroll="false">
+
+
+        <div ng-include src="'templates/bar-side.html'"></div>
+        <div ng-include src="'templates/bar-title.html'"></div>
+
+
+
+
+
+        <div ng-include src="'templates/bar-inven.html'"></div>
+        <div ng-include src="'templates/modal-map.html'"></div>
+        <div ng-include src="'templates/modal-keymap.html'"></div>
+
+
+
+
+        <div class="cmf-msg" ng-show="cmf.isOpen" ng-hide="!cmf.isOpen">
+            <div class="cmf-msg-inner">
+                <div class="cmf-cnt" ng-bind-html="cmf.msg"></div>
+                <button class="btn-confirm-fill" ng-disabled="cmf.isDisableClose" ng-click="cmf.isOpen = false;"></button>
+            </div>
+        </div>
+
+        <div class="err-msg" ng-show="err.isOpen" ng-hide="!err.isOpen">
+            <div class="err-msg-inner">
+                <div class="err-cnt" ng-bind-html="err.msg"></div>
+                <button class="btn-confirm-err" ng-click="err.isOpen = false;"></button>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

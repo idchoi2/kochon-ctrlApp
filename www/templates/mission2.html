@@ -1,0 +1,162 @@
+<ion-content class="cnt" padding="false" scroll="true">
+	<div id="Mission2">
+
+
+
+		<!-- 타이틀 -->
+		<div class="tit-wrap">
+			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+		</div>
+		<!-- //타이틀 -->
+
+
+
+		<!-- 페이지 0 -->
+		<div class="page step step-2" ng-show="misn.curPage === 0">
+			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+		</div>
+		<!-- //페이지 0 -->
+
+
+
+		<!-- 페이지 1 -->
+		<div class="page text-center" ng-show="misn.curPage === 1" style="padding-top: 52px;">
+			<p class="mb-20">
+				<img src="img/icon-msg.png" style="width: 150px; height: 150px;" />
+			</p>
+			<p class="para mb-30">
+				고촌 박사로부터 메시지가 도착했습니다.<br/>
+				메시지를 확인하시겠습니까?
+			</p>
+			<button class="btn-confirm" ng-click="GoPage(2);"></button>
+		</div>
+		<!-- //페이지 1 -->
+
+
+
+		<!-- 페이지 2 -->
+		<div class="page " ng-show="misn.curPage === 2">
+			<div class="msg-wrap">
+				<div class="code">
+					{{ misn.misn2Check.myMisn2Code }}
+				</div>
+				<p class="dc">
+					“면역증강제를 획득하기 위한 단서라네.<br/>
+					이 코드가 무엇을 나타내는지<br/>
+					고촌연구소 안을 돌아다니며 찾아내게.”
+				</p>
+				<button class="btn-confirm-fill" ng-click="GoPage(3); GoStep(2);"></button>
+				<div class="hint-wrap">
+					<button class="btn-hint" ng-class="{blur: hintOpen2}" ng-click="hintOpen2 = true;" style="position: absolute; right: 81px; top: 53px;"></button>
+					<span class="hint-cnt-wrap" ng-show="hintOpen2">
+						<div class="cnt">
+							고촌 박사가 알려준 코드는 신약과 관련이 있다.<br/>
+							지도에서 약품 연구실을 찾아보자.
+						</div>
+						<button class="btn-close" ng-click="hintOpen2 = false;"></button>
+					</span>
+				</div>
+			</div>
+		</div>
+		<!-- //페이지 2 -->
+
+
+
+		<!-- 페이지 3 -->
+		<div class="page text-center" ng-show="misn.curPage === 3" style="padding-top: 62px;">
+
+
+			<button type="button" ng-click="GoPage(2)" >이전 페이지</button>
+
+			<div class="ckd-code mb-45">
+				{{ misn.misn2Check.myMisn2Code }}
+			</div>
+
+			<p class="para mb-35">
+				해당 코드의 신약이 어떤 질병을 위한 치료제인지 입력하세요.
+			</p>
+
+			<form role="form" method="get" name="misn2CheckForm" ng-submit="misn.misn2Check.Check();" novalidate>
+				<div class="mb-35">
+					<input type="text" class="input-text lg" ng-model="misn.misn2Check.input1" name="id" placeholder="정답을 입력해주세요" style="width: 300px;" required>
+				</div>
+				<button class="btn-confirm" ng-disabled="misn2CheckForm.$invalid" ></button>
+			</form>
+		</div>
+		<!-- //페이지 3 -->
+
+
+
+		<!-- 페이지 4 -->
+		<div class="page " ng-show="misn.curPage === 4" style="padding-top: 62px;">
+			<img src="img/img-ckd-{{ teamInfo.ctrlNo }}.png" id="img-ckd" style="width: 136px; height: 150px;" />
+			<div class="answer-cn">
+				<div class="answer-cn-tit mb-30">정답입니다!</div>
+				<p class="para mb-50">
+					현재 고촌연구소에서 개발 중인 신약 ‘{{ misn.misn2Check.myMisn2Code }}’ 는<br/>
+					{{ misn.misn2Check.codeList[teamInfo.ctrlNo - 1].answer }}을 위한 치료제로 현재 임상시험 {{ misn.misn2Check.codeList[teamInfo.ctrlNo].stepNo }}단계에 있습니다.<br/><br/>
+					이 밖에도 고촌 연구소는 신약 개발을 위한<br/>
+					다양한 연구를 진행하고 있습니다.
+				</p>
+				<button class="btn-next" ng-click="GoPage(5)"></button>
+			</div>
+		</div>
+		<!-- //페이지 4 -->
+
+
+
+		<!-- 페이지 5 -->
+		<div class="page text-center" ng-show="misn.curPage === 5" style="padding-top: 42px;">
+			<p class="para mb-30" ng-hide="processing">
+				면역증강제를 획득하셨습니다.<br/>
+				연구소 보관함에 면역증강제를 보관하시겠습니까?
+				<br/>
+			</p>
+			<p class="para mb-30" ng-show="processing">
+				면역증강제를 연구소 보관함에 저장하고 있습니다.<br/><br/>
+			</p>
+			<div class="mb-30">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-progress" ng-show="processing">
+						<span class="circle">
+							<svg viewBox="0 0 32 32"><circle r="16" cx="16" cy="16"  stroke-dasharray="{{ invenItemCurPer }} 100"></circle></svg>
+						</span>
+					</div>
+					<div class="inven-item-wrap" ng-hide="processing">
+						<img src="img/inven/item-2.png" class="inven-item" style="width: 157.5px; height: 157.5px;" />
+					</div>
+					<div class="inven-item-success-wrap">
+						SUCCESS
+					</div>
+				</div>
+			</div>
+			<div class="inven-item-result-wrap" ng-show="processing">
+				{{invenItemCurPerResult}}%
+			</div>
+			<div ng-hide="processing">
+				<button class="btn-save" ng-click="GetInvenItem(1, 6, 289, -200);"></button>
+			</div>
+		</div>
+		<!-- //페이지 5 -->
+
+
+		<!-- 페이지 6 -->
+		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 42px;">
+			<p class="para mb-30">
+				‘면역증강제’가 연구소 보관함에 저장되었습니다.<br/>
+				<span class="green b">‘고촌 박사가 보낸 편지’</span> 미션을 성공적으로 완료하였습니다.
+			</p>
+			<div class="mb-40">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-success-wrap" style="display: block">
+						SUCCESS
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //페이지 6 -->
+
+
+
+	</div>
+</ion-content>

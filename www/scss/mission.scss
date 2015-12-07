@@ -1,0 +1,782 @@
+
+@import 'global';
+
+
+.mission-cnt {
+	position: fixed;
+
+	right: 12px;
+	top: 114px;
+	width: 805px;
+	height: 445px;
+
+	background: url("../img/bg-cnt.png") no-repeat center center;
+	border: 1px solid $color-green;
+
+	// 미션 타이틀 영역
+	.tit-wrap {
+		width: 805px;
+		height: 30px;
+		background: url("../img/bg-tit.png") no-repeat center center;
+		background-size: cover;
+		position: relative;
+
+		// 타이틀 문구
+		span {
+			font-size: $font-size-ko-r;
+			color: $color-white;
+			line-height: $font-size-ko-r;
+			padding: 3px 60px 3px 25px;
+			display: inline-block;
+			background: $color-black url("../img/bg-cnt-tit.png") no-repeat 2px center;
+			background-size: 12.5px 7px;
+			position: absolute;
+			top: 6px;
+			left: 5px;
+		}
+	}
+
+	.page {
+		position: absolute;
+		left: 0;
+		top: 30px;
+		width: 805px;
+		height: 415px;
+	}
+
+	.step, .misn {
+		position: absolute;
+		width: 805px;
+		height: 415px;
+
+
+		.btn-ms-start {
+			position: absolute;
+			left: 423px;
+			bottom: 33px;
+		}
+	}
+
+	.step.step-1 {
+		background: url("../img/bg-step-1.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	.step.step-2 {
+		background: url("../img/bg-step-2.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	.step.step-3 {
+		background: url("../img/bg-step-3.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	.step.step-4 {
+		background: url("../img/bg-step-4.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	.step.step-5 {
+		background: url("../img/bg-step-5.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	.step.step-6 {
+		background: url("../img/bg-step-6.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	// 힌트 영역
+	.hint-wrap {
+
+		.btn-hint {
+			-webkit-animation: pulsate 2s ease-out;
+			-webkit-animation-iteration-count: infinite;
+			opacity: 0.0;
+		}
+
+		@-webkit-keyframes pulsate {
+			0% { opacity: 0.0;}
+			50% {opacity: 1.0;}
+			100% { opacity: 0.0;}
+		}
+
+
+		.hint-cnt-wrap {
+			position: fixed;
+			bottom: -385px;
+			left: 50%;
+			margin-left: -363px;
+
+			width: 726px;
+			border: 1px solid $color-red;
+			background: $color-black url("../img/bg-hint.png") no-repeat 40px center;
+			background-size: 88px 37px;
+			padding: 23px 0;
+			text-align: left;
+
+			.cnt {
+				position: relative;
+				left: 171px;
+				top: 0px;
+				display: inline-block;
+				border-left: 1px solid $color-red;
+				padding-left: 25px;
+				color: $color-red;
+				font-size: $font-size-ko-m;
+				line-height: $font-size-ko-l;
+
+			}
+
+			.btn-close {
+				position: absolute;
+				right: 25px;
+				top: 50%;
+				margin-top: -15px;
+			}
+		}
+
+		.misn7-hint-cnt-wrap {
+			position: absolute;
+			margin-left: -363px;
+			width: 726px;
+			border: 1px solid $color-red;
+			background: $color-black url("../img/bg-hint.png") no-repeat 40px center;
+			background-size: 88px 37px;
+			padding: 23px 0;
+			text-align: left;
+
+			.cnt {
+				position: relative;
+				left: 171px;
+				top: 0px;
+				display: inline-block;
+				border-left: 1px solid $color-red;
+				padding-left: 25px;
+				color: $color-red;
+				font-size: $font-size-ko-m;
+				line-height: $font-size-ko-l;
+
+			}
+
+			.btn-close {
+				position: absolute;
+				right: 25px;
+				top: 50%;
+				margin-top: -15px;
+			}
+		}
+	}
+
+	// 주의
+	.alert {
+		display: inline-block;
+		background: url("../img/icon-alert.png") no-repeat left center;
+		background-size: 40px 37px;
+		padding: 0 0 0 55px;
+		font-size: $font-size-ko-m;
+		line-height: $font-size-ko-xl;
+		color: $color-red;
+	}
+
+
+
+	.ar-frame-wrap {
+
+
+		.ar-frame {
+			display: inline-block;
+			width: 250px;
+			height: 195px;
+			background: url("../img/bg-ar-frame.png") no-repeat center center;
+			background-size: cover;
+			position: relative;
+			margin: 0 37px;
+
+			.btn-reco {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				margin-left: -69.75px;
+				margin-top: -21.25px;
+			}
+
+			.ar-item {
+				position: absolute;
+				width: 100%;
+				line-height: 195px;
+
+				img {
+					vertical-align: middle;
+				}
+			}
+		}
+
+
+	}
+
+
+	.inven-frame-wrap {
+		display: inline-block;
+		width: 157.5px;
+		height: 157.5px;
+		background: url("../img/bg-inven-holder.png") no-repeat center center;
+		background-size: cover;
+		position: relative;
+
+
+		.inven-item-progress {
+			.circle {
+				position: absolute;
+				top: 23px;
+				left: 23px;
+				width: 113px;
+				height: 113px;
+				opacity: 0.5;
+
+
+				svg {
+					transform: rotate(-90deg);
+					border-radius: 50%;
+				}
+
+
+				circle {
+					fill: none;
+					stroke: $color-red;
+					stroke-width: 14;
+
+					z-index: 1;
+					@include transit(all, 5s, ease-out, 0s)
+				}
+
+
+			}
+		}
+
+		.inven-item-wrap {
+			.inven-item {
+				position: absolute;
+				top: 0px;
+				left: 0px;
+			}
+		}
+
+		.inven-item-success-wrap {
+			width: 200px;
+			height: 40px;
+			font-family: $font-stack-kelson_sansregular;
+			font-size: $font-size-en-xl;
+			color: $color-red;
+			line-height: 40px;
+			background: url("../img/bg-trans-red.png") repeat center center;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: -20px;
+			margin-left: -100px;
+			display: none;
+		}
+	}
+
+	.inven-item-result-wrap {
+		font-family: $font-stack-kelson_sansregular;
+		font-size: $font-size-en-xl;
+		color: $color-red;
+		line-height: $font-size-en-xl;
+
+	}
+
+	.result {
+		font-size: $font-size-ko-xl + 5;
+		color: $color-red;
+	}
+}
+
+.mission-cnt.final {
+	right: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 20;
+	border: none;
+	background: $color-black url("../img/bg-final.png") repeat center center;
+	background-size: cover;
+}
+
+// 미션 1
+#Mission1 {
+
+
+	.input1 {
+		position: absolute; top: 35px; left: 360px; width: 75px;
+	}
+	.input2 {
+		position: absolute; top: 202px; left: 57px; width: 120px;
+	}
+	.input3 {
+		position: absolute; top: 242px; left: 162px; width: 76px;
+	}
+	.input4 {
+		position: absolute; top: 242px; left: 596px; width: 94px;
+	}
+
+	.misn-email-write {
+		background: url("../img/bg-misn1-email-wirte.png") no-repeat center center;
+		background-size: cover;
+	}
+
+	.misn-email-submit {
+		background: url("../img/bg-misn1-email-submit.png") no-repeat center center;
+		background-size: cover;
+	}
+}
+
+// 미션 2
+#Mission2 {
+
+	.msg-wrap {
+		position: absolute;
+		top: 52px;
+		left: 50%;
+		margin-left: -225px;
+		width: 450px;
+		height: 282px;
+		background: url("../img/bg-misn2-msg-wrap.png") no-repeat center center;
+		background-size: cover;
+
+		.dc {
+			color: $color-green;
+			font-size: $font-size-ko-m;
+			line-height: $font-size-ko-l;
+			position: absolute;
+			top: 123px;
+			left: 52px;
+		}
+
+		.code {
+			position: absolute;
+			top: 60px;
+			left: 52px;
+			font-family: $font-stack-kelson_sansregular;
+			font-size: $font-size-en-xl;
+			color: $color-green;
+		}
+
+		.btn-confirm-fill {
+			position: absolute;
+			top: 218px;
+			left: 52px;
+		}
+	}
+
+	.ckd-code {
+		font-family: $font-stack-kelson_sansregular;
+		font-size: $font-size-en-xl;
+		line-height: $font-size-en-l;
+		color: $color-green;
+	}
+
+	#img-ckd {
+		position: absolute;
+		top: 60px;
+		left: 80px;
+	}
+
+	.answer-cn {
+
+		position: absolute;
+		top: 61px;
+		left: 270px;
+
+		.answer-cn-tit {
+			font-size: $font-size-ko-l;
+			line-height: $font-size-ko-xl;
+			color: $color-green;
+		}
+	}
+}
+
+
+
+// 미션 4
+#Mission4 {
+
+
+
+	.input-text {
+		position: absolute; top: 65px; left: 343px; width: 250px;
+	}
+
+
+
+	.q-tit {
+		font-size: $font-size-ko-l;
+		color: $color-red;
+		margin-top: 45px;
+		margin-bottom: 24px;
+	}
+
+	.quiz {
+
+		padding-top: 35px;
+
+		.quiz-wrap {
+			width: 740px;
+			height: 240px;
+			position: absolute;
+			left: 30px;
+			bottom: 40px;
+			background: url("../img/bg-quiz-wrap.png") no-repeat center center;
+			background-size: cover;
+
+			.quiz-no {
+				font-family: $font-stack-kelson_sansregular;
+				font-size: $font-size-en-l;
+				color: $color-red;
+				position: absolute;
+				left: 30px;
+				top: 25px;
+			}
+
+			.quiz-cn {
+				font-size: $font-size-ko-m;
+				line-height: $font-size-ko-l + 2;
+				width: 236px;
+				display: inline-block;
+				position: absolute;
+				left: 30px;
+				top: 70px;
+				text-align: left;
+			}
+		}
+	}
+
+	.id-code {
+		display: inline-block;
+		width: 250px;
+		font-family: $font-stack-kelson_sansregular;
+		font-size: $font-size-en-xl;
+		color: $color-green;
+		line-height: $font-size-en-xl;
+		padding: 18px 0;
+		border-top: 1px solid $color-green;
+		border-bottom: 1px solid $color-green;
+	}
+}
+
+
+// 미션 5
+#Mission5 {
+
+	.input1 {
+		position: absolute; top: 97px; left: 77px; width: 66px;
+	}
+	.input2 {
+		position: absolute; top: 163px; left: 20px; width: 66px;
+	}
+	.input3 {
+		position: absolute; top: 66px; left: 451px; width: 81px;
+	}
+	.input4 {
+		position: absolute; top: 280px; left: 129px; width: 66px;
+	}
+	.input5 {
+		position: absolute; top: 346px; left: 20px; width: 66px;
+	}
+	.input6 {
+		position: absolute; top: 341px; left: 628px; width: 81px;
+	}
+	.input7 {
+		position: absolute; top: 496px; left: 202px; width: 85px;
+	}
+
+	.pw {
+		font-family: $font-stack-kelson_sansregular;
+		font-size: $font-size-en-xl;
+		line-height: 50px;
+		color: $color-green;
+		display: inline-block;
+		text-align: center;
+		width: 40px;
+		height: 50px;
+		background: url("../img/bg-pw.png") no-repeat center center;
+		background-size: cover;
+		margin-right: 4px;
+	}
+	.pw:last-child {
+		margin-right: 0;
+	}
+
+	.quiz-outer {
+		width: 741px;
+		height: 325px;
+		position: absolute;
+		top: 55px;
+		left: 32px;
+		overflow: scroll;
+
+		.quiz-wrap {
+			width: 741px;
+			height: 656px;
+			background: url("../img/bg-misn5.png") no-repeat left top;
+			background-size: 741px 556px;
+		}
+
+	}
+}
+
+
+// 미션 6
+#Mission6 {
+
+	.danger {
+
+		position: absolute;
+		top: -30px;
+		left: 0;
+		width: 100%;
+		height: 445px;
+		padding-top: 60px;
+
+		background: url("../img/bg-map-spot-active.png") repeat center center;
+		-webkit-animation: mapActive 2s ease-out;
+		-webkit-animation-iteration-count: infinite;
+	}
+
+	@-webkit-keyframes mapActive
+	{
+		0%   { background: url("../img/bg-map-spot-active.png") repeat center center;}
+		50%   { background: url("../img/bg-map-spot.png") repeat center center; }
+		100%   { background: url("../img/bg-map-spot-active.png") repeat center center;}
+	}
+}
+
+
+// 미션 7
+#Mission7 {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+
+	.step {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 106px;
+		background: url("../img/bg-final-step.png") repeat-x left center;
+
+
+		.step-item {
+			display: inline-block;
+			position: absolute;
+			top: 0;
+			height: 106px;
+			text-align: center;
+			background: url("../img/icon-final.png") no-repeat center center;
+			background-size: 15px 15px;
+			opacity: 0.8;
+
+			.tit {
+				width: 100%;
+				text-align: center;
+				position: absolute;
+				top: 20px;
+				left: 0;
+				font-family: $font-stack-kelson_sansbold;
+				font-size: $font-size-en-r;
+				color: $color-red;
+			}
+
+			.dc {
+				width: 100%;
+				text-align: center;
+				position: absolute;
+				bottom: 16px;
+				left: 0;
+				font-size: $font-size-ko-s;
+			}
+		}
+
+		.step-item.active {
+			opacity: 1;
+			background: url("../img/icon-final-sel.png") no-repeat center center;
+			background-size: 24.5px 24.5px;
+		}
+
+		.step-1 {
+			width: 60px;
+			left: 165px;
+		}
+
+		.step-2 {
+			width: 210px;
+			left: 293px;
+		}
+
+		.step-3 {
+			width: 60px;
+			left: 592px;
+		}
+
+		.step-4 {
+			width: 80px;
+			left: 792px;
+		}
+	}
+
+
+	.inven-list {
+		position: absolute;
+		top: 338px;
+		left: 50%;
+		margin-left: -384px;
+	}
+
+	.inven-prg-wrap {
+		position: absolute;
+		top: 316px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	.code-wrap {
+		width: 255px;
+		height: 50px;
+		background: url("../img/bg-final-code.png") no-repeat center center;
+		background-size: 255px 50px;
+		display: inline-block;
+		text-align: center;
+		font-family: $font-stack-kelson_sansregular;
+		font-size: $font-size-en-xl;
+		line-height: 50px;
+		color: $color-green;
+	}
+
+	.vac-name-wrap {
+		width: 850px;
+		height: 301px;
+		background: url("../img/bg-final-name.png") no-repeat center center;
+		background-size: 850px 301px;
+		display: inline-block;
+		margin-bottom: 37px;
+		position: relative;
+
+		.input1 {
+			position: absolute; top: 47px; left: 296.5px; width: 300px;
+		}
+		.input2 {
+			position: absolute; top: 127px; left: 296.5px; width: 100px;
+		}
+		.input3 {
+			position: absolute; top: 127px; left: 469px; width: 100px;
+		}
+		.input4 {
+			position: absolute; top: 207px; left: 296.5px; width: 300px;
+		}
+	}
+
+
+	.data-prg {
+		width: 700px;
+		height: 90px;
+		background: $color-black;
+		border: 2px solid $color-red;
+		position: fixed;
+		top: 50% !important;
+		left: 50% !important;
+		margin-top: -45px !important;
+		margin-left: -350px !important;
+		line-height: 90px;
+		text-align: center;
+		color: $color-red;
+		font-size: $font-size-ko-ml;
+		display: none;
+		font-weight: 600;
+
+		.bar {
+			width: 100%;
+			height: 10px;
+			position: absolute;
+			bottom: 0px;
+			background: $color-black;
+			background: linear-gradient(to left, transparent 50%, $color-red 50%);
+			background-size: 200% 100%;
+			background-position:right bottom;
+			transition:all 4s ease-out;
+		}
+		.bar.fill {
+			background-position: left bottom;
+		}
+	}
+
+
+	#final-video {
+		width: 937px;
+		height: 478px;
+		position: absolute;
+		left: 43px;
+		border: 1px solid $color-red;
+		video {
+			width: 937px;
+			height: 478px;
+		}
+	}
+
+
+	.misn-suc {
+		font-family: $font-stack-kelson_sansbold;
+		color: $color-green;
+		font-size: 40px;
+		position: absolute;
+		top: 213px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	.misn-suc-sub {
+		color: $color-green;
+		font-size: 25px;
+		position: absolute;
+		top: 267px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+	}
+
+	#icon-final-vacine {
+		position: absolute;
+		top: 337px;
+		left: 50%;
+		margin-left: -150px;
+		width: 300px;
+		height: 228.5px;
+	}
+
+	.final-result {
+		position: absolute;
+		top: 594px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		font-size: 25px;
+	}
+
+	.final-result-sub {
+		position: absolute;
+		top: 643px;
+		left: 0;
+		width: 100%;
+		text-align: center;
+		font-size: 20px;
+	}
+
+
+}

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK;EACH,UAAU,EAAE,GAAG",
+"sources": ["../../node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/test/fixtures/components/k.l.scss"],
+"names": [],
+"file": "k.l.css"
+}

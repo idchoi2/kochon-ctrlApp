@@ -1,0 +1,122 @@
+<ion-content class="cnt" padding="false" scroll="true">
+	<div id="Mission7">
+
+
+		<div class="step">
+			<div class="step-item step-{{$index + 1}}" ng-repeat="step in misn.list[6].steps" ng-class="{active: misn.misn7Final.pg == step.no}">
+				<span class="tit">STEP{{$index + 1}}</span>
+				<span class="dc">{{ step.title }}</span>
+			</div>
+		</div>
+
+
+		<div ng-show="misn.misn7Final.pg === 1">
+			<div class="scope-inven">
+				<div class="inven-list">
+					<ul>
+						<li ng-repeat="inven in misn.list" class="final-inven-{{ $index+1 }} completed current">
+							<a>
+								<div class="icon icon-{{ $index }}">
+									<span class="mat-{{ $index }}"></span>
+								</div>
+							</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="inven-prg-wrap" ng-show="processing">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-progress" ng-hide="processing2">
+						<span class="circle">
+							<svg viewBox="0 0 32 32"><circle r="16" cx="16" cy="16"  stroke-dasharray="{{ misn.misn7Final.per }} 100"></circle></svg>
+						</span>
+					</div>
+				</div>
+				<div class="inven-item-result-wrap" ng-hide="processing2">
+					{{misn.misn7Final.perResult}}%
+				</div>
+				<div ng-show="processing2">
+					<p class="para mb-30">
+						물질 합성이 완료되었습니다.
+						백신 제조 코드를 획득하였습니다.
+					</p>
+					<div style="margin-bottom: 120px">
+						<div class="code-wrap">
+							<span>{{ misn.misn7Final.codeList[teamInfo.ctrlNo - 1] }}</span>
+						</div>
+					</div>
+					<button class="btn-next" ng-click="misn.misn7Final.Step2();"></button>
+				</div>
+			</div>
+		</div>
+
+
+
+		<div ng-show="misn.misn7Final.pg === 2" style="padding-top: 212px;">
+			<form role="form" method="get" name="misn7FinalForm" ng-submit="misn.misn7Final.Step3();" novalidate>
+				<div class="text-center" style="position: relative">
+					<p class="para mb-35">
+						<span class="green b">백신 희석 비율</span>과 백신의 <span class="green b">새로운 이름</span>을 입력하여<br/>
+						백신 개발 프로그램에 전송해주세요.
+					</p>
+
+					<div class="vac-name-wrap">
+						<input type="text" class="input-text lg input1" ng-model="misn.misn7Final.codeList[teamInfo.ctrlNo - 1]" readonly required>
+						<input type="text" class="input-text lg input2" ng-model="misn.misn7Final.input2" required>
+						<input type="text" class="input-text lg input3" ng-model="misn.misn7Final.input3" required>
+						<input type="text" class="input-text lg input4" ng-model="misn.misn7Final.input4" maxlength="10" size="10" placeholder="10자 이내로 입력해주세요" required>
+					</div>
+
+					<div class="hint-wrap">
+						<button type="button" class="btn-hint long" ng-class="{blur: hintOpen71}" ng-click="hintOpen71 = true;" style="position: absolute; right: 235px; top: 227px;">Hint</button>
+						<span class="misn7-hint-cnt-wrap" ng-hide="!hintOpen71">
+							<div class="cnt">
+								M004에서 획득한 CJR 바이러스 백신 희석 비율표를<br/>
+								참고하세요. 잃어버린 경우, 최속청 연구원을 찾으세요!
+							</div>
+							<button type="button" class="btn-close" ng-click="hintOpen71 = false;"></button>
+						</span>
+					</div>
+
+					<button class="btn-submit" ng-disabled="misn7FinalForm.$invalid"></button>
+				</div>
+			</form>
+
+			<div class="data-prg">
+				데이터 전송 중  ... {{ misn.misn7Final.dataPer }}%
+				<div class="bar" id="misn7Bar"></div>
+			</div>
+		</div>
+
+
+
+		<div ng-show="misn.misn7Final.pg === 3" style="padding-top: 182px;">
+			<div class="text-center mb-30" style="font-size: 20px;">
+				<span class="red italic">백신을 제조 중입니다...</span>
+			</div>
+			<div id="final-video">
+				<video id="finalVideo" src="video/vac.mp4" ></video>
+			</div>
+		</div>
+
+		<div ng-show="misn.misn7Final.pg === 4" style="padding-top: 182px;">
+			<div class="misn-suc">MISSION SUCCESS</div>
+			<div class="misn-suc-sub">축하합니다!</div>
+
+			<img src="img/icon-final-vacine.png" id="icon-final-vacine">
+
+			<div class="final-result">
+				새로운 백신 <span class="red">{{ misn.misn7Final.input4 }}</span> 개발을 성공하였습니다!
+			</div>
+			<div class="final-result-sub">
+				동료 연구원들이 백신 개발 임무를 완수할 때까지 <span class="green">고촌 연구소 교육관</span>에서 기다려주세요.
+			</div>
+		</div>
+
+
+
+
+
+
+	</div>
+</ion-content>

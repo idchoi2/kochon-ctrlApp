@@ -1,0 +1,69 @@
+<div id="bar-side">
+
+
+	<!-- 타이머 -->
+	<div id="time" ng-init="countdown.Start()">
+		<time>{{ countdown.txt.h }}<span class="sep">:</span>{{ countdown.txt.m }}<span class="sep">:</span>{{ countdown.txt.s }}</time>
+	</div>
+	<!-- //타이머 -->
+
+
+
+	<!-- 팀원 정보 -->
+	<div class="team-info-wrap">
+		<div class="name">{{ teamInfo.name }}</div>
+		<div class="id">{{ teamInfo.idCode }}</div>
+	</div>
+	<!-- 팀원 정보 -->
+
+
+
+
+
+
+	<!-- 진행 현황 -->
+	<div class="team-sts-wrap" ng-init="teamInfo.LoadTeams()">
+
+		<div id="team-list-wrap">
+			<div class="team-info" ng-repeat="team in teamInfo.list"  ng-class="{ disabled: !team.teamID }">
+				<div class="tit">
+					<span class="team-name">{{ team.name }}</span>
+				</div>
+				<div class="team-prg-bar">
+					<svg class="chart" width="82" height="13" role="img">
+						<g class="bar" ng-class="{ completed: team.per == 100 }">
+							<rect width="{{ 82 *  team.per / 100  }}" height="12"></rect>
+							<text x="{{ team.per > 25 ? team.per < 100 ? 82 *  team.per / 100 - 22: 82 *  team.per / 100 - 44 : team.per > 0 ? 82 *  team.per / 100 + 2 : 8  }}" y="6" dy=".35em">{{ team.per == 100 ? "SUCCESS" : team.per+"%" }}</text>
+						</g>
+					</svg>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- //진행 현황 -->
+
+
+
+
+
+	<!-- 영상 그래픽 -->
+	<img src="img/icon-xray.png" style="width: 150px; height: 120px;" class="icon-xray" />
+	<!-- //영상 그래픽 -->
+
+
+
+
+
+
+	<!-- 버튼 -->
+	<div class="btn-wrap">
+		<button type="button" class="btn-map" style="margin-bottom: 8px;" ng-click="$parent.map.open = true">지도</button>
+		<button type="button" class="btn-keymap mb-20" ng-click="$parent.keymap.open = true; keymap.Load()">키맵</button>
+		<button type="button" class="btn-compose" ng-click="GoCompose()" ng-disabled="(($parent.misn.list[0].curPer != 100) || ($parent.misn.list[1].curPer != 100) || ($parent.misn.list[2].curPer != 100) || ($parent.misn.list[3].curPer != 100) || ($parent.misn.list[4].curPer != 100) || ($parent.misn.list[5].curPer != 100))">물질 합성</button>
+	</div>
+	<!-- // 버튼 -->
+
+
+
+</div>

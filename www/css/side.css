@@ -1,0 +1,124 @@
+@charset "UTF-8";
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+/*
+ * Layout
+*/
+/*
+ * Font
+*/
+@font-face {
+  font-family: 'kelson_sanslight';
+  src: url("../font/kelson_sans_light-webfont.woff2") format("woff2"), url("../font/kelson_sans_light-webfont.woff") format("woff"), url("../font/kelson_sans_light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansbold';
+  src: url("../font/kelson_sans_bold-webfont.woff2") format("woff2"), url("../font/kelson_sans_bold-webfont.woff") format("woff"), url("../font/kelson_sans_bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansregular';
+  src: url("../font/kelson_sans_regular-webfont.woff2") format("woff2"), url("../font/kelson_sans_regular-webfont.woff") format("woff"), url("../font/kelson_sans_regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*
+ * Color
+*/
+/*
+ * Misc
+*/
+#bar-side {
+  position: absolute;
+  left: 12px;
+  top: 0;
+  width: 162px;
+  height: 100%; }
+  #bar-side #time {
+    position: absolute;
+    top: 119px;
+    left: 10px; }
+    #bar-side #time time {
+      font-family: "kelson_sansregular", sans-serif;
+      font-size: 30px;
+      color: #a4e3db;
+      line-height: 30px;
+      opacity: 0.6; }
+      #bar-side #time time .sep {
+        position: relative;
+        top: 0px;
+        padding: 0 7px; }
+  #bar-side .team-info-wrap {
+    position: absolute;
+    top: 179px;
+    font-size: 15px; }
+    #bar-side .team-info-wrap .name {
+      color: #FFF;
+      line-height: 15px;
+      margin-bottom: 27px; }
+    #bar-side .team-info-wrap .id {
+      color: #a4e3db;
+      line-height: 15px;
+      opacity: 0.6; }
+  #bar-side #team-list-wrap {
+    position: absolute;
+    top: 300px;
+    left: 5px;
+    width: 140px; }
+    #bar-side #team-list-wrap .team-info {
+      margin-bottom: px; }
+      #bar-side #team-list-wrap .team-info .tit {
+        display: inline-block;
+        width: 54px;
+        height: 13px; }
+        #bar-side #team-list-wrap .team-info .tit .team-name {
+          font-size: 10px;
+          position: relative;
+          top: -3px; }
+    #bar-side #team-list-wrap .team-info:last-child {
+      margin-bottom: 0; }
+    #bar-side #team-list-wrap .team-info.disabled {
+      opacity: 0.3; }
+    #bar-side #team-list-wrap .team-prg-bar {
+      display: inline-block;
+      width: 82px;
+      height: 14px;
+      background: url("../img/bg-team-holder.png") no-repeat center bottom;
+      background-size: 82px 3px; }
+      #bar-side #team-list-wrap .team-prg-bar .chart {
+        width: 80px;
+        height: 13px;
+        position: relative;
+        left: 1px; }
+        #bar-side #team-list-wrap .team-prg-bar .chart .bar {
+          height: 12px;
+          cursor: pointer; }
+          #bar-side #team-list-wrap .team-prg-bar .chart .bar rect {
+            fill: #a4e3db;
+            opacity: 0.3;
+            -moz-transition: all 1.5s linear 0s;
+            -o-transition: all 1.5s linear 0s;
+            -ms-transition: all 1.5s linear 0s;
+            transition: all 1.5s linear 0s;
+            behavior: url(../css/boxsizing.htc); }
+          #bar-side #team-list-wrap .team-prg-bar .chart .bar text {
+            fill: #a4e3db;
+            font-size: 10px;
+            font-family: "kelson_sansregular", sans-serif;
+            text-align: right; }
+        #bar-side #team-list-wrap .team-prg-bar .chart .bar.completed rect {
+          fill: #FF503E; }
+        #bar-side #team-list-wrap .team-prg-bar .chart .bar.completed text {
+          fill: #FF503E; }
+  #bar-side .icon-xray {
+    position: absolute;
+    top: 445px; }
+  #bar-side .btn-wrap {
+    position: absolute;
+    top: 581px; }
+
+/*# sourceMappingURL=side.css.map */

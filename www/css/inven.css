@@ -1,0 +1,211 @@
+@charset "UTF-8";
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+/*
+ * Layout
+*/
+/*
+ * Font
+*/
+@font-face {
+  font-family: 'kelson_sanslight';
+  src: url("../font/kelson_sans_light-webfont.woff2") format("woff2"), url("../font/kelson_sans_light-webfont.woff") format("woff"), url("../font/kelson_sans_light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansbold';
+  src: url("../font/kelson_sans_bold-webfont.woff2") format("woff2"), url("../font/kelson_sans_bold-webfont.woff") format("woff"), url("../font/kelson_sans_bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansregular';
+  src: url("../font/kelson_sans_regular-webfont.woff2") format("woff2"), url("../font/kelson_sans_regular-webfont.woff") format("woff"), url("../font/kelson_sans_regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*
+ * Color
+*/
+/*
+ * Misc
+*/
+#bar-inven {
+  position: absolute;
+  right: 12px;
+  bottom: 28px;
+  width: 788px;
+  height: 155px; }
+
+.scope-inven .inven-list {
+  width: 768px;
+  height: 166px;
+  overflow: hidden; }
+  .scope-inven .inven-list ul {
+    width: 100%;
+    display: table; }
+    .scope-inven .inven-list ul li {
+      width: 20%;
+      display: table-cell;
+      padding-right: 20px; }
+      .scope-inven .inven-list ul li a {
+        display: block;
+        position: relative; }
+        .scope-inven .inven-list ul li a .icon {
+          width: 110px;
+          height: 110px;
+          display: inline-block;
+          background: #0A0D0B;
+          border: 1px solid #5e827d;
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          border-radius: 100%;
+          behavior: url(../css/boxsizing.htc);
+          -moz-transition: all 1s linear 0s;
+          -o-transition: all 1s linear 0s;
+          -ms-transition: all 1s linear 0s;
+          transition: all 1s linear 0s;
+          behavior: url(../css/boxsizing.htc);
+          position: relative; }
+          .scope-inven .inven-list ul li a .icon .lock {
+            width: 110px;
+            height: 110px;
+            display: inline-block;
+            background: url("../img/icon-lock.png") no-repeat center center;
+            background-size: 30.5px 30.5px; }
+          .scope-inven .inven-list ul li a .icon .per-cir-wrap {
+            display: none;
+            -moz-transition: all 1s linear 0s;
+            -o-transition: all 1s linear 0s;
+            -ms-transition: all 1s linear 0s;
+            transition: all 1s linear 0s;
+            behavior: url(../css/boxsizing.htc); }
+            .scope-inven .inven-list ul li a .icon .per-cir-wrap .per {
+              font-family: "kelson_sansregular", sans-serif;
+              font-size: 20px;
+              line-height: 20px;
+              color: #FF503E;
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              text-align: center;
+              width: 50px;
+              margin-top: -10px;
+              margin-left: -23px; }
+            .scope-inven .inven-list ul li a .icon .per-cir-wrap .circle {
+              position: absolute;
+              top: 4px;
+              left: 4px;
+              width: 100px;
+              height: 100px;
+              opacity: 0.5; }
+              .scope-inven .inven-list ul li a .icon .per-cir-wrap .circle svg {
+                transform: rotate(-90deg);
+                border-radius: 50%; }
+              .scope-inven .inven-list ul li a .icon .per-cir-wrap .circle circle {
+                fill: none;
+                stroke: #FF503E;
+                stroke-width: 14;
+                z-index: 1;
+                -webkit-transition: all 2s;
+                transition: all 2s; }
+        .scope-inven .inven-list ul li a .icon.icon-0 {
+          background: url("../img/inven/item-1-bg.png") no-repeat center center;
+          background-size: cover; }
+        .scope-inven .inven-list ul li a .icon.icon-1 {
+          background: url("../img/inven/item-2-bg.png") no-repeat center center;
+          background-size: cover; }
+        .scope-inven .inven-list ul li a .icon.icon-2 {
+          background: url("../img/inven/item-3-bg.png") no-repeat center center;
+          background-size: cover; }
+        .scope-inven .inven-list ul li a .icon.icon-3 {
+          background: url("../img/inven/item-4-bg.png") no-repeat center center;
+          background-size: cover; }
+        .scope-inven .inven-list ul li a .icon.icon-4 {
+          background: url("../img/inven/item-5-bg.png") no-repeat center center;
+          background-size: cover; }
+        .scope-inven .inven-list ul li a .icon.icon-5 {
+          background: url("../img/inven/item-6-bg.png") no-repeat center center;
+          background-size: cover; }
+        .scope-inven .inven-list ul li a .tit-wrap {
+          position: absolute;
+          top: 125px;
+          width: 100%; }
+          .scope-inven .inven-list ul li a .tit-wrap .no-wrap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 45px; }
+            .scope-inven .inven-list ul li a .tit-wrap .no-wrap .mat {
+              font-family: "kelson_sansbold", sans-serif;
+              font-size: 6px;
+              line-height: 6px;
+              color: #a4e3db; }
+            .scope-inven .inven-list ul li a .tit-wrap .no-wrap .no {
+              font-family: "kelson_sansregular", sans-serif;
+              font-size: 15px;
+              line-height: 10px;
+              color: #FFF;
+              float: left; }
+          .scope-inven .inven-list ul li a .tit-wrap .tit {
+            position: absolute;
+            top: 9px;
+            left: 30px;
+            width: 100%;
+            line-height: 10px; }
+            .scope-inven .inven-list ul li a .tit-wrap .tit .sj {
+              display: inline-block;
+              background: #324542;
+              font-size: 12px;
+              line-height: 10px;
+              color: #a4e3db;
+              padding: 3px; }
+    .scope-inven .inven-list ul li:last-child {
+      padding-right: 0; }
+    .scope-inven .inven-list ul li.started a .icon .per-cir-wrap {
+      display: block; }
+      .scope-inven .inven-list ul li.started a .icon .per-cir-wrap .circle circle {
+        stroke: #a4e3db; }
+    .scope-inven .inven-list ul li.started a .icon .lock {
+      background: none; }
+    .scope-inven .inven-list ul li.current a .icon {
+      border: 1px solid #FF503E; }
+      .scope-inven .inven-list ul li.current a .icon .per-cir-wrap {
+        display: block; }
+        .scope-inven .inven-list ul li.current a .icon .per-cir-wrap .circle circle {
+          stroke: #FF503E !important; }
+      .scope-inven .inven-list ul li.current a .icon .lock {
+        background: none; }
+    .scope-inven .inven-list ul li.completed a .icon .per-cir-wrap {
+      display: none; }
+    .scope-inven .inven-list ul li.completed a .icon.icon-0 {
+      background: url("../img/inven/item-1.png") no-repeat center center;
+      background-size: cover; }
+    .scope-inven .inven-list ul li.completed a .icon.icon-1 {
+      background: url("../img/inven/item-2.png") no-repeat center center;
+      background-size: cover; }
+    .scope-inven .inven-list ul li.completed a .icon.icon-2 {
+      background: url("../img/inven/item-3.png") no-repeat center center;
+      background-size: cover; }
+    .scope-inven .inven-list ul li.completed a .icon.icon-3 {
+      background: url("../img/inven/item-4.png") no-repeat center center;
+      background-size: cover; }
+    .scope-inven .inven-list ul li.completed a .icon.icon-4 {
+      background: url("../img/inven/item-5.png") no-repeat center center;
+      background-size: cover; }
+    .scope-inven .inven-list ul li.completed a .icon.icon-5 {
+      background: url("../img/inven/item-6.png") no-repeat center center;
+      background-size: cover; }
+    .scope-inven .inven-list ul li.final a {
+      width: 110px;
+      height: 110px; }
+      .scope-inven .inven-list ul li.final a .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border-color: transparent; }
+
+/*# sourceMappingURL=inven.css.map */

@@ -1,0 +1,148 @@
+@import 'global';
+
+#bar-side {
+	position: absolute;
+	left: 12px;
+	top: 0;
+	width: 162px;
+	height: 100%;
+
+
+	#time {
+
+		position: absolute;
+		top: 119px;
+		left: 10px;
+
+		time {
+			font-family: $font-stack-kelson_sansregular;
+			font-size: $font-size-en-xl;
+			color: $color-green;
+			line-height: $font-size-en-xl;
+			opacity: 0.6;
+			.sep {
+				position: relative;
+				top: 0px;
+				padding: 0 7px;
+			}
+		}
+	}
+
+	.team-info-wrap {
+		position: absolute;
+		top: 179px;
+		font-size: $font-size-ko-r;
+
+		.name {
+			color: $color-white;
+			line-height: $font-size-ko-r;
+			margin-bottom: 27px;
+		}
+
+		.id {
+			color: $color-green;
+			line-height: $font-size-ko-r;
+			opacity: 0.6;
+		}
+	}
+
+
+
+
+
+
+	#team-list-wrap {
+		position: absolute;
+		top: 300px;
+		left: 5px;
+		width: 140px;
+
+		.team-info {
+			margin-bottom: px;
+
+			.tit {
+				display: inline-block;
+				width: 54px;
+				height: 13px;
+
+
+				.team-name {
+					font-size: $font-size-ko-xs;
+					position: relative;
+					top: -3px;
+				}
+			}
+		}
+
+		.team-info:last-child {
+			margin-bottom: 0;
+		}
+
+		.team-info.disabled {
+			opacity: 0.3;
+		}
+
+
+		.team-prg-bar {
+
+			display: inline-block;
+			width: 82px;
+			height: 14px;
+			background: url("../img/bg-team-holder.png") no-repeat center bottom;
+			background-size: 82px 3px;
+
+			.chart {
+				width: 80px;
+				height: 13px;
+				position: relative;
+				left: 1px;
+
+
+				.bar {
+
+					height: 12px;
+					cursor: pointer;
+
+					rect {
+						fill: $color-green;
+						opacity: 0.3;
+						@include transit(all, 1.5s, linear, 0s);
+					}
+
+					text {
+						fill: $color-green;
+						font-size: $font-size-ko-xs;
+						font-family: $font-stack-kelson_sansregular;
+						text-align: right;
+					}
+				}
+
+				.bar.completed {
+					rect {
+						fill: $color-red;
+					}
+
+
+					text {
+						fill: $color-red;
+					}
+				}
+			}
+
+		}
+	}
+	
+	
+	
+
+	.icon-xray {
+		position: absolute;
+		top: 445px;
+	}
+	
+
+	.btn-wrap {
+		position: absolute;
+		top: 581px;
+	}
+}

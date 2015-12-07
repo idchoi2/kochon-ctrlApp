@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- Libraries -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+
+    <!-- Wikitude AR js -->
+    <script src="js/worlds.js"></script>
+    <script src="js/loadingPoisFromApplicationModel.js"></script>
+    <script src="js/wikitude-cordova.js"></script>
+  </head>
+  <body ng-app="kochonApp">
+
+
+  <ion-content class="padding">
+
+    <h1>Hello First Test</h1>
+    <h2>Hi idchoi2</h2>
+
+    <div ng-controller="TestCtrl">
+      <button ng-click="getPhoto()">Show Camera</button>
+      {{ lastPhoto }}
+
+
+      <ul>
+        <li><a href="javascript:app.loadARchitectWorld(getWordPath(0, 0));">1. Image on Target</a></li>
+        <li><a href="javascript:app.loadARchitectWorld(getWordPath(0, 1));">2. Solar System Demo</a></li>
+        <li><a href="javascript:app.loadARchitectWorld(getWordPath(0, 2));">3. Interactive</a></li>
+      </ul>
+
+      <h3>Test Collection 1:</h3>
+      <input type="text" id="TC1" name="TC1">
+
+
+      <h3>Test Collection 2:</h3>
+      <input type="text" id="TC2" name="TC2">
+
+
+
+      <h3>Test Collection 3:</h3>
+      <input type="text" id="TC3" name="TC3">
+
+
+
+      <h3>Test Collection 4:</h3>
+      <input type="text" id="TC4" name="TC4">
+
+
+
+    </div>
+  </ion-content>
+
+
+  </body>
+</html>

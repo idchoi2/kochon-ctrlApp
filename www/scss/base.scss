@@ -1,0 +1,481 @@
+@import 'global';
+
+
+body{
+	color: $color-white;
+	font-family: sans-serif;
+}
+
+.b {
+	font-weight: 700;
+}
+
+.green {
+	color: $color-green;
+}
+
+.red {
+	color: $color-red;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.text-left {
+	text-align: left;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
+}
+
+.float-left {
+	float: left !important;
+}
+.float-right {
+	float: right !important;
+}
+
+.scroll-content {
+	overflow: visible !important;
+}
+
+.pane, .view {
+
+	background: url("../img/bg-default.png") no-repeat center center;
+	background-size: cover;
+}
+.pane.welcome {
+	background: url("../img/bg-welcome.png") no-repeat center center;
+	background-size: cover;
+
+	form {
+		position: relative;
+		text-align: center;
+	}
+}
+.pane.start {
+	background: url("../img/bg-start.png") no-repeat center center;
+	background-size: cover;
+
+	.inven-list {
+		position: absolute;
+		top: 500px;
+		left: 50%;
+		margin-left: -384px;
+
+
+	}
+}
+
+
+
+.para {
+	font-size: $font-size-ko-m;
+	color: $color-white;
+	line-height: $font-size-ko-xl;
+}
+
+
+
+.tabs {
+	display: none;
+}
+
+.has-tabs, .bar-footer.has-tabs {
+	bottom: 0;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	color: $color-white !important;
+	line-height: 1.2;
+}
+
+
+
+.cmf-msg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../img/bg-trans-black.png") repeat center center;
+	z-index: 100;
+
+	.cmf-msg-inner {
+		width: 390px;
+		height: 206px;
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -195px;
+		margin-left: -123px;
+		background: url("../img/bg-cmf-msg.png") no-repeat center center;
+		background-size: cover;
+		z-index: 6;
+
+		.cmf-cnt {
+			position: absolute;
+			top: 45px;
+			left: 42px;
+			font-size: $font-size-ko-m;
+			line-height: $font-size-ko-l;
+			color: $color-green;
+		}
+
+		.btn-confirm-fill {
+			position: absolute;
+			bottom: 20px;
+			left: 42px;
+		}
+	}
+}
+
+
+.err-msg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url("../img/bg-trans-black.png") repeat center center;
+	z-index: 100;
+
+
+	.err-msg-inner {
+		width: 390px;
+		height: 206px;
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -195px;
+		margin-left: -123px;
+		background: url("../img/bg-err-msg.png") no-repeat center center;
+		background-size: cover;
+		z-index: 6;
+
+		.err-cnt {
+			position: absolute;
+			top: 45px;
+			left: 42px;
+			font-size: $font-size-ko-m;
+			line-height: $font-size-ko-l;
+			color: $color-red;
+		}
+
+		.btn-confirm-err {
+			position: absolute;
+			bottom: 20px;
+			left: 42px;
+		}
+	}
+}
+
+
+
+#btn-reset-wrap {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100px;
+	height: 100px;
+	background: #ffff00;
+	z-index: 100;
+	opacity: 0;
+
+	button {
+		width: 100px;
+		height: 100px;
+	}
+}
+
+
+input {
+	-webkit-appearance: none;  // remove shadow in iOS
+	@include border-radius(0);  // remove border-radius in iOS
+}
+
+
+
+
+
+.input-group {
+	margin-bottom: 10px;
+}
+
+
+.input-text {
+	display: inline-block !important;
+	border: 2px solid $color-green-dk !important;
+	padding: 0 10px !important;
+	background: $color-black;
+	text-align: center;
+
+	color: $color-green !important;
+}
+.input-text::-webkit-input-placeholder { color:#324642; }
+.input-text::-moz-placeholder { color:#324642; } /* firefox 19+ */
+.input-text:-moz-placeholder { color:#324642; }
+
+input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+	background: $color-black;
+}
+
+.input-text:disabled {
+	opacity: 0.2;
+}
+
+
+.input-text.lg {
+	font-size: $font-size-ko-ml !important;
+	line-height: 50px !important;
+	height: 50px !important;
+}
+
+
+
+.btn {
+	display: inline-block;
+	border: none;
+	background: none;
+	text-indent: -9999px;
+}
+
+.btn[disabled] {
+	opacity: 0.2;
+}
+
+.btn.blur {
+	opacity: 0.4;
+}
+
+.btn-login {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-login.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-map {
+	@extend .btn;
+	width: 150px;
+	height: 45px;
+	background: url("../img/btn/btn-map.png") no-repeat center center;
+	background-size: 150px 45px;
+}
+
+.btn-map.active {
+	background: url("../img/btn/btn-map-active.png") no-repeat center center;
+	background-size: 150px 45px;
+	-webkit-animation: pulsate 2s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	opacity: 0.0;
+}
+@-webkit-keyframes pulsate {
+	0% { opacity: 0.0;}
+	50% {opacity: 1.0;}
+	100% { opacity: 0.0;}
+}
+
+.btn-keymap {
+	@extend .btn;
+	width: 150px;
+	height: 45px;
+	background: url("../img/btn/btn-keymap.png") no-repeat center center;
+	background-size: 150px 45px;
+}
+
+.btn-compose {
+	@extend .btn;
+	width: 150px;
+	height: 45px;
+	background: url("../img/btn/btn-compose.png") no-repeat center center;
+	background-size: 150px 45px;
+}
+
+.btn-hint {
+	@extend .btn;
+	width: 37px;
+	height: 37px;
+	background: url("../img/btn/btn-hint.png") no-repeat left center;
+	background-size: 37px 37px;
+}
+
+.btn-hint.long {
+	padding-left: 45px;
+	color: $color-red;
+	font-family: $font-stack-kelson_sansbold;
+	font-size: $font-size-en-m;
+	font-style: italic;
+	line-height: 37px;
+	text-indent: 0;
+	width: auto;
+}
+
+.btn-ms-start {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-ms-start.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-confirm {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-confirm.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-confirm-fill {
+	@extend .btn;
+	width: 139.5px;
+	height: 42.5px;
+	background: url("../img/btn/btn-confirm-fill.png") no-repeat center center;
+	background-size: 139.5px 42.5px;
+}
+
+.btn-input-complete {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-input-complete.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-complete {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-complete.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-close {
+	@extend .btn;
+	width: 30px;
+	height: 30px;
+	background: url("../img/btn/btn-close.png") no-repeat center center;
+	background-size: 30px 30px;
+}
+
+.btn-save {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-save.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-next {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-next.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-reco {
+	@extend .btn;
+	width: 139.5px;
+	height: 42.5px;
+	background: url("../img/btn/btn-reco.png") no-repeat center center;
+	background-size: 139.5px 42.5px;
+}
+
+.btn-map-f1 {
+	@extend .btn;
+	width: 225px;
+	height: 45px;
+	background: url("../img/btn/btn-map-f1.png") no-repeat center center;
+	background-size: 225px 45px;
+}
+
+.btn-map-f1.current {
+	background: url("../img/btn/btn-map-f1-current.png") no-repeat center center;
+	background-size: 225px 45px;
+}
+
+.btn-map-f2 {
+	@extend .btn;
+	width: 225px;
+	height: 45px;
+	background: url("../img/btn/btn-map-f2.png") no-repeat center center;
+	background-size: 225px 45px;
+}
+
+.btn-map-f2.current {
+	background: url("../img/btn/btn-map-f2-current.png") no-repeat center center;
+	background-size: 225px 45px;
+}
+
+.btn-email {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-email.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-email-submit {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-email-submit.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-submit {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-submit.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-go-quiz {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-go-quiz.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-misn5-complete {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-misn5-complete.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-confirm-err {
+	@extend .btn;
+	width: 139.5px;
+	height: 42.5px;
+	background: url("../img/btn/btn-confirm-err.png") no-repeat center center;
+	background-size: 139.5px 42.5px;
+}
+
+.btn-check-answer {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-check-answer.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-cure {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-cure.png") no-repeat center center;
+	background-size: 175px 45px;
+}

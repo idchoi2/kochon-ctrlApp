@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,IAAK",
+"sources": ["../../node_modules/gulp-sass/node_modules/node-sass/test/fixtures/spec/spec/css/multiple_comments/input.scss"],
+"names": [],
+"file": "input.css"
+}

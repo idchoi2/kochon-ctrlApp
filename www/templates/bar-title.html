@@ -1,0 +1,43 @@
+<div id="bar-title">
+
+	<!-- 현재 시간 -->
+	<div id="curTime">{{date | date:'yyyy-MM-dd h:mm a'}}</div>
+	<!-- // 현재 시간 -->
+
+
+	<!-- 미션 번호 -->
+	<div class="mis-no-wrap">
+		<div class="mis-sj">MISSION NUMBER</div>
+		<div class="mis-no"><span ng-if="!isFinalCompose">M</span>{{ misn.curMisn.no }}</div>
+	</div>
+	<!-- //미션 번호 -->
+
+
+	<!-- 미션 제목 -->
+	<div class="mis-tit-wrap">
+		<div class="mis-sj">MISSION TITLE</div>
+		<div class="mis-tit" ng-bind-html="misn.curMisn.title"></div>
+	</div>
+	<!-- //미션 제목 -->
+
+
+
+	<!-- 미션 단계-->
+	<div class="mis-step-wrap">
+		<div class="mis-sj">MISSION FLOW</div>
+		<div class="mis-step">
+
+			<div class="mis-step-item" ng-repeat="step in misn.curMisn.steps" ng-hide="step.no == '00'" ng-class="{current: $index == misn.curStep}">
+				<div class="mis-step-inner">
+					<div class="step">STEP {{ step.no }}</div>
+					<div class="mis-no"><span ng-if="!isFinalCompose">M</span>{{ misn.curMisn.no }}-{{$index + 1}}</div>
+					<div class="tit" ng-bind-html="step.title"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- //미션 단계 -->
+
+
+
+</div>

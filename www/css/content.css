@@ -1,0 +1,464 @@
+@charset "UTF-8";
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+/*
+ * Layout
+*/
+/*
+ * Font
+*/
+@font-face {
+  font-family: 'kelson_sanslight';
+  src: url("../font/kelson_sans_light-webfont.woff2") format("woff2"), url("../font/kelson_sans_light-webfont.woff") format("woff"), url("../font/kelson_sans_light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansbold';
+  src: url("../font/kelson_sans_bold-webfont.woff2") format("woff2"), url("../font/kelson_sans_bold-webfont.woff") format("woff"), url("../font/kelson_sans_bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansregular';
+  src: url("../font/kelson_sans_regular-webfont.woff2") format("woff2"), url("../font/kelson_sans_regular-webfont.woff") format("woff"), url("../font/kelson_sans_regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*
+ * Color
+*/
+/*
+ * Misc
+*/
+/*
+ * 인트로 영상
+ */
+#intro-video-wrap, #outro-video-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background: url("../img/bg.png") repeat center center; }
+  #intro-video-wrap video, #outro-video-wrap video {
+    width: 100%;
+    height: 100%; }
+
+/*
+ * 컨텐츠
+ */
+.content {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+  width: 860px;
+  height: 648px; }
+  .content .tit-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-size: 30px;
+    line-height: 30px;
+    color: #a4e3db;
+    text-align: center; }
+    .content .tit-wrap .sts {
+      font-family: "kelson_sansregular", sans-serif;
+      font-size: 15px;
+      line-height: 20px;
+      display: inline-block;
+      padding: 4px;
+      opacity: 0.8;
+      background: url("../img/bg-side-sts.png") no-repeat left center; }
+
+/*
+ * Idle
+ */
+.content-idle .dc {
+  font-size: 25px;
+  color: #a4e3db;
+  position: absolute;
+  top: 50%;
+  margin-top: -130px;
+  width: 100%;
+  text-align: center; }
+.content-idle .timer {
+  font-family: "kelson_sansregular", sans-serif;
+  letter-spacing: 10px;
+  font-size: 150px;
+  line-height: 200px;
+  color: #a4e3db;
+  position: absolute;
+  top: 50%;
+  margin-top: -100px;
+  width: 100%;
+  text-align: center; }
+  .content-idle .timer .sep {
+    margin: 0 20px; }
+.content-idle .circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 460px;
+  height: 460px;
+  margin: -230px 0 0 -230px;
+  background: url("../img/bg-time-circle.png") no-repeat center center; }
+  .content-idle .circle .circle-inner {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 450px;
+    height: 450px; }
+  .content-idle .circle svg {
+    transform: rotate(-90deg);
+    border-radius: 50%; }
+  .content-idle .circle circle {
+    opacity: 0.5;
+    fill: none;
+    stroke: #a4e3db;
+    stroke-width: 1.6;
+    z-index: 1;
+    -webkit-transition: all 1s ease-out 0s;
+    -moz-transition: all 1s ease-out 0s;
+    -o-transition: all 1s ease-out 0s;
+    transition: all 1s ease-out 0s; }
+
+/*
+ * 배합표
+ */
+.content-print #icon-print-wrap {
+  position: absolute;
+  top: 135px;
+  left: 50%;
+  margin-left: -85px;
+  width: 169px;
+  height: 169px;
+  overflow: hidden; }
+  .content-print #icon-print-wrap img {
+    position: absolute; }
+  .content-print #icon-print-wrap .print-prg {
+    position: absolute;
+    top: 4.5px;
+    left: 4.5px;
+    width: 160px;
+    height: 160px;
+    opacity: 0.3;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    background: transparent;
+    /* Old browsers */
+    background: linear-gradient(to bottom, transparent 50%, #268cff 50%);
+    background-size: 100% 200%;
+    background-position: left top;
+    transition: all 5s ease; }
+  .content-print #icon-print-wrap .print-prg.active {
+    background-position: left bottom; }
+.content-print .print-code-area {
+  width: 570px;
+  height: 76px;
+  background: url("../img/bg-print-area.png") no-repeat center center;
+  background-size: cover;
+  position: absolute;
+  top: 360px;
+  left: 50%;
+  margin-left: -285px;
+  text-align: center; }
+  .content-print .print-code-area .code {
+    font-size: 50px;
+    line-height: 76px;
+    opacity: 0.8;
+    letter-spacing: 5px; }
+.content-print .print-dc {
+  width: 100%;
+  text-align: center;
+  font-size: 40px;
+  line-height: 55px; }
+.content-print .success {
+  font-size: 20px;
+  font-style: italic;
+  font-family: "kelson_sanslight", sans-serif;
+  color: #268cff;
+  text-align: center;
+  width: 100%;
+  position: absolute;
+  top: 325px;
+  left: 0; }
+.content-print .print-analysis {
+  width: 700px;
+  height: 90px;
+  background: #000;
+  border: 2px solid #FF503E;
+  position: absolute;
+  top: 280px;
+  left: 50%;
+  margin-left: -350px;
+  z-index: 5;
+  line-height: 90px;
+  text-align: center;
+  color: #FF503E;
+  font-size: 30px; }
+  .content-print .print-analysis .bar {
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: 0px;
+    background: #000;
+    background: linear-gradient(to left, transparent 50%, #FF503E 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+    transition: all 4s ease-out; }
+  .content-print .print-analysis .bar.fill {
+    background-position: left bottom; }
+.content-print .print-alert-wrap {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  margin-left: -130px;
+  width: 100%;
+  text-align: center; }
+  .content-print .print-alert-wrap .print-alert {
+    text-align: left;
+    font-size: 20px;
+    line-height: 30px;
+    font-style: italic;
+    color: #FF503E;
+    padding: 33px 0 140px 325px;
+    display: inline-block;
+    background: url("../img/bg-print-alert.png") no-repeat center center; }
+
+#print-area {
+  display: none; }
+
+/* PRINT */
+@media print {
+  html, body {
+    padding: 0px;
+    margin: 0px; }
+
+  #print-area {
+    width: 280px;
+    height: 550px;
+    display: block;
+    position: relative; }
+
+  .tit {
+    font-size: 18px;
+    width: 280px;
+    position: absolute;
+    left: 0;
+    top: 215px;
+    text-align: center;
+    font-family: "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif;
+    font-weight: bold; }
+
+  .dose {
+    font-size: 24px;
+    font-family: "kelson_sansbold", sans-serif;
+    position: absolute;
+    left: 16px;
+    top: 313px;
+    color: #000; }
+    .dose .term {
+      font-size: 18px;
+      font-family: "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif; }
+
+  .ug {
+    font-size: 24px;
+    font-family: "kelson_sansbold", sans-serif;
+    position: absolute;
+    left: 16px;
+    top: 401px;
+    color: #000; }
+    .ug .term {
+      font-size: 18px;
+      font-family: "애플 SD 산돌고딕 Neo", "Apple SD Gothic Neo", sans-serif; }
+
+  .inst {
+    font-size: 10px;
+    font-family: "kelson_sansregular", sans-serif;
+    position: absolute;
+    left: 16px;
+    top: 516px;
+    color: #000; }
+
+  .date {
+    font-size: 10px;
+    font-family: "kelson_sansregular", sans-serif;
+    position: absolute;
+    right: 30px;
+    top: 516px;
+    color: #000; }
+
+  img {
+    width: 100%;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    text-align: center; } }
+.content-final #icon-final-code-wrap, .content-final #icon-final-com-wrap {
+  position: absolute;
+  top: 135px;
+  left: 50%;
+  width: 169px;
+  height: 169px;
+  overflow: hidden; }
+  .content-final #icon-final-code-wrap img, .content-final #icon-final-com-wrap img {
+    position: absolute; }
+  .content-final #icon-final-code-wrap .final-prg, .content-final #icon-final-com-wrap .final-prg {
+    position: absolute;
+    top: 4.5px;
+    left: 4.5px;
+    width: 160px;
+    height: 160px;
+    opacity: 0.3;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    border-radius: 100%;
+    background: transparent;
+    /* Old browsers */
+    background: linear-gradient(to bottom, transparent 50%, #268cff 50%);
+    background-size: 100% 200%;
+    background-position: left top;
+    transition: all 5s ease; }
+  .content-final #icon-final-code-wrap .final-prg.active, .content-final #icon-final-com-wrap .final-prg.active {
+    background-position: left bottom; }
+.content-final #icon-final-code-wrap {
+  margin-left: -235px; }
+.content-final #icon-final-com-wrap {
+  margin-left: 65px; }
+.content-final #icon-plus {
+  position: absolute;
+  top: 200px;
+  left: 50%;
+  margin-left: -20px; }
+.content-final #code-dc, .content-final #com-dc {
+  position: absolute;
+  top: 330px;
+  left: 50%;
+  font-size: 30px;
+  color: #268cff;
+  width: 180px;
+  text-align: center; }
+.content-final #code-dc {
+  margin-left: -245px; }
+.content-final #com-dc {
+  margin-left: 60px; }
+.content-final #start-dc {
+  width: 100%;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  position: absolute;
+  bottom: 30px; }
+.content-final #ing-dc {
+  width: 100%;
+  font-size: 40px;
+  line-height: 50px;
+  text-align: center;
+  position: absolute;
+  bottom: 80px; }
+.content-final #final-video {
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  margin-left: -393px;
+  width: 786px;
+  height: 400px;
+  border: 2px solid #268cff; }
+  .content-final #final-video video {
+    width: 786px;
+    height: 400px; }
+.content-final .final-bar {
+  position: absolute;
+  top: 536px;
+  left: 50%;
+  margin-left: -393px;
+  width: 786px;
+  height: 26px;
+  border: 2px solid #268cff; }
+  .content-final .final-bar .chart {
+    width: 786px;
+    height: 26px; }
+    .content-final .final-bar .chart .bar {
+      height: 26px;
+      cursor: pointer; }
+      .content-final .final-bar .chart .bar rect {
+        fill: #0d3459;
+        -webkit-transition: all 0.1s linear 0s;
+        -moz-transition: all 0.1s linear 0s;
+        -o-transition: all 0.1s linear 0s;
+        transition: all 0.1s linear 0s; }
+      .content-final .final-bar .chart .bar text {
+        fill: #FFF;
+        font-size: 20px;
+        font-family: "kelson_sansregular", sans-serif;
+        text-align: right; }
+.content-final .final-making {
+  position: absolute;
+  top: 580px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  color: #268cff;
+  font-size: 20px;
+  font-style: italic; }
+.content-final .misn-suc {
+  font-family: "kelson_sansbold", sans-serif;
+  color: #a4e3db;
+  font-size: 50px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+.content-final .misn-suc-sub {
+  color: #a4e3db;
+  font-size: 30px;
+  position: absolute;
+  top: 95px;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+.content-final #icon-final-vacine {
+  position: absolute;
+  top: 185px;
+  left: 50%;
+  margin-left: -184.5px; }
+.content-final .final-result {
+  position: absolute;
+  bottom: 95px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 30px; }
+.content-final .final-result-sub {
+  position: absolute;
+  bottom: 55px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 20px; }
+
+#prg-list-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  padding: 20px;
+  background: url("../img/bg.png") repeat center center; }
+  #prg-list-wrap button {
+    background: #268cff; }
+  #prg-list-wrap table {
+    width: 100%; }
+    #prg-list-wrap table th, #prg-list-wrap table td {
+      padding: 5px; }
+
+/*# sourceMappingURL=content.css.map */

@@ -1,0 +1,297 @@
+@import 'global';
+
+
+
+
+#bar-inven {
+	position: absolute;
+
+	right: 12px;
+	bottom: 28px;
+	width: 788px;
+	height: 155px;
+
+}
+
+
+.scope-inven {
+
+
+
+
+	.inven-list {
+		width: 768px;
+		height: 166px;
+		overflow: hidden;
+
+		ul {
+			width: 100%;
+			display: table;
+
+			li {
+				width: 20%;
+				display: table-cell;
+				padding-right: 20px;
+
+				a {
+					display: block;
+					position: relative;
+
+					.icon {
+						width: 110px;
+						height: 110px;
+						display: inline-block;
+						background: #0A0D0B;
+						border: 1px solid $color-green-dk;
+						@include border-radius(100%);
+						@include transit(all, 1s, linear, 0s);
+						position: relative;
+
+						.lock {
+							width: 110px;
+							height: 110px;
+							display: inline-block;
+							background: url("../img/icon-lock.png") no-repeat center center;
+							background-size: 30.5px 30.5px;
+						}
+
+						.per-cir-wrap {
+
+							display: none;
+							@include transit(all, 1s, linear, 0s);
+
+
+							.per {
+								font-family: $font-stack-kelson_sansregular;
+								font-size: $font-size-en-ml;
+								line-height: $font-size-en-ml;
+								color: $color-red;
+								position: absolute;
+								top: 50%;
+								left: 50%;
+								text-align: center;
+								width: 50px;
+								margin-top: -10px;
+								margin-left: -23px;
+							}
+
+							.circle {
+								position: absolute;
+								top: 4px;
+								left: 4px;
+								width: 100px;
+								height: 100px;
+								opacity: 0.5;
+
+
+								svg {
+									transform: rotate(-90deg);
+									border-radius: 50%;
+								}
+
+
+								circle {
+									fill: none;
+									stroke: $color-red;
+									stroke-width: 14;
+
+									z-index: 1;
+									-webkit-transition: all 2s;
+									transition: all 2s;
+								}
+
+
+							}
+						}
+
+					}
+
+					.icon.icon-0 {
+						background: url("../img/inven/item-1-bg.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-1 {
+						background: url("../img/inven/item-2-bg.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-2 {
+						background: url("../img/inven/item-3-bg.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-3 {
+						background: url("../img/inven/item-4-bg.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-4 {
+						background: url("../img/inven/item-5-bg.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-5 {
+						background: url("../img/inven/item-6-bg.png") no-repeat center center;
+						background-size: cover;
+					}
+
+					.tit-wrap {
+
+						position: absolute;
+						top: 125px;
+						width: 100%;
+
+						.no-wrap {
+							position: absolute;
+							top: 0;
+							left: 0;
+							width: 45px;
+
+							.mat {
+								font-family: $font-stack-kelson_sansbold;
+								font-size: $font-size-en-xxxs;
+								line-height: $font-size-en-xxxs;
+								color: $color-green;
+							}
+
+							.no {
+								font-family: $font-stack-kelson_sansregular;
+								font-size: $font-size-en-r;
+								line-height: $font-size-en-xs;
+								color: $color-white;
+								float: left;
+							}
+
+
+						}
+
+						.tit {
+							position: absolute;
+							top: 9px;
+							left: 30px;
+							width: 100%;
+							line-height: $font-size-ko-xs;
+
+
+							.sj {
+								display: inline-block;
+								background: #324542;
+								font-size: $font-size-ko-s;
+								line-height: $font-size-ko-xs;
+								color: $color-green;
+								padding: 3px;
+							}
+						}
+
+					}
+				}
+
+			}
+			li:last-child {
+				padding-right: 0;
+			}
+
+
+			li.started {
+				a {
+
+					.icon {
+
+						.per-cir-wrap {
+							display: block;
+
+
+							.circle {
+								circle {
+									stroke: $color-green;
+								}
+							}
+						}
+						.lock {
+							background: none;
+						}
+					}
+				}
+			}
+
+
+
+			li.current {
+				a {
+
+					.icon {
+						border: 1px solid $color-red;
+
+						.per-cir-wrap {
+
+							display: block;
+
+							.circle {
+								circle {
+									stroke: $color-red !important;
+								}
+							}
+						}
+						.lock {
+							background: none;
+						}
+					}
+				}
+			}
+
+
+			li.completed {
+				a {
+
+					.icon {
+
+						.per-cir-wrap {
+							display: none;
+
+						}
+					}
+
+					.icon.icon-0 {
+						background: url("../img/inven/item-1.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-1 {
+						background: url("../img/inven/item-2.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-2 {
+						background: url("../img/inven/item-3.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-3 {
+						background: url("../img/inven/item-4.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-4 {
+						background: url("../img/inven/item-5.png") no-repeat center center;
+						background-size: cover;
+					}
+					.icon.icon-5 {
+						background: url("../img/inven/item-6.png") no-repeat center center;
+						background-size: cover;
+					}
+				}
+			}
+
+
+			li.final {
+				a {
+					width: 110px;
+					height: 110px;
+
+					.icon {
+						position: absolute;
+						top:0;
+						left: 0;
+						border-color: transparent;
+					}
+				}
+			}
+
+
+		}
+	}
+
+
+}

@@ -1,0 +1,31 @@
+<ion-view view-title="Start" class="start" ng-init="LoginCheck(true, '/welcome')">
+	<ion-content scroll="false">
+
+
+
+
+		<div class="scope-inven">
+			<div class="inven-list">
+				<ul>
+					<li ng-repeat="inven in misn.list">
+						<a ng-click="GoMissionLink($index)">
+							<div class="icon icon-{{ $index }}">
+								<span class="mat-{{ $index }}"></span>
+								<span class="lock"></span>
+							</div>
+							<div class="tit-wrap">
+								<span class="no-wrap">
+									<span class="mat">MATERIAL</span>
+									<span class="no">{{ inven.no }}</span>
+								</span>
+								<div class="tit"><span class="" ng-bind-html="inven.invenTit"></span></div>
+							</div>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+
+	</ion-content>
+</ion-view>

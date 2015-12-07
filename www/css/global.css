@@ -1,0 +1,36 @@
+@charset "UTF-8";
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+/*
+ * Layout
+*/
+/*
+ * Font
+*/
+@font-face {
+  font-family: 'kelson_sanslight';
+  src: url("../font/kelson_sans_light-webfont.woff2") format("woff2"), url("../font/kelson_sans_light-webfont.woff") format("woff"), url("../font/kelson_sans_light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansbold';
+  src: url("../font/kelson_sans_bold-webfont.woff2") format("woff2"), url("../font/kelson_sans_bold-webfont.woff") format("woff"), url("../font/kelson_sans_bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansregular';
+  src: url("../font/kelson_sans_regular-webfont.woff2") format("woff2"), url("../font/kelson_sans_regular-webfont.woff") format("woff"), url("../font/kelson_sans_regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*
+ * Color
+*/
+/*
+ * Misc
+*/
+
+/*# sourceMappingURL=global.css.map */

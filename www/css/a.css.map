@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,EAAG;EAAE,KAAK,EAAE,SAAS;;ACErB,EAAG;EAAE,KAAK,EAAE,OAAO;;ACAnB,EAAG;EAAE,KAAK,EAAE,GAAG",
+"sources": ["../../node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/test/fixtures/_c.scss","../../node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/test/fixtures/b.scss","../../node_modules/gulp-sass/node_modules/node-sass/node_modules/sass-graph/test/fixtures/a.scss"],
+"names": [],
+"file": "a.css"
+}

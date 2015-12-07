@@ -1,0 +1,113 @@
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+
+/*
+ * Layout
+*/
+$width-default: 1024px;
+$width-signup: 768px;
+
+/*
+ * Font
+*/
+@font-face {
+	font-family: 'kelson_sanslight';
+	src: url('../font/kelson_sans_light-webfont.woff2') format('woff2'),
+	url('../font/kelson_sans_light-webfont.woff') format('woff'),
+	url('../font/kelson_sans_light-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'kelson_sansbold';
+	src: url('../font/kelson_sans_bold-webfont.woff2') format('woff2'),
+	url('../font/kelson_sans_bold-webfont.woff') format('woff'),
+	url('../font/kelson_sans_bold-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+
+}
+
+@font-face {
+	font-family: 'kelson_sansregular';
+	src: url('../font/kelson_sans_regular-webfont.woff2') format('woff2'),
+	url('../font/kelson_sans_regular-webfont.woff') format('woff'),
+	url('../font/kelson_sans_regular-webfont.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
+
+$font-stack-kelson_sanslight: 'kelson_sanslight', sans-serif;
+$font-stack-kelson_sansregular: 'kelson_sansregular', sans-serif;
+$font-stack-kelson_sansbold: 'kelson_sansbold', sans-serif;
+
+$font-size-ko-xs: 10px;
+$font-size-ko-s: 12px;
+$font-size-ko-r: 15px;
+$font-size-ko-m: 18px;
+$font-size-ko-ml: 20px;
+$font-size-ko-l: 25px;
+$font-size-ko-xl: 30px;
+
+$font-size-en-xxxs: 6px;
+$font-size-en-xxs: 7px;
+$font-size-en-xs: 10px;
+$font-size-en-s: 12px;
+$font-size-en-r: 15px;
+$font-size-en-m: 18px;
+$font-size-en-ml: 20px;
+$font-size-en-l: 25px;
+$font-size-en-xl: 30px;
+
+
+
+
+
+
+/*
+ * Color
+*/
+$color-white: #FFF;
+$color-black: #000;
+
+$color-red: #FF503E;
+$color-green: #a4e3db;
+$color-green-dk: #5e827d;
+
+/*
+ * Misc
+*/
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	-moz-border-radius: $radius;
+	-ms-border-radius: $radius;
+	border-radius: $radius;
+	behavior:url(../css/boxsizing.htc);
+}
+
+@mixin box-shadow($h-shadow, $v-shadow, $blur, $spread, $color) {
+	-moz-box-shadow: $h-shadow $v-shadow $blur $spread $color;
+	-webkit-box-shadow: $h-shadow $v-shadow $blur $spread $color;
+	box-shadow: $h-shadow $v-shadow $blur $spread $color;
+	behavior:url(../css/boxsizing.htc);
+}
+
+@mixin transit($property, $duration, $timing-function, $delay) {
+	-moz-transition: $property $duration $timing-function $delay;
+	-o-transition: $property $duration $timing-function $delay;
+	-ms-transition: $property $duration $timing-function $delay;
+	transition: $property $duration $timing-function $delay;
+	behavior:url(../css/boxsizing.htc);
+}
+
+@mixin ellipsis() {
+	width: 100%; overflow: hidden; white-space: nowrap;  text-overflow: ellipsis;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;
+}

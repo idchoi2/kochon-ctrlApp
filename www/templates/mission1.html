@@ -1,0 +1,123 @@
+<ion-content class="cnt" padding="false" scroll="true">
+	<div id="Mission1">
+
+
+
+		<!-- 타이틀 -->
+		<div class="tit-wrap">
+			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+		</div>
+		<!-- //타이틀 -->
+
+
+
+		<!-- 페이지 0 -->
+		<div class="page step step-1" ng-show="misn.curPage === 0" ng-hide="misn.curPage !== 0" >
+			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+		</div>
+		<!-- //페이지 0 -->
+
+
+
+		<!-- 페이지 1 -->
+		<div class="page text-center" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" style="padding-top: 72px;">
+			<p class="para mb-0">
+				백신제조용 표준바이러스주를 분양받기 위해<br/>
+				세계보건기구 협력센터에 메일을 보내야합니다.<br/><br/>
+				고촌 연구소 안을 바쁘게 돌아다니고 있는<br/>
+				<span class="green b">‘최속청 연구원’</span>의 도움을 받아 메일을 작성하세요.
+			</p>
+			<div class="hint-wrap" style="padding: 33px 0">
+				<button class="btn-hint" ng-class="{blur: hintOpen1}" ng-click="hintOpen1 = true;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen1">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen1 = false;"></button>
+				</span>
+			</div>
+			<button class="btn-email" ng-click="GoPage(2); GoStep(2);"></button>
+		</div>
+		<!-- //페이지 1 -->
+
+
+
+		<!-- 페이지 2 -->
+		<div class="page misn-email-write" ng-show="misn.curPage === 2" ng-hide="misn.curPage !== 2">
+
+			<form role="form" method="get" name="misn1EmailForm" ng-submit="misn.CheckMisn1Email();" novalidate>
+				<input type="text" class="input-text input1" ng-model="misn.misn1Email.input1" style="" required>
+				<input type="text" class="input-text input2" ng-model="misn.misn1Email.input2" style="" required>
+				<input type="text" class="input-text input3" ng-model="misn.misn1Email.input3" style="" required>
+				<input type="text" class="input-text input4" ng-model="misn.misn1Email.input4" style="" required>
+				<button class="btn-email-submit" ng-disabled="misn1EmailForm.$invalid" style="position: absolute; bottom: 22px; left: 50%; margin-left: -87.5px;"></button>
+			</form>
+		</div>
+		<!-- //페이지 2 -->
+
+
+
+		<!-- 페이지 3 -->
+		<div class="page misn-email-submit" ng-show="misn.curPage === 3" ng-hide="misn.curPage !== 3">
+			<button class="btn-confirm" ng-click="GoPage(4);" style="position: absolute; top: 296px; left: 50%; margin-left: -87.5px;"></button>
+		</div>
+		<!-- //페이지 3 -->
+
+
+
+		<!-- 페이지 4 -->
+		<div class="page text-center" ng-show="misn.curPage === 4" ng-hide="misn.curPage !== 4" style="padding-top: 42px;">
+			<p class="para mb-30" ng-hide="processing">
+				영국국립생물의약품표준화연구소(NIBSC)로부터 백신 제조를 위한 ‘표준 바이러스주’가 도착했습니다.<br/>
+				‘표준 바이러스주’를 분양받으시겠습니까?
+				<br/>
+			</p>
+			<p class="para mb-30" ng-show="processing">
+				표준 바이러스주를 분양받고 있습니다.<br/><br/>
+			</p>
+			<div class="mb-30">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-progress" ng-show="processing">
+						<span class="circle">
+							<svg viewBox="0 0 32 32"><circle r="16" cx="16" cy="16"  stroke-dasharray="{{ invenItemCurPer }} 100"></circle></svg>
+						</span>
+					</div>
+					<div class="inven-item-wrap" ng-hide="processing">
+						<img src="img/inven/item-1.png" class="inven-item" style="width: 157.5px; height: 157.5px;" />
+					</div>
+					<div class="inven-item-success-wrap">
+						SUCCESS
+					</div>
+				</div>
+			</div>
+			<div class="inven-item-result-wrap" ng-show="processing">
+				{{invenItemCurPerResult}}%
+			</div>
+			<div ng-hide="processing">
+				<button class="btn-save" ng-click="GetInvenItem(0, 5, 289, -332);"></button>
+			</div>
+		</div>
+		<!-- //페이지 4 -->
+
+
+		<!-- 페이지 5 -->
+		<div class="page text-center" ng-show="misn.curPage === 5" ng-hide="misn.curPage !== 5" style="padding-top: 42px;">
+			<p class="para mb-30">
+				‘백신 제조용 표준 바이러스주’가 연구소 보관함에 저장되었습니다.<br/>
+				<span class="green b">‘긴급한 요청’</span> 미션을 성공적으로 완료하였습니다.
+			</p>
+			<div class="mb-40">
+				<div class="inven-frame-wrap">
+					<div class="inven-item-success-wrap" style="display: block">
+						SUCCESS
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- //페이지 5 -->
+
+
+
+	</div>
+</ion-content>

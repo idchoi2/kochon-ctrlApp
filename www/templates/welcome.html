@@ -1,0 +1,18 @@
+<ion-view view-title="Welcome" class="welcome" ng-init="LoginCheck(false, '/start')">
+	<ion-content  padding="false" scroll="true">
+
+		<img src="img/img-welcome.png" style="width: 1024px; height: 467px; margin-bottom: 26px;" />
+
+		<form role="form" method="get" name="loginForm" ng-submit="Login();" novalidate>
+			<div class="input-group">
+				<input type="text" class="input-text lg" ng-model="teamInfo.idCode" name="id" maxlength="12" size="12" placeholder="ID를 입력하세요" style="width: 300px;" required>
+			</div>
+			<div class="input-group">
+				<input type="text" class="input-text lg"  ng-model="teamInfo.name"name="name" maxlength="6" size="6" placeholder="팀 이름(최대 10자)을 입력하세요" style="width: 300px;" required>
+			</div>
+			<button type="submit" class="mt-30 btn-login" ng-disabled="loginForm.$invalid">프로그램 시작</button>
+		</form>
+
+
+	</ion-content>
+</ion-view>

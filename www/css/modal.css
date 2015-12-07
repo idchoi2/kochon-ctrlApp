@@ -1,0 +1,325 @@
+@charset "UTF-8";
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+/*
+ * Layout
+*/
+/*
+ * Font
+*/
+@font-face {
+  font-family: 'kelson_sanslight';
+  src: url("../font/kelson_sans_light-webfont.woff2") format("woff2"), url("../font/kelson_sans_light-webfont.woff") format("woff"), url("../font/kelson_sans_light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansbold';
+  src: url("../font/kelson_sans_bold-webfont.woff2") format("woff2"), url("../font/kelson_sans_bold-webfont.woff") format("woff"), url("../font/kelson_sans_bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansregular';
+  src: url("../font/kelson_sans_regular-webfont.woff2") format("woff2"), url("../font/kelson_sans_regular-webfont.woff") format("woff"), url("../font/kelson_sans_regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*
+ * Color
+*/
+/*
+ * Misc
+*/
+/*
+ * Modal
+*/
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 45px;
+  background: url("../img/bg-trans-black.png") repeat center center; }
+  .modal .modal-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #FFF;
+    background: url("../img/bg-modal.png") repeat center center;
+    background-size: 934px 680px; }
+    .modal .modal-wrap .modal-header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 42px;
+      background: url("../img/bg-modal-header.png") repeat center center;
+      background-size: 932px 42px; }
+      .modal .modal-wrap .modal-header .tit {
+        padding-left: 18px;
+        opacity: 0.8;
+        line-height: 42px; }
+        .modal .modal-wrap .modal-header .tit .en {
+          font-family: "kelson_sansbold", sans-serif;
+          font-size: 20px; }
+        .modal .modal-wrap .modal-header .tit .ko {
+          margin-left: 10px; }
+      .modal .modal-wrap .modal-header .btn-close {
+        position: absolute;
+        top: 5px;
+        right: 5px; }
+    .modal .modal-wrap .modal-content {
+      position: absolute;
+      top: 42px;
+      left: 0;
+      width: 100%;
+      height: 636px;
+      padding: 34px 66px; }
+      .modal .modal-wrap .modal-content .map {
+        width: 800px;
+        height: 378px;
+        display: block;
+        position: relative; }
+        .modal .modal-wrap .modal-content .map .map-spot {
+          position: absolute;
+          display: inline-block;
+          text-align: center;
+          background: url("../img/bg-map-spot.png") repeat center center; }
+          .modal .modal-wrap .modal-content .map .map-spot .tit {
+            position: relative;
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #a4e3db;
+            line-height: 12px;
+            background: #000;
+            padding: 0 1px; }
+        .modal .modal-wrap .modal-content .map .map-spot.map-circle {
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          border-radius: 100%;
+          behavior: url(../css/boxsizing.htc); }
+        .modal .modal-wrap .modal-content .map .map-spot.active {
+          border: 2px solid #FF503E;
+          background: url("../img/bg-map-spot-active.png") repeat center center;
+          -webkit-animation: mapActive 2s ease-out;
+          -webkit-animation-iteration-count: infinite; }
+@-webkit-keyframes mapActive {
+  0% {
+    background: url("../img/bg-map-spot-active.png") repeat center center; }
+  50% {
+    background: url("../img/bg-map-spot.png") repeat center center; }
+  100% {
+    background: url("../img/bg-map-spot-active.png") repeat center center; } }
+        .modal .modal-wrap .modal-content .map .map-spot-1-1 {
+          top: 165px;
+          left: 54px;
+          width: 174px;
+          height: 174px; }
+          .modal .modal-wrap .modal-content .map .map-spot-1-1 .tit {
+            top: 97px; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-2 {
+          top: 127px;
+          left: 280px;
+          width: 30px;
+          height: 50px; }
+          .modal .modal-wrap .modal-content .map .map-spot-1-2 .tit {
+            top: 12px;
+            left: -9px;
+            width: 52px; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-3 {
+          top: 305px;
+          left: 282px;
+          width: 56px;
+          height: 50px; }
+          .modal .modal-wrap .modal-content .map .map-spot-1-3 .tit {
+            top: 14px; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-4 {
+          top: 127px;
+          left: 342px;
+          width: 125px;
+          height: 130px; }
+          .modal .modal-wrap .modal-content .map .map-spot-1-4 .tit {
+            top: 75px; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-5 {
+          top: 150px;
+          left: 598px;
+          width: 194px;
+          height: 208px; }
+          .modal .modal-wrap .modal-content .map .map-spot-1-5 .tit {
+            top: 38px; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-6 {
+          top: 17px;
+          left: 672px;
+          width: 120px;
+          height: 126px; }
+          .modal .modal-wrap .modal-content .map .map-spot-1-6 .tit {
+            top: 44px; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-7 {
+          position: absolute;
+          top: 3px;
+          left: 278px;
+          width: 510px;
+          height: 332px;
+          background: url("../img/bg-map-cab.png") no-repeat center center;
+          background-size: cover;
+          display: none; }
+        .modal .modal-wrap .modal-content .map .map-spot-1-7.active {
+          display: block;
+          -webkit-animation: pulsate 2s ease-out !important;
+          -webkit-animation-iteration-count: infinite !important;
+          opacity: 0.0;
+          border: none;
+          background: url("../img/bg-map-cab.png") no-repeat center center !important;
+          background-size: cover !important; }
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.0; }
+  50% {
+    opacity: 1.0; }
+  100% {
+    opacity: 0.0; } }
+        .modal .modal-wrap .modal-content .map .map-spot-2-1 {
+          top: 8px;
+          left: 8px;
+          width: 130px;
+          height: 130px; }
+          .modal .modal-wrap .modal-content .map .map-spot-2-1 .tit {
+            top: 50px; }
+        .modal .modal-wrap .modal-content .map .map-spot-2-2 {
+          top: 140px;
+          left: 280px;
+          width: 252.5px;
+          height: 214px;
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          border-radius: 100%;
+          behavior: url(../css/boxsizing.htc); }
+          .modal .modal-wrap .modal-content .map .map-spot-2-2 .tit {
+            top: 50px;
+            left: 50px; }
+      .modal .modal-wrap .modal-content .map.map-f1 {
+        background: url("../img/bg-map-f1.png") repeat top center;
+        background-size: 800px 371px; }
+      .modal .modal-wrap .modal-content .map.map-f2 {
+        background: url("../img/bg-map-f2.png") repeat top center;
+        background-size: 800px 378px; }
+      .modal .modal-wrap .modal-content .keymap .keymap-term {
+        margin-top: 14px;
+        font-family: "kelson_sansbold", sans-serif;
+        font-size: 10px;
+        color: #FF503E;
+        position: relative;
+        opacity: 0.5; }
+        .modal .modal-wrap .modal-content .keymap .keymap-term .term-1 {
+          position: absolute;
+          left: 0; }
+        .modal .modal-wrap .modal-content .keymap .keymap-term .term-2 {
+          position: absolute;
+          left: 164px; }
+        .modal .modal-wrap .modal-content .keymap .keymap-term .term-3 {
+          position: absolute;
+          left: 723px; }
+      .modal .modal-wrap .modal-content .keymap .keymap-misn {
+        position: absolute;
+        top: 100px; }
+        .modal .modal-wrap .modal-content .keymap .keymap-misn .misn {
+          width: 100%;
+          height: 70px;
+          margin-bottom: 15px;
+          position: relative; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .misn-tit {
+            position: absolute;
+            left: 0;
+            width: 150px;
+            color: #a4e3db; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .misn-tit .no {
+              font-size: 25px;
+              margin-bottom: 8px;
+              padding-bottom: 7px;
+              background: url("../img/bg-keymap-tit.png") no-repeat left bottom;
+              background-size: 35px 1px; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .misn-tit .tit {
+              font-weight: 700;
+              font-size: 12px;
+              line-height: 14px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step {
+            position: absolute;
+            left: 162px;
+            font-size: 15px;
+            color: #a4e3db;
+            width: 535px;
+            display: table; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item {
+              display: table-cell;
+              padding-right: 5px; }
+              .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item .step-item-inner {
+                border: 1px solid #a4e3db;
+                height: 70px;
+                display: block;
+                padding: 10px 9px;
+                position: relative; }
+                .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item .step-item-inner .step-no {
+                  font-family: "kelson_sansbold", sans-serif;
+                  color: #a4e3db;
+                  opacity: 0.5;
+                  font-size: 15px; }
+                .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item .step-item-inner .step-tit {
+                  position: absolute;
+                  left: 70px;
+                  top: 10px; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item.step-item-1 {
+              width: 100%; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item.step-item-2 {
+              width: 50%; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item.step-item-3 {
+              width: 33.333333%; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item.step-item-4 {
+              width: 25%; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item.step-item-5 {
+              width: 20%; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item:last-child {
+              margin-right: 0; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .step .step-item.completed .step-item-inner {
+              border-color: transparent;
+              background: url("../img/bg-keymap-completed.png") repeat left bottom; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven {
+            position: absolute;
+            left: 724px; }
+            .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven .inven-tit {
+              width: 110px;
+              height: 70px;
+              display: block;
+              color: #FF503E;
+              font-size: 13px;
+              line-height: 15px;
+              font-weight: 700;
+              border: 1px solid #FF503E;
+              padding: 12px 7px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven.completed .inven-tit {
+            background: url("../img/bg-map-spot-active.png") repeat center center; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven-1 {
+            background: url("../img/inven/keymap-item-1.png") no-repeat center center;
+            background-size: 55px 56px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven-2 {
+            background: url("../img/inven/keymap-item-2.png") no-repeat center center;
+            background-size: 61.5px 27.5px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven-3 {
+            background: url("../img/inven/keymap-item-3.png") no-repeat center center;
+            background-size: 50px 35px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven-4 {
+            background: url("../img/inven/keymap-item-4.png") no-repeat center center;
+            background-size: 55px 27px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven-5 {
+            background: url("../img/inven/keymap-item-5.png") no-repeat center center;
+            background-size: 22px 48px; }
+          .modal .modal-wrap .modal-content .keymap .keymap-misn .misn .inven-6 {
+            background: url("../img/inven/keymap-item-6.png") no-repeat center center;
+            background-size: 72px 45.5px; }
+
+/*# sourceMappingURL=modal.css.map */

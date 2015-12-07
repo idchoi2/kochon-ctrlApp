@@ -1,0 +1,409 @@
+@charset "UTF-8";
+/*
+ * Global
+ * @file global.scss
+ * @author idchoi2@gmail.com
+ * @description JCC Global 변수 및 함수 정의
+*/
+/*
+ * Layout
+*/
+/*
+ * Font
+*/
+@font-face {
+  font-family: 'kelson_sanslight';
+  src: url("../font/kelson_sans_light-webfont.woff2") format("woff2"), url("../font/kelson_sans_light-webfont.woff") format("woff"), url("../font/kelson_sans_light-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansbold';
+  src: url("../font/kelson_sans_bold-webfont.woff2") format("woff2"), url("../font/kelson_sans_bold-webfont.woff") format("woff"), url("../font/kelson_sans_bold-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'kelson_sansregular';
+  src: url("../font/kelson_sans_regular-webfont.woff2") format("woff2"), url("../font/kelson_sans_regular-webfont.woff") format("woff"), url("../font/kelson_sans_regular-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal; }
+/*
+ * Color
+*/
+/*
+ * Misc
+*/
+body {
+  color: #FFF;
+  font-family: sans-serif; }
+
+.b {
+  font-weight: 700; }
+
+.green {
+  color: #a4e3db; }
+
+.red {
+  color: #FF503E; }
+
+.italic {
+  font-style: italic; }
+
+.text-left {
+  text-align: left; }
+
+.text-center {
+  text-align: center; }
+
+.text-right {
+  text-align: right; }
+
+.float-left {
+  float: left !important; }
+
+.float-right {
+  float: right !important; }
+
+.scroll-content {
+  overflow: visible !important; }
+
+.pane, .view {
+  background: url("../img/bg-default.png") no-repeat center center;
+  background-size: cover; }
+
+.pane.welcome {
+  background: url("../img/bg-welcome.png") no-repeat center center;
+  background-size: cover; }
+  .pane.welcome form {
+    position: relative;
+    text-align: center; }
+
+.pane.start {
+  background: url("../img/bg-start.png") no-repeat center center;
+  background-size: cover; }
+  .pane.start .inven-list {
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    margin-left: -384px; }
+
+.para {
+  font-size: 18px;
+  color: #FFF;
+  line-height: 30px; }
+
+.tabs {
+  display: none; }
+
+.has-tabs, .bar-footer.has-tabs {
+  bottom: 0; }
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #FFF !important;
+  line-height: 1.2; }
+
+.cmf-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg-trans-black.png") repeat center center;
+  z-index: 100; }
+  .cmf-msg .cmf-msg-inner {
+    width: 390px;
+    height: 206px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -195px;
+    margin-left: -123px;
+    background: url("../img/bg-cmf-msg.png") no-repeat center center;
+    background-size: cover;
+    z-index: 6; }
+    .cmf-msg .cmf-msg-inner .cmf-cnt {
+      position: absolute;
+      top: 45px;
+      left: 42px;
+      font-size: 18px;
+      line-height: 25px;
+      color: #a4e3db; }
+    .cmf-msg .cmf-msg-inner .btn-confirm-fill {
+      position: absolute;
+      bottom: 20px;
+      left: 42px; }
+
+.err-msg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("../img/bg-trans-black.png") repeat center center;
+  z-index: 100; }
+  .err-msg .err-msg-inner {
+    width: 390px;
+    height: 206px;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -195px;
+    margin-left: -123px;
+    background: url("../img/bg-err-msg.png") no-repeat center center;
+    background-size: cover;
+    z-index: 6; }
+    .err-msg .err-msg-inner .err-cnt {
+      position: absolute;
+      top: 45px;
+      left: 42px;
+      font-size: 18px;
+      line-height: 25px;
+      color: #FF503E; }
+    .err-msg .err-msg-inner .btn-confirm-err {
+      position: absolute;
+      bottom: 20px;
+      left: 42px; }
+
+#btn-reset-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100px;
+  height: 100px;
+  background: #ffff00;
+  z-index: 100;
+  opacity: 0; }
+  #btn-reset-wrap button {
+    width: 100px;
+    height: 100px; }
+
+input {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  border-radius: 0;
+  behavior: url(../css/boxsizing.htc); }
+
+.input-group {
+  margin-bottom: 10px; }
+
+.input-text {
+  display: inline-block !important;
+  border: 2px solid #5e827d !important;
+  padding: 0 10px !important;
+  background: #000;
+  text-align: center;
+  color: #a4e3db !important; }
+
+.input-text::-webkit-input-placeholder {
+  color: #324642; }
+
+.input-text::-moz-placeholder {
+  color: #324642; }
+
+/* firefox 19+ */
+.input-text:-moz-placeholder {
+  color: #324642; }
+
+input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.cloned-text-input), textarea[readonly]:not(.cloned-text-input), select[readonly] {
+  background: #000; }
+
+.input-text:disabled {
+  opacity: 0.2; }
+
+.input-text.lg {
+  font-size: 20px !important;
+  line-height: 50px !important;
+  height: 50px !important; }
+
+.btn, .btn-login, .btn-map, .btn-keymap, .btn-compose, .btn-hint, .btn-ms-start, .btn-confirm, .btn-confirm-fill, .btn-input-complete, .btn-complete, .btn-close, .btn-save, .btn-next, .btn-reco, .btn-map-f1, .btn-map-f2, .btn-email, .btn-email-submit, .btn-submit, .btn-go-quiz, .btn-misn5-complete, .btn-confirm-err, .btn-check-answer, .btn-cure {
+  display: inline-block;
+  border: none;
+  background: none;
+  text-indent: -9999px; }
+
+.btn[disabled], [disabled].btn-login, [disabled].btn-map, [disabled].btn-keymap, [disabled].btn-compose, [disabled].btn-hint, [disabled].btn-ms-start, [disabled].btn-confirm, [disabled].btn-confirm-fill, [disabled].btn-input-complete, [disabled].btn-complete, [disabled].btn-close, [disabled].btn-save, [disabled].btn-next, [disabled].btn-reco, [disabled].btn-map-f1, [disabled].btn-map-f2, [disabled].btn-email, [disabled].btn-email-submit, [disabled].btn-submit, [disabled].btn-go-quiz, [disabled].btn-misn5-complete, [disabled].btn-confirm-err, [disabled].btn-check-answer, [disabled].btn-cure {
+  opacity: 0.2; }
+
+.btn.blur, .blur.btn-login, .blur.btn-map, .blur.btn-keymap, .blur.btn-compose, .blur.btn-hint, .blur.btn-ms-start, .blur.btn-confirm, .blur.btn-confirm-fill, .blur.btn-input-complete, .blur.btn-complete, .blur.btn-close, .blur.btn-save, .blur.btn-next, .blur.btn-reco, .blur.btn-map-f1, .blur.btn-map-f2, .blur.btn-email, .blur.btn-email-submit, .blur.btn-submit, .blur.btn-go-quiz, .blur.btn-misn5-complete, .blur.btn-confirm-err, .blur.btn-check-answer, .blur.btn-cure {
+  opacity: 0.4; }
+
+.btn-login {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-login.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-map {
+  width: 150px;
+  height: 45px;
+  background: url("../img/btn/btn-map.png") no-repeat center center;
+  background-size: 150px 45px; }
+
+.btn-map.active {
+  background: url("../img/btn/btn-map-active.png") no-repeat center center;
+  background-size: 150px 45px;
+  -webkit-animation: pulsate 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.0; }
+
+@-webkit-keyframes pulsate {
+  0% {
+    opacity: 0.0; }
+  50% {
+    opacity: 1.0; }
+  100% {
+    opacity: 0.0; } }
+.btn-keymap {
+  width: 150px;
+  height: 45px;
+  background: url("../img/btn/btn-keymap.png") no-repeat center center;
+  background-size: 150px 45px; }
+
+.btn-compose {
+  width: 150px;
+  height: 45px;
+  background: url("../img/btn/btn-compose.png") no-repeat center center;
+  background-size: 150px 45px; }
+
+.btn-hint {
+  width: 37px;
+  height: 37px;
+  background: url("../img/btn/btn-hint.png") no-repeat left center;
+  background-size: 37px 37px; }
+
+.btn-hint.long {
+  padding-left: 45px;
+  color: #FF503E;
+  font-family: "kelson_sansbold", sans-serif;
+  font-size: 18px;
+  font-style: italic;
+  line-height: 37px;
+  text-indent: 0;
+  width: auto; }
+
+.btn-ms-start {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-ms-start.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-confirm {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-confirm.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-confirm-fill {
+  width: 139.5px;
+  height: 42.5px;
+  background: url("../img/btn/btn-confirm-fill.png") no-repeat center center;
+  background-size: 139.5px 42.5px; }
+
+.btn-input-complete {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-input-complete.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-complete {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-complete.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-close {
+  width: 30px;
+  height: 30px;
+  background: url("../img/btn/btn-close.png") no-repeat center center;
+  background-size: 30px 30px; }
+
+.btn-save {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-save.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-next {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-next.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-reco {
+  width: 139.5px;
+  height: 42.5px;
+  background: url("../img/btn/btn-reco.png") no-repeat center center;
+  background-size: 139.5px 42.5px; }
+
+.btn-map-f1 {
+  width: 225px;
+  height: 45px;
+  background: url("../img/btn/btn-map-f1.png") no-repeat center center;
+  background-size: 225px 45px; }
+
+.btn-map-f1.current {
+  background: url("../img/btn/btn-map-f1-current.png") no-repeat center center;
+  background-size: 225px 45px; }
+
+.btn-map-f2 {
+  width: 225px;
+  height: 45px;
+  background: url("../img/btn/btn-map-f2.png") no-repeat center center;
+  background-size: 225px 45px; }
+
+.btn-map-f2.current {
+  background: url("../img/btn/btn-map-f2-current.png") no-repeat center center;
+  background-size: 225px 45px; }
+
+.btn-email {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-email.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-email-submit {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-email-submit.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-submit {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-submit.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-go-quiz {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-go-quiz.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-misn5-complete {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-misn5-complete.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-confirm-err {
+  width: 139.5px;
+  height: 42.5px;
+  background: url("../img/btn/btn-confirm-err.png") no-repeat center center;
+  background-size: 139.5px 42.5px; }
+
+.btn-check-answer {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-check-answer.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-cure {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-cure.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+/*# sourceMappingURL=base.css.map */

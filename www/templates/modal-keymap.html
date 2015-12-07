@@ -1,0 +1,63 @@
+<div class="modal" id="modal-map" ng-hide="!$parent.keymap.open">
+	<!-- Modal Wrap -->
+	<div class="modal-wrap">
+
+
+		<!-- Modal Header -->
+		<div class="modal-header">
+			<div class="tit">
+				<span class="en">KEYMAP</span>
+				<span class="ko">키맵</span>
+			</div>
+			<button class="btn-close" ng-click="$parent.keymap.open = false"></button>
+		</div>
+		<!-- //Modal Header -->
+
+
+		<!-- Modal Content -->
+		<div class="modal-content">
+			<div class="keymap">
+
+
+				<div class="keymap-term">
+					<span class="term-1">MISSION</span>
+					<span class="term-2">MISSION STEP</span>
+					<span class="term-3">ITEM</span>
+				</div>
+
+
+				<div class="keymap-misn">
+					<div class="misn" ng-repeat="misn in misn.list" ng-if="$index != 6" ng-init="misnIdx = $index">
+						<div class="misn-tit">
+							<div class="no">M{{ misn.no }}</div>
+							<div class="tit" ng-bind-html="misn.title"></div>
+						</div>
+						<div class="step">
+							<div class="step-item step-item-{{ misn.steps.length }}" ng-repeat="step in misn.steps" ng-class="{completed : $index <= keymap.list[misnIdx].curStep}" ng-if="$index != 0">
+								<div class="step-item-inner">
+									<span class="step-no">
+										M{{ misn.no }}-{{ $index }}
+									</span>
+									<span class="step-tit">
+										{{ step.title }}
+									</span>
+								</div>
+							</div>
+						</div>
+						<div class="inven inven-{{ $index + 1 }}" ng-class="{completed : keymap.list[misnIdx].totPage == keymap.list[misnIdx].curPage}">
+							<div class="inven-tit">
+								<span ng-bind-html="misn.keymapTit"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+		</div>
+		<!-- Modal Content -->
+
+
+	</div>
+	<!-- //Modal Wrap -->
+</div>
