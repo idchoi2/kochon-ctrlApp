@@ -1,4 +1,4 @@
-<ion-content class="cnt" padding="false" scroll="true">
+<ion-content class="cnt" padding="false" scroll="false">
 	<div id="Mission3">
 
 
@@ -6,6 +6,10 @@
 		<!-- 타이틀 -->
 		<div class="tit-wrap">
 			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+			<div class="btn-wrap">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="GoPagePrev();"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
 		</div>
 		<!-- //타이틀 -->
 
@@ -20,74 +24,165 @@
 
 
 		<!-- 페이지 1 -->
-		<div class="page text-center" ng-show="misn.curPage === 1" style="padding-top: 95px;">
-			<p class="para">
-				CJR 바이러스는 인플루엔자 바이러스의 변종으로<br/>
-				호흡기계를 침범하여 신체 증상을 야기합니다.<br/>
-				CJR 바이러스에 감염되어 증상이 나타난 <span class="red b">신체 기관 두 곳을</span><br/>
-				인체모형에서 찾아 연구노트에 기록하세요.
-			</p>
-			<div class="hint-wrap" style="padding: 33px 0">
-				<button class="btn-hint" ng-class="{blur: hintOpen3}" ng-click="hintOpen3 = true;"></button>
-				<span class="hint-cnt-wrap" ng-show="hintOpen3">
-					<div class="cnt">
-						인체 모형은 1층 제1실험실에 있습니다.<br/>
-						위치는 지도에서 확인할 수 있습니다.
+		<div class="page" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" >
+			<div class="pd-25">
+				<div class="dialog mb-40">
+					<div class="dialog-inner">
+						<div class="cn">
+							바이러스를 배양하기 위해 ‘무항생제 유정란’을<br/>
+							얻어야 하네. 그 전에 먼저 바이러스가 인체 기관 중<br/>
+							어디에 감염되었는지 검사하고 그 결과를 내게 알려주게.
+						</div>
 					</div>
-					<button class="btn-close" ng-click="hintOpen3 = false;"></button>
-				</span>
+				</div>
+				<div class="brief mb-30">
+					<div class="brief-misn">
+						<div class="mb-15"><div class="tit">MISSION!</div></div>
+						연구실 1층 곳곳에 “최속청 연구원”이 잃어버린<br/>
+						<span class="green b">연구보고서</span>가 있습니다. 서로 다른 색의 연구보고서<br/>
+						3개를 찾아 “<span class="green b">최속청 연구원</span>”에게 전달해주세요!
+					</div>
+					<div class="brief-item">
+						<div class="mb-15"><div class="tit">ITEM</div></div>
+						바이러스가<br/>
+						감염된<br/>
+						기관 두 곳<br/>
+					</div>
+					<div class="brief-img">
+						<img src="img/img-item-3.png" style="width: 100px; height: 100px;" />
+					</div>
+				</div>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(2); GoStep(1);"></button>
+				</div>
+				<div class="hint-wrap">
+					<button class="btn-hint-lg" ng-class="{blur: hintOpen1_1}" ng-click="hintOpen1_1 = true;" style="right: 25px; bottom: 24px;"></button>
+					<span class="hint-cnt-wrap" ng-show="hintOpen1_1">
+						<div class="cnt">
+							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+							ID 카드를 확인해보세요.
+						</div>
+						<button class="btn-close" ng-click="hintOpen1_1 = false;"></button>
+					</span>
+				</div>
 			</div>
-			<button class="btn-confirm" ng-click="GoPage(2)"></button>
 		</div>
 		<!-- //페이지 1 -->
 
 
 
 		<!-- 페이지 2 -->
-		<div class="page text-center" ng-show="misn.curPage === 2" style="padding-top: 30px;">
-			<p class="para" style="margin-bottom: 25px;">
-				CJR 바이러스에 감염된 것으로 예상되는 신체 기관의 모형을 입력하세요.<br/>
-				모형 뒷면에 부착되어 있는 코드를  AR 미디어에 인식하세요.
+		<div class="page text-center" ng-show="misn.curPage === 2" ng-hide="misn.curPage !== 2" style="padding-top: 30px;">
+
+			<div class="txt-xl red b mb-50">인체 모형을 찾으셨나요?</div>
+
+			<p class="para mb-30">
+				인체 각 기관 모형에는 디지털 돋보기를 인식하기 위한<br/>
+				코드가 부착되어 있습니다.
 			</p>
 
+			<p class="para">
+				디지털 돋보기를 실행 후, 코드 가까이에 초점을 맞추어<br/>
+				자세히 들여다보면 바이러스 감염 여부를 알 수 있습니다.
+			</p>
 
-			<input type="hidden" ng-model="misn.misn3Organ.ar1"/>
-			<input type="hidden" ng-model="misn.misn3Organ.ar2"/>
-
-
-			<div class="ar-frame-wrap" style="margin-bottom: 25px;">
-				<div class="ar-frame">
-
-					<div class="ar-item" ng-show="misn.misn3Organ.ar1">
-						<img src="img/ar/ar-3-01.png" id="ar31" style="width: 191.5px; height: 147.5px;" />
-					</div>
-					<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 0));" ng-hide="misn.misn3Organ.ar1"></a>
-				</div>
-				<div class="ar-frame">
-					<div class="ar-item" ng-show="misn.misn3Organ.ar2">
-						<img src="img/ar/ar-3-02.png" id="ar32" style="width: 191.5px; height: 147.5px;" />
-					</div>
-					<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 0));" ng-hide="misn.misn3Organ.ar2"></a>
-				</div>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-check-virus" ng-click="GoPage(3)"></button>
 			</div>
 
-			<button class="btn-complete" ng-show="misn.misn3Organ.ar1 && misn.misn3Organ.ar2" ng-click="GoPage(3)"></button>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen3_1}" ng-click="hintOpen3_1 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen3_1">
+					<div class="cnt">
+						인체 모형은 1층 제1실험실에 있습니다.<br/>
+						위치는 지도에서 확인할 수 있습니다.
+					</div>
+					<button class="btn-close" ng-click="hintOpen3_1 = false;"></button>
+				</span>
+			</div>
+
 		</div>
 		<!-- //페이지 2 -->
 
 
 
 		<!-- 페이지 3 -->
-		<div class="page text-center" ng-show="misn.curPage === 3" style="padding-top: 42px;">
-			<p class="para mb-30" ng-hide="processing">
-				무항생제 유정란을 획득하셨습니다.<br/>
-				연구소 보관함에 무항생제 유정란을 보관하시겠습니까?
+		<div class="page text-center" ng-show="misn.curPage === 3" ng-hide="misn.curPage !== 3" style="padding-top: 30px;">
+			<p class="para" style="margin-bottom: 25px;" ng-hide="1">
+				CJR 바이러스에 감염된 것으로 예상되는 신체 기관의 모형을 입력하세요.<br/>
+				모형 뒷면에 부착되어 있는 코드를  AR 미디어에 인식하세요.
+			</p>
+
+
+
+
+
+			<div class="ar-frame-wrap" style="margin-bottom: 25px;">
+				<div class="ar-frame">
+					<div class="ar-tit">바이러스 감염 기관 1</div>
+					<div class="ar-item" ng-show="misn.misn3Organ.ar.item1" ng-hide="!misn.misn3Organ.ar.item1">
+						<img src="img/ar/ar-3-01.png" id="ar31" style="width: 191.5px; height: 147.5px;" />
+					</div>
+					<a class="btn-reco-2" href="javascript:app.loadARchitectWorld(getWordPath(0, 0));" ng-hide="misn.misn3Organ.ar.item1"></a>
+				</div>
+				<div class="ar-frame">
+					<div class="ar-tit">바이러스 감염 기관 2</div>
+					<div class="ar-item" ng-show="misn.misn3Organ.ar.item2" ng-hide="!misn.misn3Organ.ar.item2">
+						<img src="img/ar/ar-3-02.png" id="ar32" style="width: 91px; height: 147.5px;" />
+					</div>
+					<a class="btn-reco-2" href="javascript:app.loadARchitectWorld(getWordPath(0, 0));" ng-hide="misn.misn3Organ.ar.item2"></a>
+				</div>
+			</div>
+
+			<div class="btn-go-next-wrap" ng-show="misn.misn3Organ.ar.item1 && misn.misn3Organ.ar.item2" >
+				<button class="btn-go-next btn-submit-report" ng-click="GoPage(4)"></button>
+			</div>
+
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen3_2}" ng-click="hintOpen3_2 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen3_2">
+					<div class="cnt">
+						인체 모형은 1층 제1실험실에 있습니다.<br/>
+						위치는 지도에서 확인할 수 있습니다.
+					</div>
+					<button class="btn-close" ng-click="hintOpen3_2 = false;"></button>
+				</span>
+			</div>
+
+		</div>
+		<!-- //페이지 3 -->
+
+
+
+		<!-- 페이지 4 -->
+		<div class="page text-center" ng-show="misn.curPage === 4" ng-hide="misn.curPage !== 4" style="padding-top: 87.5px;">
+			<div class="mb-30">
+				<img src="img/icon-msg-check.png" style="width: 78px; height: 60.5px;" />
+			</div>
+			<div class="mb-70 txt-xl green b">
+				검사 결과 전송이 완료되었습니다.
+			</div>
+			<button class="btn-confirm" ng-click="GoGetInvenItem(0, 5, 6, 243, -68);"></button>
+		</div>
+		<!-- //페이지 4 -->
+
+
+
+		<!-- 페이지 5 -->
+		<div class="page text-center" ng-show="misn.curPage === 5" ng-hide="misn.curPage !== 5" style="padding-top: 25px;">
+
+			<div class="mb-15">
+				<img src="img/icon-msg-sm.png" style="width: 64.5px; height: 51px;" />
+			</div>
+			<p class="para mb-15" ng-hide="processing">
+				<br/>
 				<br/>
 			</p>
-			<p class="para mb-30" ng-show="processing">
-				무항생제 유정란을 연구소 보관함에 저장하고 있습니다.<br/><br/>
+			<p class="para mb-15" ng-show="processing">
+				바이러스 배양을 위한 무항생제 유정란이<br/>
+				도착했습니다.<br/>
 			</p>
-			<div class="mb-30">
+			<div class="mb-15">
 				<div class="inven-frame-wrap">
 					<div class="inven-item-progress" ng-show="processing">
 						<span class="circle">
@@ -105,28 +200,23 @@
 			<div class="inven-item-result-wrap" ng-show="processing">
 				{{invenItemCurPerResult}}%
 			</div>
-			<div ng-hide="processing">
-				<button class="btn-save" ng-click="GetInvenItem(2, 4, 289, -68);"></button>
-			</div>
 		</div>
-		<!-- //페이지 3 -->
+		<!-- //페이지 5 -->
 
 
-		<!-- 페이지 4 -->
-		<div class="page text-center" ng-show="misn.curPage === 4" style="padding-top: 42px;">
-			<p class="para mb-30">
-				‘무항생제 유정란’이 연구소 보관함에 저장되었습니다.<br/>
-				<span class="green b">‘바이러스에 감염된 기관을 찾아라’</span> 미션을 성공적으로 완료하였습니다.
+		<!-- 페이지 6 -->
+		<div class="page text-center" ng-show="misn.curPage === 6" ng-hide="misn.curPage !== 6" style="padding-top: 97px;">
+			<p class="para mb-15">
+				임무를 완수했습니다!<br/>
+				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 나머지 임무를 완수해주세요.
 			</p>
-			<div class="mb-40">
-				<div class="inven-frame-wrap">
-					<div class="inven-item-success-wrap" style="display: block">
-						SUCCESS
-					</div>
+			<div class="inven-frame-wrap">
+				<div class="inven-item-success-wrap" style="display: block">
+					SUCCESS
 				</div>
 			</div>
 		</div>
-		<!-- //페이지 4 -->
+		<!-- //페이지 6 -->
 
 
 

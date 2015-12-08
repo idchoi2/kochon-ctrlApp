@@ -30,7 +30,7 @@ angular.module('kochonApp', ['ionic', 'ngCordova', 'kochonApp.controllers', 'koc
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if(window.cordova && window.cordova.plugins.Keyboard) {
-      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
+      cordova.plugins.Keyboard.hideKeyboardAccessoryBar(false);
       cordova.plugins.Keyboard.disableScroll(false);
     }
 
@@ -47,9 +47,11 @@ angular.module('kochonApp', ['ionic', 'ngCordova', 'kochonApp.controllers', 'koc
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $ionicConfigProvider, $urlRouterProvider) {
 
 
+
+  $ionicConfigProvider.views.swipeBackEnabled(false);
 
   // Ionic uses AngularUI Router which uses the concept of states
   // Learn more here: https://github.com/angular-ui/ui-router

@@ -30,7 +30,7 @@
 			<div class="mis-step-item" ng-repeat="step in misn.curMisn.steps" ng-hide="step.no == '00'" ng-class="{current: $index == misn.curStep}">
 				<div class="mis-step-inner">
 					<div class="step">STEP {{ step.no }}</div>
-					<div class="mis-no"><span ng-if="!isFinalCompose">M</span>{{ misn.curMisn.no }}-{{$index + 1}}</div>
+					<div class="mis-no"><span ng-if="!isFinalCompose">M</span>{{ misn.curMisn.no }}-{{ $index }}</div>
 					<div class="tit" ng-bind-html="step.title"></div>
 				</div>
 			</div>

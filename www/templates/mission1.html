@@ -6,6 +6,10 @@
 		<!-- 타이틀 -->
 		<div class="tit-wrap">
 			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+			<div class="btn-wrap">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="GoPagePrev();"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
 		</div>
 		<!-- //타이틀 -->
 
@@ -13,70 +17,143 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-1" ng-show="misn.curPage === 0" ng-hide="misn.curPage !== 0" >
-			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1);"></button>
 		</div>
 		<!-- //페이지 0 -->
 
 
 
 		<!-- 페이지 1 -->
-		<div class="page text-center" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" style="padding-top: 72px;">
-			<p class="para mb-0">
-				백신제조용 표준바이러스주를 분양받기 위해<br/>
-				세계보건기구 협력센터에 메일을 보내야합니다.<br/><br/>
-				고촌 연구소 안을 바쁘게 돌아다니고 있는<br/>
-				<span class="green b">‘최속청 연구원’</span>의 도움을 받아 메일을 작성하세요.
-			</p>
-			<div class="hint-wrap" style="padding: 33px 0">
-				<button class="btn-hint" ng-class="{blur: hintOpen1}" ng-click="hintOpen1 = true;"></button>
-				<span class="hint-cnt-wrap" ng-show="hintOpen1">
-					<div class="cnt">
-						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
-						ID 카드를 확인해보세요.
+		<div class="page" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" >
+			<div class="pd-25">
+				<div class="dialog mb-40">
+					<div class="dialog-inner">
+						<div class="cn">
+							백신 제조용 표준바이러스주를 얻으려면<br/>
+							세계보건기구 협력센터에 메일을 보내야 하네.<br/>
+							‘최속청 연구원’의 도움을 받아 메일을 완성하게!
+						</div>
 					</div>
-					<button class="btn-close" ng-click="hintOpen1 = false;"></button>
-				</span>
+				</div>
+				<div class="brief mb-30">
+					<div class="brief-misn">
+						<div class="mb-15"><div class="tit">MISSION!</div></div>
+						연구실 1층 곳곳에 “최속청 연구원”이 잃어버린<br/>
+						<span class="green b">연구보고서</span>가 있습니다. 서로 다른 색의 연구보고서<br/>
+						3개를 찾아 “<span class="green b">최속청 연구원</span>”에게 전달해주세요!
+					</div>
+					<div class="brief-item">
+						<div class="mb-15"><div class="tit">ITEM</div></div>
+						다른 색의<br/>
+						연구보고서<br/>
+						파일 3개<br/>
+					</div>
+					<div class="brief-img">
+						<img src="img/img-item-1.png" style="width: 100px; height: 100px;" />
+					</div>
+				</div>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(2); GoStep(1);"></button>
+				</div>
+				<div class="hint-wrap">
+					<button class="btn-hint-lg" ng-class="{blur: hintOpen1_1}" ng-click="hintOpen1_1 = true;" style="right: 25px; bottom: 24px;"></button>
+					<span class="hint-cnt-wrap" ng-show="hintOpen1_1">
+						<div class="cnt">
+							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+							ID 카드를 확인해보세요.
+						</div>
+						<button class="btn-close" ng-click="hintOpen1_1 = false;"></button>
+					</span>
+				</div>
 			</div>
-			<button class="btn-email" ng-click="GoPage(2); GoStep(2);"></button>
 		</div>
 		<!-- //페이지 1 -->
 
 
 
 		<!-- 페이지 2 -->
-		<div class="page misn-email-write" ng-show="misn.curPage === 2" ng-hide="misn.curPage !== 2">
-
-			<form role="form" method="get" name="misn1EmailForm" ng-submit="misn.CheckMisn1Email();" novalidate>
-				<input type="text" class="input-text input1" ng-model="misn.misn1Email.input1" style="" required>
-				<input type="text" class="input-text input2" ng-model="misn.misn1Email.input2" style="" required>
-				<input type="text" class="input-text input3" ng-model="misn.misn1Email.input3" style="" required>
-				<input type="text" class="input-text input4" ng-model="misn.misn1Email.input4" style="" required>
-				<button class="btn-email-submit" ng-disabled="misn1EmailForm.$invalid" style="position: absolute; bottom: 22px; left: 50%; margin-left: -87.5px;"></button>
-			</form>
+		<div class="page text-center" ng-show="misn.curPage === 2" ng-hide="misn.curPage !== 2">
+			<p class="txt-lg" style="padding-top: 130px;">
+				최속청 연구원에게 가서<br/>
+				연구보고서를 어디에 잃어버렸는지 조언을 구하세요!
+			</p>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(3);"></button>
+			</div>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen2_1}" ng-click="hintOpen2_1 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen2_1">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen2_1 = false;"></button>
+				</span>
+			</div>
 		</div>
 		<!-- //페이지 2 -->
 
 
 
 		<!-- 페이지 3 -->
-		<div class="page misn-email-submit" ng-show="misn.curPage === 3" ng-hide="misn.curPage !== 3">
-			<button class="btn-confirm" ng-click="GoPage(4);" style="position: absolute; top: 296px; left: 50%; margin-left: -87.5px;"></button>
+		<div class="page text-center" ng-show="misn.curPage === 3" ng-hide="misn.curPage !== 3">
+			<p class="txt-xl red b mt-20 mb-60">연구보고서 3개를 모두 찾으셨나요?</p>
+			<p class="txt-lg mb-35">
+				최속청 연구원에게 연구보고서 3개를 전달 후,<br/>
+				이메일 전송 코드를 받으면 이메일을 작성할 수 있습니다!
+			</p>
+
+			<form role="form" method="get" name="misn1CodeForm" ng-submit="misn.misn1Email.CheckCode();" novalidate>
+				<input type="text" class="input-text lg" ng-model="misn.misn1Email.code" required>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-email-write" ng-disabled="misn1CodeForm.$invalid"></button>
+				</div>
+			</form>
 		</div>
 		<!-- //페이지 3 -->
 
 
 
 		<!-- 페이지 4 -->
-		<div class="page text-center" ng-show="misn.curPage === 4" ng-hide="misn.curPage !== 4" style="padding-top: 42px;">
-			<p class="para mb-30" ng-hide="processing">
-				영국국립생물의약품표준화연구소(NIBSC)로부터 백신 제조를 위한 ‘표준 바이러스주’가 도착했습니다.<br/>
-				‘표준 바이러스주’를 분양받으시겠습니까?
+		<div class="page misn-email-write" ng-show="misn.curPage === 4" ng-hide="misn.curPage !== 4">
+
+			<form role="form" method="get" name="misn1EmailForm" ng-submit="misn.misn1Email.CheckEmail();" novalidate>
+				<input type="text" class="input-text input1" ng-model="misn.misn1Email.input1" style="" required>
+				<input type="text" class="input-text input2" ng-model="misn.misn1Email.input2" style="" required>
+				<input type="text" class="input-text input3" ng-model="misn.misn1Email.input3" style="" required>
+				<input type="text" class="input-text input4" ng-model="misn.misn1Email.input4" style="" required>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-email-submit" ng-disabled="misn1EmailForm.$invalid" ></button>
+				</div>
+			</form>
+		</div>
+		<!-- //페이지 4 -->
+
+
+
+		<!-- 페이지 5 -->
+		<div class="page misn-email-submit" ng-show="misn.curPage === 5" ng-hide="misn.curPage !== 5">
+			<button class="btn-confirm" ng-click="GoGetInvenItem(0, 6, 7, 243, -332);" style="position: absolute; top: 296px; left: 50%; margin-left: -87.5px;"></button>
+		</div>
+		<!-- //페이지 5 -->
+
+
+
+		<!-- 페이지 4 -->
+		<div class="page text-center" ng-show="misn.curPage === 6" ng-hide="misn.curPage !== 6" style="padding-top: 25px;">
+
+			<div class="mb-15">
+				<img src="img/icon-msg-sm.png" style="width: 64.5px; height: 51px;" />
+			</div>
+			<p class="para mb-15" ng-hide="processing">
+				<br/>
 				<br/>
 			</p>
-			<p class="para mb-30" ng-show="processing">
-				표준 바이러스주를 분양받고 있습니다.<br/><br/>
+			<p class="para mb-15" ng-show="processing">
+				영국국립생물의약품표준화연구소(NIBSC)로부터<br/>
+				백신 제조를 위한 ‘표준 바이러스주’가 도착했습니다.<br/>
 			</p>
-			<div class="mb-30">
+			<div class="mb-15">
 				<div class="inven-frame-wrap">
 					<div class="inven-item-progress" ng-show="processing">
 						<span class="circle">
@@ -94,28 +171,23 @@
 			<div class="inven-item-result-wrap" ng-show="processing">
 				{{invenItemCurPerResult}}%
 			</div>
-			<div ng-hide="processing">
-				<button class="btn-save" ng-click="GetInvenItem(0, 5, 289, -332);"></button>
-			</div>
 		</div>
 		<!-- //페이지 4 -->
 
 
-		<!-- 페이지 5 -->
-		<div class="page text-center" ng-show="misn.curPage === 5" ng-hide="misn.curPage !== 5" style="padding-top: 42px;">
-			<p class="para mb-30">
-				‘백신 제조용 표준 바이러스주’가 연구소 보관함에 저장되었습니다.<br/>
-				<span class="green b">‘긴급한 요청’</span> 미션을 성공적으로 완료하였습니다.
+		<!-- 페이지 7 -->
+		<div class="page text-center" ng-show="misn.curPage === 7" ng-hide="misn.curPage !== 7" style="padding-top: 97px;">
+			<p class="para mb-15">
+				임무를 완수했습니다!<br/>
+				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 나머지 임무를 완수해주세요.
 			</p>
-			<div class="mb-40">
-				<div class="inven-frame-wrap">
-					<div class="inven-item-success-wrap" style="display: block">
-						SUCCESS
-					</div>
+			<div class="inven-frame-wrap">
+				<div class="inven-item-success-wrap" style="display: block">
+					SUCCESS
 				</div>
 			</div>
 		</div>
-		<!-- //페이지 5 -->
+		<!-- //페이지 7 -->
 
 
 

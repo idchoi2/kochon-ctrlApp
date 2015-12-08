@@ -16,7 +16,7 @@
 	// 미션 타이틀 영역
 	.tit-wrap {
 		width: 805px;
-		height: 30px;
+		height: 35px;
 		background: url("../img/bg-tit.png") no-repeat center center;
 		background-size: cover;
 		position: relative;
@@ -31,8 +31,18 @@
 			background: $color-black url("../img/bg-cnt-tit.png") no-repeat 2px center;
 			background-size: 12.5px 7px;
 			position: absolute;
-			top: 6px;
+			top: 8px;
 			left: 5px;
+		}
+
+		.btn-wrap {
+			position: absolute;
+			top: 8px;
+			right: 10px;
+
+			.btn-tit-prev {
+				margin-right: 10px;
+			}
 		}
 	}
 
@@ -96,6 +106,12 @@
 			opacity: 0.0;
 		}
 
+
+
+		.btn-hint-lg {
+			position: absolute;
+		}
+
 		@-webkit-keyframes pulsate {
 			0% { opacity: 0.0;}
 			50% {opacity: 1.0;}
@@ -105,7 +121,7 @@
 
 		.hint-cnt-wrap {
 			position: fixed;
-			bottom: -385px;
+			bottom: -390px;
 			left: 50%;
 			margin-left: -363px;
 
@@ -172,8 +188,9 @@
 	// 주의
 	.alert {
 		display: inline-block;
-		background: url("../img/icon-alert.png") no-repeat left center;
+		background: url("../img/icon-alert.png") no-repeat left top;
 		background-size: 40px 37px;
+		min-height: 37px;
 		padding: 0 0 0 55px;
 		font-size: $font-size-ko-m;
 		line-height: $font-size-ko-xl;
@@ -184,6 +201,13 @@
 
 	.ar-frame-wrap {
 
+		padding-top: 60px;
+
+		.ar-tit {
+			position: relative;
+			top: -40px;
+			font-size: $font-size-ko-m;
+		}
 
 		.ar-frame {
 			display: inline-block;
@@ -194,7 +218,7 @@
 			position: relative;
 			margin: 0 37px;
 
-			.btn-reco {
+			.btn-reco, .btn-reco-2 {
 				position: absolute;
 				left: 50%;
 				top: 50%;
@@ -204,8 +228,10 @@
 
 			.ar-item {
 				position: absolute;
+				top:0;
 				width: 100%;
 				line-height: 195px;
+				text-align: center;
 
 				img {
 					vertical-align: middle;
@@ -266,11 +292,12 @@
 		.inven-item-success-wrap {
 			width: 200px;
 			height: 40px;
-			font-family: $font-stack-kelson_sansregular;
+			font-family: $font-stack-kelson_sansbold;
 			font-size: $font-size-en-xl;
+			font-style: italic;
 			color: $color-red;
 			line-height: 40px;
-			background: url("../img/bg-trans-red.png") repeat center center;
+			background: url("../img/bg-red-40.png") repeat center center;
 			position: absolute;
 			top: 50%;
 			left: 50%;
@@ -372,10 +399,10 @@
 	}
 
 	.ckd-code {
-		font-family: $font-stack-kelson_sansregular;
-		font-size: $font-size-en-xl;
+		font-size: $font-size-en-xl + 10;
 		line-height: $font-size-en-l;
-		color: $color-green;
+		font-weight: 600;
+		color: $color-red;
 	}
 
 	#img-ckd {
@@ -403,6 +430,31 @@
 // 미션 4
 #Mission4 {
 
+
+	.misn4-code {
+		position: relative;
+		width: 125px;
+		height: 125px;
+		display: inline-block;
+
+		img {
+			display: block;
+		}
+	}
+
+	.misn4-code.completed {
+
+		.check {
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: url("../img/ar/bg-ar-answer.png") no-repeat center center;
+			background-size: cover;
+		}
+	}
 
 
 	.input-text {
@@ -455,14 +507,13 @@
 
 	.id-code {
 		display: inline-block;
-		width: 250px;
+		width: 300px;
 		font-family: $font-stack-kelson_sansregular;
 		font-size: $font-size-en-xl;
 		color: $color-green;
-		line-height: $font-size-en-xl;
-		padding: 18px 0;
-		border-top: 1px solid $color-green;
-		border-bottom: 1px solid $color-green;
+		line-height: 60px;
+		height: 60px;
+		background: url("../img/bg-id-code.png") no-repeat center center;
 	}
 }
 

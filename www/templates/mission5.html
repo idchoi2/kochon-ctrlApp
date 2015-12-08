@@ -6,6 +6,10 @@
 		<!-- 타이틀 -->
 		<div class="tit-wrap">
 			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+			<div class="btn-wrap">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="GoPagePrev();"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
 		</div>
 		<!-- //타이틀 -->
 
@@ -13,47 +17,109 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-5" ng-show="misn.curPage === 0">
-			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1);"></button>
 		</div>
 		<!-- //페이지 0 -->
 
 
 
+
 		<!-- 페이지 1 -->
-		<div class="page text-center" ng-show="misn.curPage === 1" style="padding-top: 83px;">
-			<p class="para mb-60">
-				‘백신 시약병’을 획득하기 위해서<br/>
-				백신에 대한 기본적인 지식을 확인해야 합니다.<br/><br/>
-				바이러스와 박테리아에 대해 학습하고,<br/>
-				시약병이 들어있는 캐비닛의 비밀번호를 확인하세요.
-			</p>
-			<button class="btn-confirm" ng-click="GoPage(2);"></button>
+		<div class="page" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" >
+			<div class="pd-25">
+				<div class="dialog mb-40">
+					<div class="dialog-inner">
+						<div class="cn">
+							임상시험에 앞서 시약병을 찾아내야 하네.<br/>
+							시약병을 찾기 위해서는 자네들의 기본 지식이 필요하네.<br/>
+							임무를 수행하면 시약병의 위치와 비밀번호를 받을 수 있을걸세. 서두르게!
+						</div>
+					</div>
+				</div>
+				<div class="brief mb-30">
+					<div class="brief-misn">
+						<div class="mb-15"><div class="tit">MISSION!</div></div>
+						바이러스와 박테리아에 대한 문제의 정답을 맞추고<br/>
+						시약병이 들어 있는 금고의 비밀번호를 얻어<br/>
+						시약병을 획득하세요!
+					</div>
+					<div class="brief-item">
+						<div class="mb-15"><div class="tit">ITEM</div></div>
+						비밀번호<br/>
+						시약병
+					</div>
+					<div class="brief-img">
+						<img src="img/img-item-5.png" style="width: 100px; height: 100px;" />
+					</div>
+				</div>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(2); GoStep(1);"></button>
+				</div>
+				<div class="hint-wrap">
+					<button class="btn-hint-lg" ng-class="{blur: hintOpen5_1}" ng-click="hintOpen5_1 = true;" style="right: 25px; bottom: 24px;"></button>
+					<span class="hint-cnt-wrap" ng-show="hintOpen5_1">
+						<div class="cnt">
+							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+							ID 카드를 확인해보세요.
+						</div>
+						<button class="btn-close" ng-click="hintOpen5_1 = false;"></button>
+					</span>
+				</div>
+			</div>
 		</div>
 		<!-- //페이지 1 -->
 
 
 
 		<!-- 페이지 2 -->
-		<div class="page text-center" ng-show="misn.curPage === 2" style="padding-top: 70px;">
-			<p class="para mb-40">
-				장 듀비에 연구원의 지시에 따라 오큘러스를 착용하세요.<br/>
-				가상현실을 통해 바이러스와 박테리아에 대해 학습 한 후,<br/>
-				아래의 빈칸에 알맞은 답을 채워 넣으세요.
+		<div class="page text-center" ng-show="misn.curPage === 2" style="padding-top: 150px;">
+			<p class="txt-lg">
+				고촌 연구소 교육관으로 이동하여<br/>
+				장 듀비에 연구원의 지시에 따르세요.
 			</p>
-			<div class="mb-45">
-				<div class="alert">
-					오큘러스 리프트는 한 사람당 20초 씩 체험할 수 있습니다.<br/>
-					모든 팀원이 돌아가면서 오큘러스 리프트를체험하세요
-				</div>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-confirm" ng-click="GoPage(3);"></button>
 			</div>
-			<button class="btn-go-quiz" ng-click="GoPage(3);"></button>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen5_2}" ng-click="hintOpen5_2 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen5_2">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen5_2 = false;"></button>
+				</span>
+			</div>
 		</div>
 		<!-- //페이지 2 -->
 
 
 
 		<!-- 페이지 3 -->
-		<div class="page" ng-show="misn.curPage === 3" style="padding-top:26px;">
+		<div class="page text-center" ng-show="misn.curPage === 3">
+			<p class="txt-xl red b mt-20 mb-60">장 듀비에 연구원을 만나셨습니까?</p>
+			<p class="para mb-40">
+				바이러스와 박테리아에 관련된 설명의 빈칸을 모두 채우면<br/>
+				비밀번호를 획득할 수 있습니다.
+			</p>
+			<div class="mb-45">
+				<div class="alert text-left">
+					현미경을 자세히 들여다 보면 정답이 보입니다.<br/>
+					디지털 현미경은 팀원마다 10초씩 돌아가며 볼 수 있으니,<br/>
+					팀워크가 무엇보다 중요합니다!
+				</div>
+			</div>
+
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-go-quiz" ng-click="GoPage(4);"></button>
+			</div>
+		</div>
+		<!-- //페이지 3 -->
+
+
+
+		<!-- 페이지 4 -->
+		<div class="page" ng-show="misn.curPage === 4" style="padding-top:26px;">
 			<div class="mb-20 ml-30" style="font-size: 25px;">바이러스와 박테리아</div>
 			<div class="quiz-outer">
 				<div class="quiz-wrap">
@@ -81,49 +147,84 @@
 				});
 			</script>
 		</div>
-		<!-- //페이지 3 -->
-
-
-
-		<!-- 페이지 4 -->
-		<div class="page text-center" ng-show="misn.curPage === 4" style="padding-top: 35px;">
-			<p class="para mb-20">
-				빈칸에 알맞은 답을 입력하여, 백신에 대한 기본적인 지식을 확인했습니다.
-			</p>
-			<div class="mb-20">
-				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][0] }}</span>
-				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][1] }}</span>
-				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][2] }}</span>
-				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][3] }}</span>
-			</div>
-			<p class="para mb-20">
-				캐비닛 안에는 백신 시약병이 들어있습니다.<br/>
-				지도버튼을 눌러 캐비닛의 위치를 확인하세요.<br/>
-				여러 개의 캐비닛 중 위의 비밀번호로 열 수 있는 캐비닛은 단 하나입니다.<br/>
-				비밀번호로 캐비닛을 열어 시약병을 획득하세요.
-			</p>
-			<div class="mb-20">
-				<div class="alert">
-					시약병은 다음 미션을 위한 도구이니 반드시 소지하세요.
-				</div>
-			</div>
-			<button class="btn-misn5-complete" ng-click="GoPage(5);"></button>
-		</div>
 		<!-- //페이지 4 -->
 
 
 
 		<!-- 페이지 5 -->
-		<div class="page text-center" ng-show="misn.curPage === 5" style="padding-top: 42px;">
-			<p class="para mb-30" ng-hide="processing">
-				백신 시약병을 획득하셨습니다.<br/>
-				연구소 보관함에 백신 시약병을 보관하시겠습니까?
+		<div class="page text-center" ng-show="misn.curPage === 5">
+			<p class="txt-xl red b mt-20 mb-50">시약병이 든 금고의 비밀번호</p>
+			<div class="mb-50">
+				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][0] }}</span>
+				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][1] }}</span>
+				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][2] }}</span>
+				<span class="pw">{{ misn.misn5Quiz.pw[teamInfo.ctrlNo][3] }}</span>
+			</div>
+			<p class="para">
+				연구소 곳곳에 숨겨져 있는 10개의 금고 중,<br/>
+				비밀번호가 맞는 금고를 찾아 시약병을 획득하세요.
+			</p>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-misn5-complete" ng-click="GoPage(6);"></button>
+			</div>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen5_3}" ng-click="hintOpen5_3 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen5_3">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen5_3 = false;"></button>
+				</span>
+			</div>
+		</div>
+		<!-- //페이지 5 -->
+
+
+		<!-- 페이지 6 -->
+		<div class="page text-center" ng-show="misn.curPage === 6" ng-hide="misn.curPage !== 6">
+			<p class="txt-xl red b mt-20 mb-60">시약병을 획득했습니까?</p>
+			<p class="txt-lg mb-35">
+				김펜잘 연구원을 찾아 시약병을 보여주고<br/>
+				코드를 획득하면 임무가 완수됩니다.
+			</p>
+
+			<form role="form" method="get" name="misn5CodeForm" ng-submit="misn.misn5Quiz.CheckCode();" novalidate>
+				<input type="text" class="input-text lg" ng-model="misn.misn5Quiz.code" required>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-confirm" ng-disabled="misn5CodeForm.$invalid"></button>
+				</div>
+			</form>
+
+
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen5_3}" ng-click="hintOpen5_3 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen5_3">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen5_3 = false;"></button>
+				</span>
+			</div>
+		</div>
+		<!-- //페이지 6 -->
+
+
+
+		<!-- 페이지 7 -->
+		<div class="page text-center" ng-show="misn.curPage === 7" style="padding-top: 25px;">
+			<div class="mb-15">
+				<img src="img/icon-msg-sm.png" style="width: 64.5px; height: 51px;" />
+			</div>
+			<p class="para mb-15" ng-hide="processing">
+				<br/>
 				<br/>
 			</p>
-			<p class="para mb-30" ng-show="processing">
-				백신 시약병을 연구소 보관함에 저장하고 있습니다.<br/><br/>
+			<p class="para mb-15" ng-show="processing">
+				시약병을 보관함에 저장하고 있습니다.<br/><br/>
 			</p>
-			<div class="mb-30">
+			<div class="mb-15">
 				<div class="inven-frame-wrap">
 					<div class="inven-item-progress" ng-show="processing">
 						<span class="circle">
@@ -141,28 +242,28 @@
 			<div class="inven-item-result-wrap" ng-show="processing">
 				{{invenItemCurPerResult}}%
 			</div>
-			<div ng-hide="processing">
-				<button class="btn-save" ng-click="GetInvenItem(4, 6, 289, 194);"></button>
-			</div>
 		</div>
-		<!-- //페이지 5 -->
+		<!-- //페이지 7 -->
 
 
-		<!-- 페이지 6 -->
-		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 42px;">
-			<p class="para mb-30">
-				‘백신 시약병’이 연구소 보관함에 저장되었습니다.<br/>
-				<span class="green b">‘백신 제조의 중요한 열쇠’</span> 미션을 성공적으로 완료하였습니다.
+		<!-- 페이지 8 -->
+		<div class="page text-center" ng-show="misn.curPage === 8" ng-hide="misn.curPage !== 8" style="padding-top: 45px;">
+			<p class="para mb-15">
+				임무를 완수했습니다!<br/>
+				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 나머지 임무를 완수해주세요.
 			</p>
-			<div class="mb-40">
-				<div class="inven-frame-wrap">
-					<div class="inven-item-success-wrap" style="display: block">
-						SUCCESS
-					</div>
+			<div class="mb-15">
+				<div class="alert">
+					시약병은 마지막 미션을 위한 중요한 아이템이니 반드시 소지하세요
+				</div>
+			</div>
+			<div class="inven-frame-wrap">
+				<div class="inven-item-success-wrap" style="display: block">
+					SUCCESS
 				</div>
 			</div>
 		</div>
-		<!-- //페이지 6 -->
+		<!-- //페이지 8 -->
 
 
 

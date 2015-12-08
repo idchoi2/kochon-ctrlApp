@@ -15,51 +15,84 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-6" ng-show="misn.curPage === 0">
-			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1);"></button>
 		</div>
 		<!-- //페이지 0 -->
 
-
-
-		<!-- 페이지 0 -->
-		<div class="page text-center" ng-show="misn.curPage === 1" style="padding-top: 88px;">
-			<div class="para italic mb-35"><span class="red">M006에서 획득한 ‘시약병’을 가지고 임상시험 중인 실험실을 찾아가세요.</span></div>
-			<p class="para mb-50">
-				선배연구원에게 임상시험 중인 실험실의 위치를 물어보세요.<br/>
-			</p>
-			<button class="btn-confirm" ng-click="GoPage(2);"></button>
-		</div>
-		<!-- //페이지 0 -->
 
 
 
 		<!-- 페이지 1 -->
-		<div class="page text-center" ng-show="misn.curPage === 2" style="padding-top: 164px;">
-			<p class="para mb-60">
-				손 세정제 제조를 완료하였습니까?
-			</p>
-			<button class="btn-complete" ng-click="GoPage(3); GoStep(2);"></button>
+		<div class="page" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" >
+			<div class="pd-25">
+				<div class="dialog mb-40">
+					<div class="dialog-inner">
+						<div class="cn">
+							자, 이제 고지가 멀지 않았군. 마지막 임상시험만 남았네.<br/>
+							이 임상시험이 통과되어야 백신 제조를 완료하여 바이러스 감염자들을<br/>
+							치료할 수 있으니 조금만 더 힘을 내게!
+						</div>
+					</div>
+				</div>
+				<div class="brief mb-30">
+					<div class="brief-misn">
+						<div class="mb-15"><div class="tit">MISSION!</div></div>
+						손세정제 실험으로 임상시험을 무사히 통과하여<br/>
+						임상시험 결과보고서를 획득하세요.<br/>
+					</div>
+					<div class="brief-item">
+						<div class="mb-15"><div class="tit">ITEM</div></div>
+						임상시험<br/>
+						결과보고서
+					</div>
+					<div class="brief-img">
+						<img src="img/img-item-6.png" style="width: 100px; height: 100px;" />
+					</div>
+				</div>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(2); GoStep(1);"></button>
+				</div>
+				<div class="hint-wrap">
+					<button class="btn-hint-lg" ng-class="{blur: hintOpen6_1}" ng-click="hintOpen6_1 = true;" style="right: 25px; bottom: 24px;"></button>
+					<span class="hint-cnt-wrap" ng-show="hintOpen6_1">
+						<div class="cnt">
+							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+							ID 카드를 확인해보세요.
+						</div>
+						<button class="btn-close" ng-click="hintOpen6_1 = false;"></button>
+					</span>
+				</div>
+			</div>
 		</div>
 		<!-- //페이지 1 -->
 
 
 
 		<!-- 페이지 2 -->
-		<div class="page text-center" ng-show="misn.curPage === 3">
-			<div class="danger">
-				<div class="mb-25">
-					<img src="img/icon-danger.png" class="inven-item" style="width: 89px; height: 105px;" />
+		<div class="page text-center" ng-show="misn.curPage === 2">
+			<p class="txt-xl red b mt-20 mb-30">오늘의 임상시험 장소</p>
+			<p class="para mb-50">
+				연구소 안에 있는 선임연구원에게<br/>
+				오늘의 임상시험 장소를 물어보세요!
+			</p>
+			<div class="mb-45">
+				<div class="alert text-left">
+					M005에서 획득한 시약병을 가져가야 실험이 가능합니다.
 				</div>
-				<div class="para italic mb-25">
-					<span class="red">
-						고촌 연구소에서 미션을 수행하면서<br/>
-						CJR 바이러스에 감염된 사람이 팀원 중에 있을 수 있습니다.
-					</span>
-				</div>
-				<p class="para mb-25">
-					선배 연구원의 지시에 따라 바이러스의 감염 여부를 확인하세요.
-				</p>
-				<button class="btn-confirm" ng-click="GoPage(4);"></button>
+			</div>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-confirm" ng-click="GoPage(3);"></button>
+			</div>
+
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen6_2}" ng-click="hintOpen6_2 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen6_2">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen6_2 = false;"></button>
+				</span>
 			</div>
 		</div>
 		<!-- //페이지 2 -->
@@ -67,7 +100,50 @@
 
 
 		<!-- 페이지 3 -->
-		<div class="page text-center" ng-show="misn.curPage === 4" style="padding-top: 30px;">
+		<div class="page text-center" ng-show="misn.curPage === 3" ng-hide="misn.curPage !== 3">
+			<p class="txt-xl red b mt-20 mb-60">임상시험</p>
+			<p class="txt-lg mb-35">
+				손세정제 제조를 통해 임상시험을 완료하고<br/>
+				선임연구원에게 확인 받으세요!
+			</p>
+
+			<form role="form" method="get" name="misn6CodeForm" ng-submit="misn.misn6Cure.CheckCode();" novalidate>
+				<input type="text" class="input-text lg" ng-model="misn.misn6Cure.code" placeholder="임상시험 확인 코드 입력" required>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-email-write" ng-disabled="misn6CodeForm.$invalid"></button>
+				</div>
+			</form>
+
+		</div>
+		<!-- //페이지 3 -->
+
+
+
+
+		<!-- 페이지 4 -->
+		<div class="page text-center" ng-show="misn.curPage === 4" style="padding-top: 164px;">
+			<div class="danger">
+				<div class="mb-25">
+					<img src="img/icon-danger.png" class="inven-item" style="width: 89px; height: 105px;" />
+				</div>
+				<div class="para italic mb-25">
+					<span class="red">
+						실험 중에 바이러스 균이 새어나갔습니다.<br/>
+						팀원 중 CJR 바이러스에 감염된 사람이 있을 수 있습니다.
+					</span>
+				</div>
+				<p class="para mb-25">
+					선배 연구원의 지시에 따라 바이러스의 감염 여부를 확인하세요.
+				</p>
+				<button class="btn-confirm" ng-click="GoPage(5);"></button>
+			</div>
+		</div>
+		<!-- //페이지 4 -->
+
+
+
+		<!-- 페이지 5 -->
+		<div class="page text-center" ng-show="misn.curPage === 5" style="padding-top: 30px;">
 
 			<div class="mb-25">
 				<img src="img/icon-danger.png" class="inven-item" style="width: 89px; height: 105px;" />
@@ -81,38 +157,55 @@
 				격리된 감염자를 치료하기 위한 미션을 수행해야 합니다.<br/>
 				선배 연구원의 지시에 따라 미션을 성공한 후, 감염자를 치료하세요.
 			</p>
-			<button class="btn-cure" ng-click="GoPage(5); GoStep(3);"></button>
+			<button class="btn-cure" ng-click="GoPage(6); GoStep(3);"></button>
 
 		</div>
-		<!-- //페이지 3 -->
+		<!-- //페이지 5 -->
 
 
 
-		<!-- 페이지 4 -->
-		<div class="page text-center" ng-show="misn.curPage === 5" style="padding-top: 116px;">
+		<!-- 페이지 6 -->
+		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 116px;">
 			<p class="para mb-60">
 				CJR 바이러스 감염자 치료를 완료하였습니까?<br/><br/>
 				선배 연구원에게 임상시험 결과가 기록된 보고서를 받아<br/>
 				AR 미디어에 인식하여 주세요.
 			</p>
 
-			<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 2));"></a>
+
+
+
+			<div class="btn-go-next-wrap">
+				<a class="btn-go-next btn-reco-3" href="javascript:app.loadARchitectWorld(getWordPath(0, 2));"></a>
+			</div>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen6_3}" ng-click="hintOpen6_3 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen6_3">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen6_3 = false;"></button>
+				</span>
+			</div>
 		</div>
-		<!-- //페이지 4 -->
+		<!-- //페이지 6 -->
 
 
 
-		<!-- 페이지 5 -->
-		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 42px;">
-			<p class="para mb-30" ng-hide="processing">
-				임상시험 결과 보고서를 획득하셨습니다.<br/>
-				연구소 보관함에 임상시험 결과 보고서를 보관하시겠습니까?
+		<!-- 페이지 7 -->
+		<div class="page text-center" ng-show="misn.curPage === 7" style="padding-top: 25px;">
+			<div class="mb-15">
+				<img src="img/icon-msg-sm.png" style="width: 64.5px; height: 51px;" />
+			</div>
+			<p class="para mb-15" ng-hide="processing">
+				<br/>
 				<br/>
 			</p>
-			<p class="para mb-30" ng-show="processing">
-				임상시험 결과 보고서를 연구소 보관함에 저장하고 있습니다.<br/><br/>
+			<p class="para mb-15" ng-show="processing">
+				임상시험 결과 보고서를 보관함에 저장하고 있습니다.<br/><br/>
 			</p>
-			<div class="mb-30">
+			<div class="mb-15">
 				<div class="inven-frame-wrap">
 					<div class="inven-item-progress" ng-show="processing">
 						<span class="circle">
@@ -130,28 +223,23 @@
 			<div class="inven-item-result-wrap" ng-show="processing">
 				{{invenItemCurPerResult}}%
 			</div>
-			<div ng-hide="processing">
-				<button class="btn-save" ng-click="GetInvenItem(5, 7, 289, 326);"></button>
-			</div>
 		</div>
-		<!-- //페이지 5 -->
+		<!-- //페이지 7 -->
 
 
-		<!-- 페이지 6 -->
-		<div class="page text-center" ng-show="misn.curPage === 7" style="padding-top: 42px;">
-			<p class="para mb-30">
-				‘임상시험 결과 보고서’가 연구소 보관함에 저장되었습니다.<br/>
-				<span class="green b">‘성공적인 임상시험’</span> 미션을 성공적으로 완료하였습니다.
+		<!-- 페이지 8 -->
+		<div class="page text-center" ng-show="misn.curPage === 8" style="padding-top: 97px;">
+			<p class="para mb-15">
+				임무를 모두 완수했습니다!<br/>
+				왼쪽 하단의 활성화된 “<span class="red b">물질 합성</span>” 버튼을 터치하여 백신 제조를 시작해주세요!
 			</p>
-			<div class="mb-40">
-				<div class="inven-frame-wrap">
-					<div class="inven-item-success-wrap" style="display: block">
-						SUCCESS
-					</div>
+			<div class="inven-frame-wrap">
+				<div class="inven-item-success-wrap" style="display: block">
+					SUCCESS
 				</div>
 			</div>
 		</div>
-		<!-- //페이지 6 -->
+		<!-- //페이지 8 -->
 
 
 

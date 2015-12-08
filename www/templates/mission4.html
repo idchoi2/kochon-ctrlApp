@@ -6,6 +6,18 @@
 		<!-- 타이틀 -->
 		<div class="tit-wrap">
 			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+			<div class="btn-wrap" ng-show="misn.misn4Quiz.isHint === false && misn.misn4Quiz.isAnswering === false">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="GoPagePrev();"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
+			<div class="btn-wrap" ng-show="misn.misn4Quiz.isHint === true && misn.misn4Quiz.isAnswering === false">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="misn.misn4Quiz.isHint = false;"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
+			<div class="btn-wrap" ng-show="misn.misn4Quiz.isAnswering === true">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="misn.misn4Quiz.isAnswering = false;"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
 		</div>
 		<!-- //타이틀 -->
 
@@ -13,20 +25,54 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-4" ng-show="misn.curPage === 0">
-			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1);"></button>
 		</div>
 		<!-- //페이지 0 -->
 
 
 
 		<!-- 페이지 1 -->
-		<div class="page text-center" ng-show="misn.curPage === 1" style="padding-top:121px;">
-			<p class="para mb-60">
-				‘희석 비율표’를 획득하기 위해서<br/>
-				고촌연구소의 연구원임을 증명해야 합니다.<br/>
-				고촌연구소와 관련한 퀴즈를 맞춰 신분을 증명하세요.
-			</p>
-			<button class="btn-confirm" ng-click="GoPage(2);"></button>
+		<div class="page" ng-show="misn.curPage === 1" ng-hide="misn.curPage !== 1" >
+			<div class="pd-25">
+				<div class="dialog mb-40">
+					<div class="dialog-inner">
+						<div class="cn">
+							희석 비율표를 출력하려면 중앙 연구실에 가야 한다네.<br/>
+							다만, 중앙 연구실은 보안 때문에 우리 고촌 연구소의 연구원임을<br/>
+							증명해야 출력이 가능하네. 퀴즈를 모두 맞춰 희석 비율표를 출력하게!
+						</div>
+					</div>
+				</div>
+				<div class="brief mb-30">
+					<div class="brief-misn">
+						<div class="mb-15"><div class="tit">MISSION!</div></div>
+						3개의 퀴즈를 맞춰<br/>
+						고촌 연구소의 연구원임을 증명하고<br/>
+						희석 비율표를 출력하세요!
+					</div>
+					<div class="brief-item">
+						<div class="mb-15"><div class="tit">ITEM</div></div>
+						바이러스<br/>
+						희석 비율표
+					</div>
+					<div class="brief-img">
+						<img src="img/img-item-4.png" style="width: 100px; height: 100px;" />
+					</div>
+				</div>
+				<div class="btn-go-next-wrap">
+					<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(2); GoStep(1);"></button>
+				</div>
+				<div class="hint-wrap">
+					<button class="btn-hint-lg" ng-class="{blur: hintOpen4_1}" ng-click="hintOpen4_1 = true;" style="right: 25px; bottom: 24px;"></button>
+					<span class="hint-cnt-wrap" ng-show="hintOpen4_1">
+						<div class="cnt">
+							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+							ID 카드를 확인해보세요.
+						</div>
+						<button class="btn-close" ng-click="hintOpen4_1 = false;"></button>
+					</span>
+				</div>
+			</div>
 		</div>
 		<!-- //페이지 1 -->
 
@@ -34,43 +80,165 @@
 
 		<!-- 페이지 2 -->
 		<div class="page text-center" ng-show="misn.curPage === 2">
-			<div ng-show="!misn.misn4Quiz.isAnswering" ng-hide="misn.misn4Quiz.isAnswering">
-				<div class="q-tit">첫 번째 문제가 도착했습니다</div>
-				<p class="para mb-30">
-					연구소 곳곳에 아래의 이미지와 같은 코드가 숨겨져 있습니다.<br/>
-					코드를 찾아 AR 미디어에 인식하면 문제를 획득할 수 있습니다.
-				</p>
-				<div class="mb-35">
-					<img src="img/ar/{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[0]].img }}" class="inven-item" style="width: 125px; height: 125px;" />
+
+
+			<div ng-show="misn.misn4Quiz.isAnswering === false">
+
+				<div ng-show="misn.misn4Quiz.isHint === false">
+					<p class="txt-xl red b mt-20 mb-30">연구보고서 3개를 모두 찾으셨나요?</p>
+					<p class="para mb-50">
+						아래의 그림과 똑같은 비밀 코드를 찾으세요.
+					</p>
+					<div class="">
+						<span class="misn4-code" ng-class="{ completed: misn.misn4Quiz.qAnswer0 === true }">
+							<img src="img/ar/{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[0]].img }}" style="width: 125px; height: 125px;" />
+							<span class="check"></span>
+						</span>
+						<span class="misn4-code" ng-class="{ completed: misn.misn4Quiz.qAnswer1 === true }" style="margin: 0 40px;">
+							<img src="img/ar/{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[1]].img }}" style="width: 125px; height: 125px;" />
+							<span class="check"></span>
+						</span>
+						<span class="misn4-code" ng-class="{ completed: misn.misn4Quiz.qAnswer2 === true }">
+							<img src="img/ar/{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[2]].img }}" style="width: 125px; height: 125px;" />
+							<span class="check"></span>
+						</span>
+					</div>
+					<div class="btn-go-next-wrap" style="bottom: 17px;">
+						<a class="btn-go-next btn-reco-3" href="javascript:app.loadARchitectWorld(getWordPath(0, 1));" ></a>
+						<!--<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(0)" >1</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(1)" >2</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(2)" >3</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(3)" >4</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(4)" >5</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(5)" >6</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(6)" >7</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(7)" >8</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(8)" >9</a>
+						<a class="btn-go-next " ng-click="misn.misn4Quiz.GetARItem(9)" >10</a>-->
+					</div>
+					<div class="hint-wrap">
+						<button class="btn-hint-lg" ng-class="{blur: hintOpen4_2}" ng-click="misn.misn4Quiz.isHint = true;" style="right: 25px; bottom: 24px;"></button>
+					</div>
 				</div>
-				<div class="hint-wrap">
-					<button class="btn-hint" ng-class="{blur: hintOpen41}" ng-click="hintOpen41 = true;" style="position: absolute; left: 484px; top: 222px;"></button>
-					<span class="hint-cnt-wrap" ng-show="hintOpen41">
-						<div class="cnt">
-							{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[0]].hint }}
+
+				<div ng-show="misn.misn4Quiz.isHint === true" style="padding-top: 105px;">
+
+
+					<div class="dialog-hint-wrap" style="height: 165px;">
+						<div class="dialog-hint-inner-wrap">
+							<div class="dialog">
+								<div class="dialog-inner">
+									<div class="cn">
+										어떻게 증명해야 하는지 막막한가?<br/>
+										연구소 곳곳에 퀴즈를 전송받을 수 있는 비밀 코드가 숨겨져 있다네.<br/>
+										정답은 비밀 코드 바로 주변에서 찾을 수 있으니 자세히 관찰해 보게.<br/>
+										연구자의 중요한 자세 중의 하나가 관찰력이기도 하지...
+									</div>
+								</div>
+							</div>
+							<div class="dialog mt-30" style="position: relative; left: -84px;" ng-show="misn.misn4Quiz.hintScroll > 1">
+								<div class="dialog-inner">
+									<div class="cn">
+										<div style="display: inline-block; vertical-align: bottom;">
+										비밀코드는<br/>
+										이렇게 생겼네.<br/>
+										전시물, 벽 등에<br/>
+										붙어있지.
+										</div>
+										<img src="img/img-misn4-ex.png" class="inven-item" style="width: 190px; height: 125px; display: inline-block; margin-left: 10px;" />
+									</div>
+								</div>
+							</div>
+							<div class="dialog mt-30" style="position: relative; left: -25px;" ng-show="misn.misn4Quiz.hintScroll > 2">
+								<div class="dialog-inner">
+									<div class="cn">
+										아...아직도 못찾았나? 시간이 없네! 오른쪽 아래에 힌트 버튼을<br/>
+										터치하면 비밀코드의 위치가 나오니 서두르게!
+									</div>
+								</div>
+							</div>
 						</div>
-						<button class="btn-close" ng-click="hintOpen41 = false;"></button>
-					</span>
+					</div>
+
+
+					<script>
+						$(".dialog-hint-wrap").mCustomScrollbar({
+							axis:"y",
+							theme:"light-3",
+							scrollInertia: 300,
+							autoHideScrollbar: true,
+							contentTouchScroll: 25,
+							documentTouchScroll: true
+						});
+					</script>
+
+
+					<div class="btn-go-next-wrap">
+						<button class="btn-go-next btn-hint-more" ng-disabled="misn.misn4Quiz.hintScroll > 2" ng-click="misn.misn4Quiz.hintMore();" style="margin-right: 22px"></button>
+						<button class="btn-go-next btn-hint-confirm" ng-click="misn.misn4Quiz.isHint = false;"></button>
+					</div>
+
 				</div>
-				<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 1));" ></a>
+
 			</div>
-			<div ng-show="misn.misn4Quiz.isAnswering" ng-hide="!misn.misn4Quiz.isAnswering">
-				<div class="quiz">
+
+
+
+			<!-- 질문 답변 영역 -->
+			<div ng-show="misn.misn4Quiz.isAnswering === true">
+
+
+				<div class="quiz" ng-show="misn.misn4Quiz.qNo === 0">
 					<div class="text-center">
 						<p class="para">
-							문제의 빈칸에 들어갈 정답을 찾아 입력하세요.<br/>
-							모든 문제의 정답은 코드 근처에서 찾을 수 있습니다.<br/>
-							주위를 잘 살펴보세요.
+							문제의 빈칸에 들어갈 정답을 입력하세요.<br/>
+							정답은 비밀코드가 부착되어 있는 장소 근처에 있습니다.
 						</p>
 					</div>
 					<div class="quiz-wrap">
-						<span class="quiz-no">Quiz 1</span>
+						<span class="quiz-no">Quiz {{ misn.misn4Quiz.qIdx }}</span>
 						<span class="quiz-cn" ng-bind-html="misn.misn4Quiz.quizList[misn.misn4Quiz.noList[0]].tit"></span>
 						<input type="text" class="input-text lg" ng-model="misn.misn4Quiz.input[0]" placeholder="정답을 입력해주세요" required>
-						<button class="btn-confirm" ng-click="misn.misn4Quiz.CheckQuiz(0, 3);" style="position: absolute; top: 135px; left: 343px;"></button>
+						<button class="btn-confirm" ng-click="misn.misn4Quiz.CheckQuiz(0);" style="position: absolute; top: 135px; left: 343px;"></button>
 					</div>
 				</div>
+
+				<div class="quiz" ng-show="misn.misn4Quiz.qNo === 1">
+					<div class="text-center">
+						<p class="para">
+							문제의 빈칸에 들어갈 정답을 입력하세요.<br/>
+							정답은 비밀코드가 부착되어 있는 장소 근처에 있습니다.
+						</p>
+					</div>
+					<div class="quiz-wrap">
+						<span class="quiz-no">Quiz {{ misn.misn4Quiz.qIdx }}</span>
+						<span class="quiz-cn" ng-bind-html="misn.misn4Quiz.quizList[misn.misn4Quiz.noList[1]].tit"></span>
+						<input type="text" class="input-text lg" ng-model="misn.misn4Quiz.input[1]" placeholder="정답을 입력해주세요" required>
+						<button class="btn-confirm" ng-click="misn.misn4Quiz.CheckQuiz(1);" style="position: absolute; top: 135px; left: 343px;"></button>
+					</div>
+				</div>
+
+				<div class="quiz" ng-show="misn.misn4Quiz.qNo === 2">
+					<div class="text-center">
+						<p class="para">
+							문제의 빈칸에 들어갈 정답을 입력하세요.<br/>
+							정답은 비밀코드가 부착되어 있는 장소 근처에 있습니다.
+						</p>
+					</div>
+					<div class="quiz-wrap">
+						<span class="quiz-no">Quiz {{ misn.misn4Quiz.qIdx }}</span>
+						<span class="quiz-cn" ng-bind-html="misn.misn4Quiz.quizList[misn.misn4Quiz.noList[2]].tit"></span>
+						<input type="text" class="input-text lg" ng-model="misn.misn4Quiz.input[2]" placeholder="정답을 입력해주세요" required>
+						<button class="btn-confirm" ng-click="misn.misn4Quiz.CheckQuiz(2);" style="position: absolute; top: 135px; left: 343px;"></button>
+					</div>
+				</div>
+
+
+
+
 			</div>
+			<!-- //질문 답변 영역 -->
+
 		</div>
 		<!-- //페이지 2 -->
 
@@ -78,42 +246,28 @@
 
 		<!-- 페이지 3 -->
 		<div class="page text-center" ng-show="misn.curPage === 3">
-			<div ng-show="!misn.misn4Quiz.isAnswering" ng-hide="misn.misn4Quiz.isAnswering">
-				<div class="q-tit">두 번째 문제가 도착했습니다</div>
-				<p class="para mb-30">
-					연구소 곳곳에 아래의 이미지와 같은 코드가 숨겨져 있습니다.<br/>
-					코드를 찾아 AR 미디어에 인식하면 문제를 획득할 수 있습니다.
-				</p>
-				<div class="mb-35">
-					<img src="img/ar/{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[1]].img }}" class="inven-item" style="width: 125px; height: 125px;" />
+			<p class="txt-xl red b mt-20 mb-20">고촌 연구소의 연구원이 틀림없군요!</p>
+			<p class="para mb-40">
+				중앙 연구실로 이동하여 중앙 컴퓨터에<br/>
+				아래의 희석 비율 코드를 전송해주세요.
+			</p>
+			<div class="mb-50">
+				<div class="id-code">
+					{{ misn.misn4Quiz.codeList[teamInfo.ctrlNo - 1].code }}
 				</div>
-				<div class="hint-wrap">
-					<button class="btn-hint" ng-class="{blur: hintOpen42}" ng-click="hintOpen42 = true;" style="position: absolute; left: 484px; top: 222px;"></button>
-					<span class="hint-cnt-wrap" ng-show="hintOpen42">
-						<div class="cnt">
-							{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[1]].hint }}
-						</div>
-						<button class="btn-close" ng-click="hintOpen42 = false;"></button>
-					</span>
-				</div>
-				<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 1));" ></a>
 			</div>
-			<div ng-show="misn.misn4Quiz.isAnswering" ng-hide="!misn.misn4Quiz.isAnswering">
-				<div class="quiz">
-					<div class="text-center">
-						<p class="para">
-							문제의 빈칸에 들어갈 정답을 찾아 입력하세요.<br/>
-							모든 문제의 정답은 코드 근처에서 찾을 수 있습니다.<br/>
-							주위를 잘 살펴보세요.
-						</p>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-pc-unlock" ng-disabled="misn.misn4Quiz.isPrinting === true" ng-click="misn.misn4Quiz.GetPrintReady();"></button>
+			</div>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen4_3}" ng-click="hintOpen4_3 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen4_3">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
 					</div>
-					<div class="quiz-wrap">
-						<span class="quiz-no">Quiz 2</span>
-						<span class="quiz-cn" ng-bind-html="misn.misn4Quiz.quizList[misn.misn4Quiz.noList[1]].tit"></span>
-						<input type="text" class="input-text lg" ng-model="misn.misn4Quiz.input[1]" placeholder="정답을 입력해주세요" required>
-						<button class="btn-confirm" ng-click="misn.misn4Quiz.CheckQuiz(1, 4);" style="position: absolute; top: 135px; left: 343px;"></button>
-					</div>
-				</div>
+					<button class="btn-close" ng-click="hintOpen4_3 = false;"></button>
+				</span>
 			</div>
 		</div>
 		<!-- //페이지 3 -->
@@ -122,85 +276,49 @@
 
 		<!-- 페이지 4 -->
 		<div class="page text-center" ng-show="misn.curPage === 4">
-			<div ng-show="!misn.misn4Quiz.isAnswering" ng-hide="misn.misn4Quiz.isAnswering">
-				<div class="q-tit">세 번째 문제가 도착했습니다</div>
-				<p class="para mb-30">
-					연구소 곳곳에 아래의 이미지와 같은 코드가 숨겨져 있습니다.<br/>
-					코드를 찾아 AR 미디어에 인식하면 문제를 획득할 수 있습니다.
-				</p>
-				<div class="mb-35">
-					<img src="img/ar/{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[2]].img }}" class="inven-item" style="width: 125px; height: 125px;" />
-				</div>
-				<div class="hint-wrap">
-					<button class="btn-hint" ng-class="{blur: hintOpen43}" ng-click="hintOpen43 = true;" style="position: absolute; left: 484px; top: 222px;"></button>
-					<span class="hint-cnt-wrap" ng-show="hintOpen43">
-						<div class="cnt">
-							{{ misn.misn4Quiz.quizList[misn.misn4Quiz.noList[2]].hint }}
-						</div>
-						<button class="btn-close" ng-click="hintOpen43 = false;"></button>
-					</span>
-				</div>
-				<a class="btn-reco" href="javascript:app.loadARchitectWorld(getWordPath(0, 1));" ></a>
-			</div>
-			<div ng-show="misn.misn4Quiz.isAnswering" ng-hide="!misn.misn4Quiz.isAnswering">
-				<div class="quiz">
-					<div class="text-center">
-						<p class="para">
-							문제의 빈칸에 들어갈 정답을 찾아 입력하세요.<br/>
-							모든 문제의 정답은 코드 근처에서 찾을 수 있습니다.<br/>
-							주위를 잘 살펴보세요.
-						</p>
-					</div>
-					<div class="quiz-wrap">
-						<span class="quiz-no">Quiz 3</span>
-						<span class="quiz-cn" ng-bind-html="misn.misn4Quiz.quizList[misn.misn4Quiz.noList[2]].tit"></span>
-						<input type="text" class="input-text lg" ng-model="misn.misn4Quiz.input[2]" placeholder="정답을 입력해주세요" required>
-						<button class="btn-confirm" ng-click="misn.misn4Quiz.CheckQuiz(2, 5);" style="position: absolute; top: 135px; left: 343px;"></button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- //페이지 4 -->
-
-
-
-
-
-		<!-- 페이지 5 -->
-		<div class="page text-center" ng-show="misn.curPage === 5" style="padding-top: 20px;">
-			<p class="para mb-30">
-				모든 문제를 해결하여 고촌연구소 원구원임을 증명했습니다.<br/>
-				희석 비율표 인쇄를 위한 코드를 획득하였습니다.<br/>
-				중앙 연구실로 이동하여 희석 비율표를 인쇄하세요.<br/>
-				중앙 연구실의 위치는 지도에서 확인할 수 있습니다.
-			</p>
-			<p class="para mb-30">
-				<span class="red italic">“중앙 연구실 컴퓨터에 코드를 전송하여 희석 비율표를 인쇄하세요.”</span>
+			<p class="txt-xl red b mt-20 mb-20">고촌 연구소의 연구원이 틀림없군요!</p>
+			<p class="para mb-40">
+				중앙 연구실로 이동하여 중앙 컴퓨터에<br/>
+				아래의 희석 비율 코드를 전송해주세요.
 			</p>
 			<div class="mb-50">
 				<div class="id-code">
 					{{ misn.misn4Quiz.codeList[teamInfo.ctrlNo - 1].code }}
 				</div>
 			</div>
-			<div>
-				<button class="btn-submit" ng-click="misn.misn4Quiz.GoPrint();"></button>
+			<div class="btn-go-next-wrap">
+				<button class="btn-go-next btn-submit-code" ng-disabled="misn.misn4Quiz.isPrinting === true" ng-click="misn.misn4Quiz.GoPrint();"></button>
+			</div>
+			<div class="hint-wrap">
+				<button class="btn-hint-lg" ng-class="{blur: hintOpen4_4}" ng-click="hintOpen4_4 = true;" style="right: 25px; bottom: 24px;"></button>
+				<span class="hint-cnt-wrap" ng-show="hintOpen4_4">
+					<div class="cnt">
+						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
+						ID 카드를 확인해보세요.
+					</div>
+					<button class="btn-close" ng-click="hintOpen4_4 = false;"></button>
+				</span>
 			</div>
 		</div>
-		<!-- //페이지 5 -->
+		<!-- //페이지 4 -->
 
 
 
-		<!-- 페이지 6 -->
-		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 42px;">
-			<p class="para mb-30" ng-hide="processing">
-				‘희석 비율표’를 획득하셨습니다.<br/>
-				연구소 보관함에 ‘희석 비율표’를 보관하시겠습니까?
+		<!-- 페이지 5 -->
+		<div class="page text-center" ng-show="misn.curPage === 5" style="padding-top: 25px;">
+
+			<div class="mb-15">
+				<img src="img/icon-msg-sm.png" style="width: 64.5px; height: 51px;" />
+			</div>
+			<p class="para mb-15" ng-hide="processing">
+				<br/>
 				<br/>
 			</p>
-			<p class="para mb-30" ng-show="processing">
-				희석 비율표를 저장하고 있습니다.<br/><br/>
+			<p class="para mb-15" ng-show="processing">
+				바이러스 희석 비율표를<br/>
+				보관함에 기록하고 있습니다.<br/>
 			</p>
-			<div class="mb-30">
+			<div class="mb-15">
 				<div class="inven-frame-wrap">
 					<div class="inven-item-progress" ng-show="processing">
 						<span class="circle">
@@ -218,28 +336,28 @@
 			<div class="inven-item-result-wrap" ng-show="processing">
 				{{invenItemCurPerResult}}%
 			</div>
-			<div ng-hide="processing">
-				<button class="btn-save" ng-click="GetInvenItem(3, 7, 289, 60);"></button>
-			</div>
 		</div>
-		<!-- //페이지 6 -->
+		<!-- //페이지 5 -->
 
 
-		<!-- 페이지 7 -->
-		<div class="page text-center" ng-show="misn.curPage === 7" style="padding-top: 42px;">
-			<p class="para mb-30">
-				‘희석 비율표’가 연구소 보관함에 저장되었습니다.<br/>
-				<span class="green b">‘당신의 신분을 증명하시오’</span> 미션을 성공적으로 완료하였습니다.
+		<!-- 페이지 6 -->
+		<div class="page text-center" ng-show="misn.curPage === 6" ng-hide="misn.curPage !== 6" style="padding-top: 52px;">
+			<p class="para mb-15">
+				임무를 완수했습니다!<br/>
+				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 나머지 임무를 완수해주세요.
 			</p>
-			<div class="mb-40">
-				<div class="inven-frame-wrap">
-					<div class="inven-item-success-wrap" style="display: block">
-						SUCCESS
-					</div>
+			<div class="mb-15">
+				<div class="alert">
+					바이러스 희석 비율표는 백신 제조시까지 반드시 소지하세요
+				</div>
+			</div>
+			<div class="inven-frame-wrap">
+				<div class="inven-item-success-wrap" style="display: block">
+					SUCCESS
 				</div>
 			</div>
 		</div>
-		<!-- //페이지 7 -->
+		<!-- //페이지 6 -->
 
 
 

@@ -36,6 +36,14 @@ body {
   color: #FFF;
   font-family: sans-serif; }
 
+.txt-lg {
+  font-size: 23px;
+  line-height: 35px; }
+
+.txt-xl {
+  font-size: 30px;
+  line-height: 30px; }
+
 .b {
   font-weight: 700; }
 
@@ -165,6 +173,72 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
       bottom: 20px;
       left: 42px; }
 
+.dialog {
+  padding-left: 78px;
+  background: url("../img/icon-kochon.png") no-repeat left bottom;
+  background-size: 80px 80px;
+  display: inline-block; }
+  .dialog .dialog-inner {
+    display: inline-block;
+    padding-left: 22px;
+    overflow: visible;
+    background: url("../img/bg-dialog.png") no-repeat 16px bottom;
+    background-size: 23px 15px; }
+    .dialog .dialog-inner .cn {
+      background: #a4e3db;
+      padding: 10px 70px 10px 25px;
+      display: inline-block;
+      font-size: 18px;
+      line-height: 25px;
+      color: #000;
+      text-align: left;
+      -webkit-border-radius: 14px;
+      -moz-border-radius: 14px;
+      -ms-border-radius: 14px;
+      border-radius: 14px;
+      behavior: url(../css/boxsizing.htc); }
+
+.dialog-hint-wrap {
+  overflow: hidden; }
+  .dialog-hint-wrap .mCSB_inside > .mCSB_container {
+    margin-right: 0 !important; }
+
+.brief {
+  display: table; }
+  .brief .tit {
+    font-size: 20px;
+    font-family: "kelson_sansbold", sans-serif;
+    line-height: 20px;
+    font-style: italic;
+    padding: 2px 6px 2px 2px;
+    display: inline-block; }
+  .brief .brief-misn {
+    font-size: 23px;
+    line-height: 30px;
+    display: table-cell;
+    width: 525px;
+    vertical-align: top; }
+    .brief .brief-misn .tit {
+      color: #a4e3db;
+      background: url("../img/bg-brief-green.png") repeat; }
+  .brief .brief-item {
+    font-size: 23px;
+    line-height: 30px;
+    color: #FF503E;
+    font-weight: 600;
+    display: table-cell;
+    width: 118px;
+    vertical-align: top; }
+    .brief .brief-item .tit {
+      color: #FF503E;
+      background: url("../img/bg-red-40.png") repeat; }
+  .brief .brief-img {
+    display: table-cell;
+    width: 112px;
+    padding-top: 50px;
+    vertical-align: top;
+    text-align: center; }
+
 #btn-reset-wrap {
   position: fixed;
   top: 0;
@@ -218,17 +292,24 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   line-height: 50px !important;
   height: 50px !important; }
 
-.btn, .btn-login, .btn-map, .btn-keymap, .btn-compose, .btn-hint, .btn-ms-start, .btn-confirm, .btn-confirm-fill, .btn-input-complete, .btn-complete, .btn-close, .btn-save, .btn-next, .btn-reco, .btn-map-f1, .btn-map-f2, .btn-email, .btn-email-submit, .btn-submit, .btn-go-quiz, .btn-misn5-complete, .btn-confirm-err, .btn-check-answer, .btn-cure {
+.btn, .btn-login, .btn-map, .btn-keymap, .btn-compose, .btn-hint, .btn-hint-lg, .btn-hint-more, .btn-hint-confirm, .btn-ms-start, .btn-confirm, .btn-confirm-fill, .btn-confirm-misn, .btn-input-complete, .btn-complete, .btn-close, .btn-save, .btn-next, .btn-reco, .btn-reco-2, .btn-reco-3, .btn-pc-unlock, .btn-map-f1, .btn-map-f2, .btn-email, .btn-email-submit, .btn-email-write, .btn-submit, .btn-submit-report, .btn-submit-code, .btn-go-quiz, .btn-misn5-complete, .btn-confirm-err, .btn-check-virus, .btn-check-answer, .btn-cure, .btn-tit-prev, .btn-tit-next {
   display: inline-block;
   border: none;
   background: none;
   text-indent: -9999px; }
 
-.btn[disabled], [disabled].btn-login, [disabled].btn-map, [disabled].btn-keymap, [disabled].btn-compose, [disabled].btn-hint, [disabled].btn-ms-start, [disabled].btn-confirm, [disabled].btn-confirm-fill, [disabled].btn-input-complete, [disabled].btn-complete, [disabled].btn-close, [disabled].btn-save, [disabled].btn-next, [disabled].btn-reco, [disabled].btn-map-f1, [disabled].btn-map-f2, [disabled].btn-email, [disabled].btn-email-submit, [disabled].btn-submit, [disabled].btn-go-quiz, [disabled].btn-misn5-complete, [disabled].btn-confirm-err, [disabled].btn-check-answer, [disabled].btn-cure {
+.btn[disabled], [disabled].btn-login, [disabled].btn-map, [disabled].btn-keymap, [disabled].btn-compose, [disabled].btn-hint, [disabled].btn-hint-lg, [disabled].btn-hint-more, [disabled].btn-hint-confirm, [disabled].btn-ms-start, [disabled].btn-confirm, [disabled].btn-confirm-fill, [disabled].btn-confirm-misn, [disabled].btn-input-complete, [disabled].btn-complete, [disabled].btn-close, [disabled].btn-save, [disabled].btn-next, [disabled].btn-reco, [disabled].btn-reco-2, [disabled].btn-reco-3, [disabled].btn-pc-unlock, [disabled].btn-map-f1, [disabled].btn-map-f2, [disabled].btn-email, [disabled].btn-email-submit, [disabled].btn-email-write, [disabled].btn-submit, [disabled].btn-submit-report, [disabled].btn-submit-code, [disabled].btn-go-quiz, [disabled].btn-misn5-complete, [disabled].btn-confirm-err, [disabled].btn-check-virus, [disabled].btn-check-answer, [disabled].btn-cure, [disabled].btn-tit-prev, [disabled].btn-tit-next {
   opacity: 0.2; }
 
-.btn.blur, .blur.btn-login, .blur.btn-map, .blur.btn-keymap, .blur.btn-compose, .blur.btn-hint, .blur.btn-ms-start, .blur.btn-confirm, .blur.btn-confirm-fill, .blur.btn-input-complete, .blur.btn-complete, .blur.btn-close, .blur.btn-save, .blur.btn-next, .blur.btn-reco, .blur.btn-map-f1, .blur.btn-map-f2, .blur.btn-email, .blur.btn-email-submit, .blur.btn-submit, .blur.btn-go-quiz, .blur.btn-misn5-complete, .blur.btn-confirm-err, .blur.btn-check-answer, .blur.btn-cure {
+.btn.blur, .blur.btn-login, .blur.btn-map, .blur.btn-keymap, .blur.btn-compose, .blur.btn-hint, .blur.btn-hint-lg, .blur.btn-hint-more, .blur.btn-hint-confirm, .blur.btn-ms-start, .blur.btn-confirm, .blur.btn-confirm-fill, .blur.btn-confirm-misn, .blur.btn-input-complete, .blur.btn-complete, .blur.btn-close, .blur.btn-save, .blur.btn-next, .blur.btn-reco, .blur.btn-reco-2, .blur.btn-reco-3, .blur.btn-pc-unlock, .blur.btn-map-f1, .blur.btn-map-f2, .blur.btn-email, .blur.btn-email-submit, .blur.btn-email-write, .blur.btn-submit, .blur.btn-submit-report, .blur.btn-submit-code, .blur.btn-go-quiz, .blur.btn-misn5-complete, .blur.btn-confirm-err, .blur.btn-check-virus, .blur.btn-check-answer, .blur.btn-cure, .blur.btn-tit-prev, .blur.btn-tit-next {
   opacity: 0.4; }
+
+.btn-go-next-wrap {
+  position: absolute;
+  left: 0;
+  bottom: 25px;
+  width: 100%;
+  text-align: center; }
 
 .btn-login {
   width: 175px;
@@ -274,6 +355,27 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   background: url("../img/btn/btn-hint.png") no-repeat left center;
   background-size: 37px 37px; }
 
+.btn-hint-lg {
+  width: 121px;
+  height: 45px;
+  background: url("../img/btn/btn-hint-lg.png") no-repeat left center;
+  background-size: 121px 45px;
+  -webkit-animation: pulsate 2s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 0.0; }
+
+.btn-hint-more {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-hint-more.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-hint-confirm {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-hint-confirm.png") no-repeat center center;
+  background-size: 175px 45px; }
+
 .btn-hint.long {
   padding-left: 45px;
   color: #FF503E;
@@ -301,6 +403,12 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   height: 42.5px;
   background: url("../img/btn/btn-confirm-fill.png") no-repeat center center;
   background-size: 139.5px 42.5px; }
+
+.btn-confirm-misn {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-confirm-misn.png") no-repeat center center;
+  background-size: 175px 45px; }
 
 .btn-input-complete {
   width: 175px;
@@ -338,6 +446,24 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   background: url("../img/btn/btn-reco.png") no-repeat center center;
   background-size: 139.5px 42.5px; }
 
+.btn-reco-2 {
+  width: 159.5px;
+  height: 45px;
+  background: url("../img/btn/btn-reco-2.png") no-repeat center center;
+  background-size: 159.5px 45px; }
+
+.btn-reco-3 {
+  width: 159.5px;
+  height: 45px;
+  background: url("../img/btn/btn-reco-3.png") no-repeat center center;
+  background-size: 159.5px 45px; }
+
+.btn-pc-unlock {
+  width: 220px;
+  height: 45px;
+  background: url("../img/btn/btn-pc-unlock.png") no-repeat center center;
+  background-size: 220px 45px; }
+
 .btn-map-f1 {
   width: 225px;
   height: 45px;
@@ -370,10 +496,28 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   background: url("../img/btn/btn-email-submit.png") no-repeat center center;
   background-size: 175px 45px; }
 
+.btn-email-write {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-email-write.png") no-repeat center center;
+  background-size: 175px 45px; }
+
 .btn-submit {
   width: 175px;
   height: 45px;
   background: url("../img/btn/btn-submit.png") no-repeat center center;
+  background-size: 175px 45px; }
+
+.btn-submit-report {
+  width: 195px;
+  height: 45px;
+  background: url("../img/btn/btn-submit-report.png") no-repeat center center;
+  background-size: 195px 45px; }
+
+.btn-submit-code {
+  width: 175px;
+  height: 45px;
+  background: url("../img/btn/btn-submit-code.png") no-repeat center center;
   background-size: 175px 45px; }
 
 .btn-go-quiz {
@@ -394,6 +538,12 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   background: url("../img/btn/btn-confirm-err.png") no-repeat center center;
   background-size: 139.5px 42.5px; }
 
+.btn-check-virus {
+  width: 195px;
+  height: 45px;
+  background: url("../img/btn/btn-check-virus.png") no-repeat center center;
+  background-size: 195px 45px; }
+
 .btn-check-answer {
   width: 175px;
   height: 45px;
@@ -405,5 +555,17 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   height: 45px;
   background: url("../img/btn/btn-cure.png") no-repeat center center;
   background-size: 175px 45px; }
+
+.btn-tit-prev {
+  width: 56.5px;
+  height: 20px;
+  background: url("../img/btn/btn-tit-prev.png") no-repeat center center;
+  background-size: 56.5px 20px; }
+
+.btn-tit-next {
+  width: 56.5px;
+  height: 20px;
+  background: url("../img/btn/btn-tit-next.png") no-repeat center center;
+  background-size: 56.5px 20px; }
 
 /*# sourceMappingURL=base.css.map */

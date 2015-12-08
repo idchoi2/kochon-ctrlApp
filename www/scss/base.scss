@@ -6,6 +6,16 @@ body{
 	font-family: sans-serif;
 }
 
+.txt-lg {
+	font-size: $font-size-ko-l - 2;
+	line-height: $font-size-ko-xl + 5;
+}
+
+.txt-xl {
+	font-size: $font-size-ko-xl;
+	line-height: $font-size-ko-xl;
+}
+
 .b {
 	font-weight: 700;
 }
@@ -177,6 +187,103 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 
+.dialog {
+
+	padding-left: 78px;
+	background: url("../img/icon-kochon.png") no-repeat left bottom;
+	background-size: 80px 80px;
+	display: inline-block;
+
+	.dialog-inner {
+
+		display: inline-block;
+		padding-left: 22px;
+		overflow: visible;
+		background: url("../img/bg-dialog.png") no-repeat 16px bottom;
+		background-size: 23px 15px;
+
+
+
+		.cn {
+			background: $color-green;
+			padding: 10px 70px 10px 25px;
+			display: inline-block;
+			font-size: $font-size-ko-m;
+			line-height: $font-size-ko-l;
+			color: $color-black;
+			text-align: left;
+			@include border-radius(14px);
+		}
+	}
+}
+
+.dialog-hint-wrap {
+
+	overflow: hidden;
+
+	.dialog-hint-inner-wrap {
+	}
+
+	.mCSB_inside > .mCSB_container {
+		margin-right: 0 !important;
+	}
+}
+
+
+.brief {
+
+	display: table;
+
+
+	.tit {
+		font-size: $font-size-en-ml;
+		font-family: $font-stack-kelson_sansbold;
+		line-height: $font-size-en-ml;
+		font-style: italic;
+		padding: 2px 6px 2px 2px;
+		display: inline-block;
+	}
+
+	.brief-misn {
+		font-size: $font-size-ko-l - 2;
+		line-height: $font-size-ko-xl;
+		display: table-cell;
+		width: 525px;
+		vertical-align: top;
+
+		.tit {
+			color: $color-green;
+			background: url("../img/bg-brief-green.png") repeat;
+		}
+	}
+
+	.brief-item {
+		font-size: $font-size-ko-l - 2;
+		line-height: $font-size-ko-xl;
+		color: $color-red;
+		font-weight: 600;
+		display: table-cell;
+		width: 118px;
+		vertical-align: top;
+
+		.tit {
+			color: $color-red;
+			background: url("../img/bg-red-40.png") repeat;
+		}
+	}
+
+	.brief-img {
+		display: table-cell;
+		width: 112px;
+		padding-top: 50px;
+		vertical-align: top;
+		text-align: center;
+	}
+
+}
+
+
+
 
 #btn-reset-wrap {
 	position: fixed;
@@ -254,6 +361,17 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	opacity: 0.4;
 }
 
+.btn-go-next-wrap {
+	position: absolute;
+	left: 0;
+	bottom: 25px;
+	width: 100%;
+	text-align: center;
+	.btn-go-next {
+
+	}
+}
+
 .btn-login {
 	@extend .btn;
 	width: 175px;
@@ -307,6 +425,33 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	background-size: 37px 37px;
 }
 
+.btn-hint-lg {
+	@extend .btn;
+	width: 121px;
+	height: 45px;
+	background: url("../img/btn/btn-hint-lg.png") no-repeat left center;
+	background-size: 121px 45px;
+	-webkit-animation: pulsate 2s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	opacity: 0.0;
+}
+
+.btn-hint-more {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-hint-more.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-hint-confirm {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-hint-confirm.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
 .btn-hint.long {
 	padding-left: 45px;
 	color: $color-red;
@@ -340,6 +485,14 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	height: 42.5px;
 	background: url("../img/btn/btn-confirm-fill.png") no-repeat center center;
 	background-size: 139.5px 42.5px;
+}
+
+.btn-confirm-misn {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-confirm-misn.png") no-repeat center center;
+	background-size: 175px 45px;
 }
 
 .btn-input-complete {
@@ -390,6 +543,30 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	background-size: 139.5px 42.5px;
 }
 
+.btn-reco-2 {
+	@extend .btn;
+	width: 159.5px;
+	height: 45px;
+	background: url("../img/btn/btn-reco-2.png") no-repeat center center;
+	background-size: 159.5px 45px;
+}
+
+.btn-reco-3 {
+	@extend .btn;
+	width: 159.5px;
+	height: 45px;
+	background: url("../img/btn/btn-reco-3.png") no-repeat center center;
+	background-size: 159.5px 45px;
+}
+
+.btn-pc-unlock {
+	@extend .btn;
+	width: 220px;
+	height: 45px;
+	background: url("../img/btn/btn-pc-unlock.png") no-repeat center center;
+	background-size: 220px 45px;
+}
+
 .btn-map-f1 {
 	@extend .btn;
 	width: 225px;
@@ -432,11 +609,35 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	background-size: 175px 45px;
 }
 
+.btn-email-write {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-email-write.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
 .btn-submit {
 	@extend .btn;
 	width: 175px;
 	height: 45px;
 	background: url("../img/btn/btn-submit.png") no-repeat center center;
+	background-size: 175px 45px;
+}
+
+.btn-submit-report {
+	@extend .btn;
+	width: 195px;
+	height: 45px;
+	background: url("../img/btn/btn-submit-report.png") no-repeat center center;
+	background-size: 195px 45px;
+}
+
+.btn-submit-code {
+	@extend .btn;
+	width: 175px;
+	height: 45px;
+	background: url("../img/btn/btn-submit-code.png") no-repeat center center;
 	background-size: 175px 45px;
 }
 
@@ -464,6 +665,14 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	background-size: 139.5px 42.5px;
 }
 
+.btn-check-virus {
+	@extend .btn;
+	width: 195px;
+	height: 45px;
+	background: url("../img/btn/btn-check-virus.png") no-repeat center center;
+	background-size: 195px 45px;
+}
+
 .btn-check-answer {
 	@extend .btn;
 	width: 175px;
@@ -478,4 +687,20 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	height: 45px;
 	background: url("../img/btn/btn-cure.png") no-repeat center center;
 	background-size: 175px 45px;
+}
+
+.btn-tit-prev {
+	@extend .btn;
+	width: 56.5px;
+	height: 20px;
+	background: url("../img/btn/btn-tit-prev.png") no-repeat center center;
+	background-size: 56.5px 20px;
+}
+
+.btn-tit-next {
+	@extend .btn;
+	width: 56.5px;
+	height: 20px;
+	background: url("../img/btn/btn-tit-next.png") no-repeat center center;
+	background-size: 56.5px 20px;
 }

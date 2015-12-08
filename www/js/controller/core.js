@@ -1,6 +1,6 @@
 angular.module('kochonApp.controllers', [])
 
-    .controller('CoreCtrl', function($scope, $interval, $location, $window, $ionicTabsDelegate, $ionicHistory, CoreSvc, MisnSvc) {
+    .controller('CoreCtrl', function($scope, $interval, $timeout, $location, $window, $ionicTabsDelegate, $ionicHistory, CoreSvc, MisnSvc) {
 
 
 
@@ -19,7 +19,7 @@ angular.module('kochonApp.controllers', [])
         $scope.teamInfo.teamID = "";
         $scope.teamInfo.name = "";
         $scope.teamInfo.idCode = "";
-        $scope.teamInfo.ctrlNo = 1; // 컨트롤러 번호
+        $scope.teamInfo.ctrlNo = 3; // 컨트롤러 번호
         $scope.teamInfo.teamLoadIntv = 5000; // 팀 정보 불러오는 딜레이
 
 
@@ -220,6 +220,8 @@ angular.module('kochonApp.controllers', [])
                     [],
                     [],
                     [],
+                    [],
+                    [],
                     []
                 ]
             },
@@ -232,7 +234,7 @@ angular.module('kochonApp.controllers', [])
                 ],
                 map: [
                     [],
-                    [ ],
+                    [],
                     [ { mapNo: 2, mapSpotNo: 2 } ],
                     [],
                     [],
@@ -248,7 +250,9 @@ angular.module('kochonApp.controllers', [])
                 ],
                 map: [
                     [],
+                    [],
                     [ { mapNo: 1, mapSpotNo: 2 } ],
+                    [],
                     [],
                     [],
                     []
@@ -262,6 +266,7 @@ angular.module('kochonApp.controllers', [])
                     { no: "02", title: "중앙통제실의 프린터기" }
                 ],
                 map: [
+                    [],
                     [],
                     [],
                     [],
@@ -286,6 +291,7 @@ angular.module('kochonApp.controllers', [])
                     [ { mapNo: 1, mapSpotNo: 7 } ],
                     [ { mapNo: 1, mapSpotNo: 7 } ],
                     [],
+                    [],
                     []
                 ]
             },
@@ -298,6 +304,7 @@ angular.module('kochonApp.controllers', [])
                     { no: "03", title: "치료된 감염자" }
                 ],
                 map: [
+                    [],
                     [],
                     [],
                     [],
@@ -331,12 +338,12 @@ angular.module('kochonApp.controllers', [])
          * @type {{curStep: number, curPage: number}[]}
          */
         $scope.misn.archive = [
-            { curStep: 0, curPage: 0, totStep: 2, totPage: 5 },
-            { curStep: 0, curPage: 0, totStep: 2, totPage: 6 },
-            { curStep: 0, curPage: 0, totStep: 1, totPage: 4 },
             { curStep: 0, curPage: 0, totStep: 2, totPage: 7 },
+            { curStep: 0, curPage: 0, totStep: 2, totPage: 6 },
             { curStep: 0, curPage: 0, totStep: 1, totPage: 6 },
-            { curStep: 0, curPage: 0, totStep: 3, totPage: 7 },
+            { curStep: 0, curPage: 0, totStep: 2, totPage: 6 },
+            { curStep: 0, curPage: 0, totStep: 1, totPage: 8 },
+            { curStep: 0, curPage: 0, totStep: 3, totPage: 8 },
             { curStep: 0, curPage: 0, totStep: 4, totPage: 4 }
         ];
 
@@ -379,9 +386,7 @@ angular.module('kochonApp.controllers', [])
          */
         $scope.GoMission = function(misnNo, isLink) {
 
-
             if(!$scope.processing) {
-
 
                 var curMisnArchive = MisnSvc.GetMissionArchive();
 
@@ -392,8 +397,6 @@ angular.module('kochonApp.controllers', [])
                         return;
                     }
                 }
-
-
 
                 $scope.misn.curMisnNo = misnNo;
                 $scope.misn.curMisn = $scope.misn.list[misnNo];
@@ -422,14 +425,12 @@ angular.module('kochonApp.controllers', [])
                 // 지도 영역 표시 체크
                 $scope.map.CheckSpot($scope.misn.curMisnNo, $scope.misn.curPage);
 
+                // Prev, Next 버튼 확인
+                $scope.CheckPageBtn();
 
             } else {
 
             }
-
-
-
-
         };
 
         /**
@@ -449,13 +450,62 @@ angular.module('kochonApp.controllers', [])
          */
         $scope.GoPage = function(noPage) {
             $scope.misn.curPage = noPage;
-            MisnSvc.SaveMissionArchivePage($scope.misn.curMisnNo, noPage);
-            $scope.misn.list[$scope.misn.curMisnNo].curPer = MisnSvc.GetMissionPercent($scope.misn.curMisnNo, noPage);
-            CoreSvc.Update(MisnSvc.GetAllMissionsPercent(), $scope.misn.curMisnNo);
+
+            var curMisnArchive = MisnSvc.GetMissionArchive();
+            if(curMisnArchive[$scope.misn.curMisnNo].curPage < $scope.misn.curPage) {
+                MisnSvc.SaveMissionArchivePage($scope.misn.curMisnNo, noPage);
+                $scope.misn.list[$scope.misn.curMisnNo].curPer = MisnSvc.GetMissionPercent($scope.misn.curMisnNo, noPage);
+                CoreSvc.Update(MisnSvc.GetAllMissionsPercent(), $scope.misn.curMisnNo);
+            }
+
+            // 지도 영역 표시 체크
+            $scope.map.CheckSpot($scope.misn.curMisnNo, $scope.misn.curPage);
+
+            // Prev, Next 버튼 확인
+            $scope.CheckPageBtn();
+
+
+        };
+
+
+        $scope.prevDisabled = false;
+        $scope.nextDisabled = false;
+
+        $scope.CheckPageBtn = function() {
+            var curMisnArchive = MisnSvc.GetMissionArchive();
+
+            console.log($scope.misn.curPage + " / "+curMisnArchive[$scope.misn.curMisnNo].curPage);
+
+            $scope.prevDisabled = ($scope.misn.curPage == 0) || !(curMisnArchive[$scope.misn.curMisnNo].curPage >= $scope.misn.curPage);
+
+            $scope.nextDisabled = ($scope.misn.curPage == $scope.misn.archive.totPage) || !(curMisnArchive[$scope.misn.curMisnNo].curPage > $scope.misn.curPage);
+
+
+        };
+
+
+        $scope.GoPagePrev = function() {
+            $scope.misn.curPage = $scope.misn.curPage - 1;
+
+            // Prev, Next 버튼 확인
+            $scope.CheckPageBtn();
 
             // 지도 영역 표시 체크
             $scope.map.CheckSpot($scope.misn.curMisnNo, $scope.misn.curPage);
         };
+
+        $scope.GoPageNext = function() {
+            $scope.misn.curPage = $scope.misn.curPage + 1;
+
+            // Prev, Next 버튼 확인
+            $scope.CheckPageBtn();
+
+            // 지도 영역 표시 체크
+            $scope.map.CheckSpot($scope.misn.curMisnNo, $scope.misn.curPage);
+        };
+
+
+
 
         /**
          * 인벤토리에 아이템 획득
@@ -484,25 +534,44 @@ angular.module('kochonApp.controllers', [])
             setTimeout(function() {
 
                 var missionWrap = $("#Mission"+($scope.misn.curMisnNo+1));
-                missionWrap.find(".inven-item-progress").fadeOut(2000);
-                missionWrap.find(".inven-item-result-wrap").fadeOut(2000);
-                missionWrap.find(".inven-item-wrap").delay(1000).removeClass("ng-hide").hide().fadeIn(2000);
-                missionWrap.find(".inven-item-success-wrap").delay(4000).fadeIn(2000);
-                missionWrap.find(".inven-item").delay(2500).animate({ "top" : itemPosTop+"px", "left" : itemPosLeft+"px" }, 2000).delay(500).fadeOut();
+                missionWrap.find(".inven-item-wrap").removeClass("ng-hide").hide().fadeIn(5000);
 
-                // 페이지 이동
+
+                // 애니메이션 효과
                 setTimeout(function() {
-                    $scope.GoPage(noPage);
-                    $scope.processing = false;
-                    $scope.invenItemCurPer = 0;
-                    $scope.invenItemCurPerResult = 0;
-                    $interval.cancel(interval);
-                }, 8000);
-            }, 7000);
+
+                    missionWrap.find(".inven-item-progress").fadeOut(2000);
+                    missionWrap.find(".inven-item-result-wrap").fadeOut(2000);
+                    missionWrap.find(".inven-item-success-wrap").delay(3000).fadeIn(2000);
+                    missionWrap.find(".inven-item").delay(2500).animate({ "top" : itemPosTop+"px", "left" : itemPosLeft+"px" }, 2000).delay(500).fadeOut();
+
+                    // 페이지 이동
+                    setTimeout(function() {
+                        $scope.GoPage(noPage);
+                        $scope.processing = false;
+                        $scope.invenItemCurPer = 0;
+                        $scope.invenItemCurPerResult = 0;
+                        $interval.cancel(interval);
+                    }, 7000);
+                }, 5500);
+
+
+            }, 500);
         };
 
-
-
+        /**
+         * 인벤토리 바로 저장 버튼
+         * @param noInven
+         * @param noPage
+         * @param noPageRes
+         * @param itemPosTop
+         * @param itemPosLeft
+         * @constructor
+         */
+        $scope.GoGetInvenItem = function(noInven, noPage, noPageRes, itemPosTop, itemPosLeft) {
+            $scope.GoPage(noPage);
+            $scope.GetInvenItem(noInven, noPageRes, itemPosTop, itemPosLeft);
+        };
 
         /**
          * 미션 1 메일 전송
@@ -510,10 +579,35 @@ angular.module('kochonApp.controllers', [])
          */
         $scope.misn.misn1Email = {};
 
-        $scope.misn.CheckMisn1Email = function() {
-            if(($scope.misn.misn1Email.input1.toUpperCase() == "NIBSC") && ($scope.misn.misn1Email.input2.toUpperCase() == "INFLUENZA") && ($scope.misn.misn1Email.input3.toUpperCase() == "WHO") && ($scope.misn.misn1Email.input4.toUpperCase() == "NIBSC")) {
+        $scope.misn.misn1Email.codeList = [
+            { code: "1" },
+            { code: "2" },
+            { code: "3" },
+            { code: "4" },
+            { code: "5" },
+            { code: "6" }
+        ];
 
-                $scope.GoPage(3);
+        $scope.misn.misn1Email.CheckCode = function() {
+            if(
+                ($scope.misn.misn1Email.code == $scope.misn.misn1Email.codeList[$scope.teamInfo.ctrlNo - 1].code)
+            ) {
+                $scope.GoPage(4);
+                $scope.GoStep(2);
+            } else {
+                $scope.err.Open("빈칸에 올바른 코드를 입력하세요.");
+            }
+        };
+
+        $scope.misn.misn1Email.CheckEmail = function() {
+            if(
+                ($scope.misn.misn1Email.input1.toUpperCase() == "NIBSC") &&
+                ($scope.misn.misn1Email.input2.toUpperCase() == "INFLUENZA") &&
+                ($scope.misn.misn1Email.input3.toUpperCase() == "WHO") &&
+                ($scope.misn.misn1Email.input4.toUpperCase() == "NIBSC")
+            ) {
+
+                $scope.GoPage(5);
             } else {
                 $scope.err.Open("빈칸에 올바른 단어를 입력하세요.");
             }
@@ -524,6 +618,14 @@ angular.module('kochonApp.controllers', [])
          * @type {{}}
          */
         $scope.misn.misn2Check = {};
+        $scope.misn.misn2Check.hintScroll = 1;
+
+        $scope.misn.misn2Check.hintMore = function() {
+            $scope.misn.misn2Check.hintScroll++;
+            setTimeout(function() {
+                $(".dialog-hint-wrap").mCustomScrollbar("scrollTo", "bottom");
+            }, 300);
+        };
 
         $scope.misn.misn2Check.codeList = [
             { code: "519", answer: "이상지질혈증", stepNo: 1 },
@@ -552,26 +654,43 @@ angular.module('kochonApp.controllers', [])
          */
         $scope.misn.misn3Organ = {};
 
-        $scope.misn.misn3Organ.ar1 = false;
-        $scope.misn.misn3Organ.ar2 = false;
+        $scope.misn.misn3Organ.ar= {};
+        $scope.misn.misn3Organ.ar.item1 = false;
+        $scope.misn.misn3Organ.ar.item2 = false;
 
+        /**
+         * AR 장기 인식
+         * @param itemNo
+         * @constructor
+         */
         $scope.misn.misn3Organ.GetARItem = function(itemNo) {
 
+
+
             if((itemNo == 0) || (itemNo == 1)) {
-
-
                 if(itemNo == 0) {
-                    $scope.misn.misn3Organ.ar1 = true;
-                    $scope.$apply();
+
+                    $scope.misn.misn3Organ.ar.item1 = true;
+
+
+
                 } else {
-                    $scope.misn.misn3Organ.ar2 = true;
-                    $scope.$apply();
+
+                    $scope.misn.misn3Organ.ar.item2 = true;
                 }
+
+                $timeout(function() {
+                    $scope.$apply();
+                }, 100);
+
             } else {
                 $scope.err.Open("올바른 AR 타겟을 인식하세요.");
             }
-
             //$("#"+itemNo).val(1).trigger("input");
+        };
+
+
+        $scope.misn.misn3Organ.SetAr = function() {
 
         };
 
@@ -585,8 +704,21 @@ angular.module('kochonApp.controllers', [])
         $scope.misn.misn4Quiz = {};
         $scope.misn.misn4Quiz.noList = [];
         $scope.misn.misn4Quiz.input = [];
-        $scope.misn.misn4Quiz.qIdx = 0;
+        $scope.misn.misn4Quiz.qArray = [];
+        $scope.misn.misn4Quiz.qIdx = 1;
+        $scope.misn.misn4Quiz.qNo = 0;
         $scope.misn.misn4Quiz.isAnswering = false;
+
+        $scope.misn.misn4Quiz.isHint = false;
+
+        $scope.misn.misn4Quiz.hintScroll = 1;
+
+        $scope.misn.misn4Quiz.hintMore = function() {
+            $scope.misn.misn4Quiz.hintScroll++;
+            setTimeout(function() {
+                $(".dialog-hint-wrap").mCustomScrollbar("scrollTo", "bottom");
+            }, 300);
+        };
 
         $scope.misn.misn4Quiz.targetNo = null;
 
@@ -643,10 +775,56 @@ angular.module('kochonApp.controllers', [])
         };
 
 
+        $scope.misn.misn4Quiz.qAnswer0 = false;
+        $scope.misn.misn4Quiz.qAnswer1 = false;
+        $scope.misn.misn4Quiz.qAnswer2 = false;
+
         $scope.misn.misn4Quiz.GetARItem = function(itemNo) {
 
-            if(itemNo  == $scope.misn.misn4Quiz.noList[$scope.misn.curPage - 2]) {
-                $scope.misn.misn4Quiz.isAnswering = true;
+            if(
+                (itemNo  == $scope.misn.misn4Quiz.noList[0]) ||
+                (itemNo  == $scope.misn.misn4Quiz.noList[1]) ||
+                (itemNo  == $scope.misn.misn4Quiz.noList[2])
+              ){
+
+                if(itemNo  == $scope.misn.misn4Quiz.noList[0]) {
+
+                    if($scope.misn.misn4Quiz.qAnswer0 === false) {
+                        $scope.misn.misn4Quiz.qArray.push($scope.misn.misn4Quiz.quizList[$scope.misn.misn4Quiz.noList[0]]);
+                        $scope.misn.misn4Quiz.qNo = 0;
+                        $scope.misn.misn4Quiz.isAnswering = true;
+                    } else {
+                        $scope.err.Open("이미 맞춘 문제입니다.");
+                        $scope.misn.misn4Quiz.isAnswering = false;
+                    }
+
+                } else if(itemNo  == $scope.misn.misn4Quiz.noList[1]) {
+
+                    if($scope.misn.misn4Quiz.qAnswer1 === false) {
+                        $scope.misn.misn4Quiz.qArray.push($scope.misn.misn4Quiz.quizList[$scope.misn.misn4Quiz.noList[1]]);
+                        $scope.misn.misn4Quiz.qNo = 1;
+                        $scope.misn.misn4Quiz.isAnswering = true;
+                    } else {
+                        $scope.err.Open("이미 맞춘 문제입니다.");
+                        $scope.misn.misn4Quiz.isAnswering = false;
+                    }
+
+                } else if(itemNo  == $scope.misn.misn4Quiz.noList[2]) {
+
+                    if($scope.misn.misn4Quiz.qAnswer2 === false) {
+                        $scope.misn.misn4Quiz.qArray.push($scope.misn.misn4Quiz.quizList[$scope.misn.misn4Quiz.noList[2]]);
+                        $scope.misn.misn4Quiz.qNo = 2;
+                        $scope.misn.misn4Quiz.isAnswering = true;
+                    } else {
+                        $scope.err.Open("이미 맞춘 문제입니다.");
+                        $scope.misn.misn4Quiz.isAnswering = false;
+                    }
+
+                }
+
+
+
+
             } else {
                 $scope.err.Open("올바른 AR 타겟을 인식하세요.");
             }
@@ -654,22 +832,73 @@ angular.module('kochonApp.controllers', [])
         };
 
 
-        $scope.misn.misn4Quiz.CheckQuiz = function(idx, noPage) {
+        $scope.misn.misn4Quiz.CheckQuiz = function(idx) {
 
             if($scope.misn.misn4Quiz.input[idx] === $scope.misn.misn4Quiz.quizList[$scope.misn.misn4Quiz.noList[idx]].answer) {
 
+                if(idx === 0) {
+                    $scope.misn.misn4Quiz.qAnswer0 = true;
+                } else if(idx === 1) {
+                    $scope.misn.misn4Quiz.qAnswer1 = true;
+                } else if(idx === 2) {
+                    $scope.misn.misn4Quiz.qAnswer2 = true;
+                }
+
+                $scope.misn.misn4Quiz.qIdx++;
+
                 var msg = "정답입니다.<br/>다음 문제로 넘어갑니다.";
-                if(idx > 1) {
+                if($scope.misn.misn4Quiz.qAnswer0 === true && $scope.misn.misn4Quiz.qAnswer1 === true && $scope.misn.misn4Quiz.qAnswer2 === true) {
                     msg = "정답입니다.<br/>다음 단계로 넘어갑니다.";
                     $scope.GoStep(2);
+                    $scope.GoPage(3);
                 }
 
                 $scope.cmf.Open(msg);
                 $scope.misn.misn4Quiz.isAnswering = false;
-                $scope.GoPage(noPage);
+                //$scope.GoPage(noPage);
             } else {
                 $scope.err.Open("틀렸습니다.<br/>다시 정답을 입력하세요.");
             }
+        };
+
+
+        $scope.misn.misn4Quiz.isPrinting = false;
+
+        /**
+         * 인쇄 준비
+         * @constructor
+         */
+        $scope.misn.misn4Quiz.GetPrintReady = function() {
+
+            $scope.misn.misn4Quiz.isPrinting = true;
+
+            CoreSvc.GetCurrentProgram().then(function(res) {
+
+                // 현재 서버에서 인쇄중인지 확인
+                if(res.dataInfo.is_print === "0") {
+
+                    CoreSvc.Action(0, 1, null).then(function(res) {
+
+                        $scope.cmf.Open("보안 해제 중 입니다.");
+                        $scope.cmf.isDisableClose = true;
+
+                        setTimeout(function() {
+                            $scope.cmf.isDisableClose = false;
+                            $scope.GoPage(4);
+                        }, 3000);
+                        $scope.misn.misn4Quiz.isPrinting = false;
+
+
+                    })
+                    .catch(function(error) {
+                        alert(error.response.error.msgKo);
+                    });
+
+                } else {
+                    $scope.err.Open("현재 다른팀이 진행중입니다. 잠시후에 시도해주세요.");
+                    $scope.misn.misn4Quiz.isPrinting = false;
+                }
+            });
         };
 
         /**
@@ -678,10 +907,13 @@ angular.module('kochonApp.controllers', [])
          */
         $scope.misn.misn4Quiz.GoPrint = function() {
 
+            $scope.misn.misn4Quiz.isPrinting = true;
+
             CoreSvc.GetCurrentProgram().then(function(res) {
 
                 // 현재 서버에서 인쇄중인지 확인
-                if(res.dataInfo.is_print === "0") {
+                //if(res.dataInfo.is_print === "0") {
+                if(1) {
 
                     CoreSvc.Action(0, 1, $scope.teamInfo.ctrlNo).then(function(res) {
 
@@ -698,7 +930,11 @@ angular.module('kochonApp.controllers', [])
                                     CoreSvc.Action(0, 0, $scope.teamInfo.ctrlNo).then(function(res) {
                                         $scope.cmf.msg = "성공적으로 인쇄되었습니다.";
                                         $scope.cmf.isDisableClose = false;
-                                        $scope.GoPage(6);
+
+                                        setTimeout(function() {
+                                            $scope.GoGetInvenItem(3, 5, 6, 243, 60);
+                                        }, 2000);
+
                                     })
                                     .catch(function(error) {
                                         alert(error.response.error.msgKo);
@@ -720,6 +956,7 @@ angular.module('kochonApp.controllers', [])
 
                 } else {
                     $scope.err.Open("현재 다른팀이 진행중입니다. 잠시후에 시도해주세요.");
+                    $scope.misn.misn4Quiz.isPrinting = false;
                 }
             });
 
@@ -756,19 +993,65 @@ angular.module('kochonApp.controllers', [])
                 ($scope.misn.misn5Quiz.key[5].answer === $scope.misn.misn5Quiz.input6) &&
                 ($scope.misn.misn5Quiz.key[6].answer === $scope.misn.misn5Quiz.input7)
             ) { // 정답 확인
-                $scope.GoPage(4);
+                $scope.GoPage(5);
             } else {
                 $scope.err.Open("일부 정답이 맞지 않습니다.<br/>다시 오큘러스 리프트를 체험한 뒤<br/>정답을 입력하세요.");
             }
         };
 
 
+        $scope.misn.misn5Quiz.codeList = [
+            { code: "1" },
+            { code: "2" },
+            { code: "3" },
+            { code: "4" },
+            { code: "5" },
+            { code: "6" }
+        ];
+
+        $scope.misn.misn5Quiz.CheckCode = function() {
+            if(
+                ($scope.misn.misn5Quiz.code == $scope.misn.misn5Quiz.codeList[$scope.teamInfo.ctrlNo - 1].code)
+            ) {
+                $scope.GoGetInvenItem(4, 7, 8, 243, 187);
+            } else {
+                $scope.err.Open("빈칸에 올바른 코드를 입력하세요.");
+            }
+        };
+
+
+
+
 
         $scope.misn.misn6Cure = {};
 
+
+
+        $scope.misn.misn6Cure.codeList = [
+            { code: "1" },
+            { code: "2" },
+            { code: "3" },
+            { code: "4" },
+            { code: "5" },
+            { code: "6" }
+        ];
+
+        $scope.misn.misn6Cure.CheckCode = function() {
+            if(
+                ($scope.misn.misn6Cure.code == $scope.misn.misn6Cure.codeList[$scope.teamInfo.ctrlNo - 1].code)
+            ) {
+                $scope.GoPage(4);
+                $scope.GoStep(2);
+            } else {
+                $scope.err.Open("빈칸에 올바른 코드를 입력하세요.");
+            }
+        };
+
+
+
         $scope.misn.misn6Cure.GetARItem = function() {
 
-            $scope.GoPage(6);
+            $scope.GoGetInvenItem(5, 7, 8, 243, 326);
 
         };
 
