@@ -21,7 +21,7 @@ angular.module('kochonApp', ['ionic', 'ngCordova', 'kochonApp.controllers', 'koc
       }
     })
     .catch(function(error) {
-      alert(error.response.error.msgKo);
+        alert("프로그램 설정을 먼저 해주세요.");
     });
 
     // Lock orientation

@@ -24,3 +24,14 @@ body {
 	background: url("../assets/bg.png") no-repeat left top;
 	background-size: cover;
 }
+
+.btn-close {
+	position: absolute;
+	right: 45px;
+	top: 45px;
+	width: 60px;
+	height: 60px;
+	display: inline-block;
+	background: url("../assets/btn-close.png") no-repeat center center;
+	background-size: 60px 60px;
+}

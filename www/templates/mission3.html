@@ -17,7 +17,7 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-3" ng-show="misn.curPage === 0">
-			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1); PlayAudio('misn.mp3'); map.no = 1;"></button>
 		</div>
 		<!-- //페이지 0 -->
 
@@ -29,18 +29,15 @@
 				<div class="dialog mb-40">
 					<div class="dialog-inner">
 						<div class="cn">
-							바이러스를 배양하기 위해 ‘무항생제 유정란’을<br/>
-							얻어야 하네. 그 전에 먼저 바이러스가 인체 기관 중<br/>
-							어디에 감염되었는지 검사하고 그 결과를 내게 알려주게.
+							바이러스를 배양하기 위해 ‘무항생제 유정란’을 얻어야하네.<br/>
+							그 전에 먼저 바이러스에 감염된 인체 기관을 알아내어 내게 알려주게.
 						</div>
 					</div>
 				</div>
 				<div class="brief mb-30">
 					<div class="brief-misn">
 						<div class="mb-15"><div class="tit">MISSION!</div></div>
-						연구실 1층 곳곳에 “최속청 연구원”이 잃어버린<br/>
-						<span class="green b">연구보고서</span>가 있습니다. 서로 다른 색의 연구보고서<br/>
-						3개를 찾아 “<span class="green b">최속청 연구원</span>”에게 전달해주세요!
+						바이러스에 감염된 인체 기관을<br/>찾기 위한 검사를 진행하세요!
 					</div>
 					<div class="brief-item">
 						<div class="mb-15"><div class="tit">ITEM</div></div>
@@ -56,13 +53,12 @@
 					<button class="btn-go-next btn-confirm-misn" ng-click="GoPage(2); GoStep(1);"></button>
 				</div>
 				<div class="hint-wrap">
-					<button class="btn-hint-lg" ng-class="{blur: hintOpen1_1}" ng-click="hintOpen1_1 = true;" style="right: 25px; bottom: 24px;"></button>
-					<span class="hint-cnt-wrap" ng-show="hintOpen1_1">
+					<button class="btn-hint-lg" ng-class="{blur: hintOpen3_1}" ng-click="hintOpen3_1 = true;" style="right: 25px; bottom: 24px;"></button>
+					<span class="hint-cnt-wrap noscroll" ng-show="hintOpen3_1">
 						<div class="cnt">
-							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
-							ID 카드를 확인해보세요.
+							바이러스 감염 검사가 제1실험실에서 진행되고 있습니다.
 						</div>
-						<button class="btn-close" ng-click="hintOpen1_1 = false;"></button>
+						<button class="btn-close" ng-click="hintOpen3_1 = false;"></button>
 					</span>
 				</div>
 			</div>
@@ -88,17 +84,6 @@
 
 			<div class="btn-go-next-wrap">
 				<button class="btn-go-next btn-check-virus" ng-click="GoPage(3)"></button>
-			</div>
-
-			<div class="hint-wrap">
-				<button class="btn-hint-lg" ng-class="{blur: hintOpen3_1}" ng-click="hintOpen3_1 = true;" style="right: 25px; bottom: 24px;"></button>
-				<span class="hint-cnt-wrap" ng-show="hintOpen3_1">
-					<div class="cnt">
-						인체 모형은 1층 제1실험실에 있습니다.<br/>
-						위치는 지도에서 확인할 수 있습니다.
-					</div>
-					<button class="btn-close" ng-click="hintOpen3_1 = false;"></button>
-				</span>
 			</div>
 
 		</div>
@@ -138,16 +123,6 @@
 				<button class="btn-go-next btn-submit-report" ng-click="GoPage(4)"></button>
 			</div>
 
-			<div class="hint-wrap">
-				<button class="btn-hint-lg" ng-class="{blur: hintOpen3_2}" ng-click="hintOpen3_2 = true;" style="right: 25px; bottom: 24px;"></button>
-				<span class="hint-cnt-wrap" ng-show="hintOpen3_2">
-					<div class="cnt">
-						인체 모형은 1층 제1실험실에 있습니다.<br/>
-						위치는 지도에서 확인할 수 있습니다.
-					</div>
-					<button class="btn-close" ng-click="hintOpen3_2 = false;"></button>
-				</span>
-			</div>
 
 		</div>
 		<!-- //페이지 3 -->
@@ -160,7 +135,7 @@
 				<img src="img/icon-msg-check.png" style="width: 78px; height: 60.5px;" />
 			</div>
 			<div class="mb-70 txt-xl green b">
-				검사 결과 전송이 완료되었습니다.
+				검사 결과가 전송되었습니다.
 			</div>
 			<button class="btn-confirm" ng-click="GoGetInvenItem(0, 5, 6, 243, -68);"></button>
 		</div>
@@ -207,8 +182,8 @@
 		<!-- 페이지 6 -->
 		<div class="page text-center" ng-show="misn.curPage === 6" ng-hide="misn.curPage !== 6" style="padding-top: 97px;">
 			<p class="para mb-15">
-				임무를 완수했습니다!<br/>
-				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 나머지 임무를 완수해주세요.
+				미션을 완료했습니다!<br/>
+				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 미션을 완료해주세요.
 			</p>
 			<div class="inven-frame-wrap">
 				<div class="inven-item-success-wrap" style="display: block">

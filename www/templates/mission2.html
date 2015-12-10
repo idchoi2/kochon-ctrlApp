@@ -17,7 +17,7 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-2" ng-show="misn.curPage === 0">
-			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1); GoStep(1); PlayAudio('misn.mp3');"></button>
 		</div>
 		<!-- //페이지 0 -->
 
@@ -33,7 +33,7 @@
 				메시지를 확인하시겠습니까?
 			</p>
 			<div class="btn-go-next-wrap">
-				<button class="btn-go-next btn-confirm" ng-click="GoPage(2);"></button>
+				<button class="btn-go-next btn-confirm" ng-click="GoPage(2); map.no = 2;"></button>
 			</div>
 		</div>
 		<!-- //페이지 1 -->
@@ -228,8 +228,8 @@
 		<!-- 페이지 6 -->
 		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 97px;">
 			<p class="para mb-15">
-				‘면역증강제’가 연구소 보관함에 저장되었습니다.<br/>
-				<span class="green b">‘고촌 박사가 보낸 편지’</span> 미션을 성공적으로 완료하였습니다.
+				미션을 완료했습니다!<br/>
+				아래의 보관함에서 아직 획득하지 못한 물질을 터치하여 미션을 완료해주세요.
 			</p>
 			<div class="inven-frame-wrap">
 				<div class="inven-item-success-wrap" style="display: block">

@@ -134,6 +134,9 @@
       right: 25px;
       top: 50%;
       margin-top: -15px; }
+  .mission-cnt .hint-wrap .hint-cnt-wrap.noscroll {
+    position: absolute;
+    bottom: 19px; }
   .mission-cnt .hint-wrap .misn7-hint-cnt-wrap {
     position: absolute;
     margin-left: -363px;
@@ -273,12 +276,12 @@
 #Mission1 .input3 {
   position: absolute;
   top: 242px;
-  left: 162px;
-  width: 76px; }
+  left: 57px;
+  width: 99px; }
 #Mission1 .input4 {
   position: absolute;
   top: 242px;
-  left: 596px;
+  left: 567px;
   width: 94px; }
 #Mission1 .misn-email-write {
   background: url("../img/bg-misn1-email-wirte.png") no-repeat center center;
@@ -609,8 +612,7 @@
     width: 937px;
     height: 478px;
     position: absolute;
-    left: 43px;
-    border: 1px solid #FF503E; }
+    left: 43px; }
     #Mission7 #final-video video {
       width: 937px;
       height: 478px; }

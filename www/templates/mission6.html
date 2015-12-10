@@ -6,6 +6,10 @@
 		<!-- 타이틀 -->
 		<div class="tit-wrap">
 			<span>{{ misn.curMisn.steps[misn.curStep].title }}</span>
+			<div class="btn-wrap">
+				<button class="btn-tit-prev" ng-disabled="prevDisabled || processing" ng-click="GoPagePrev();"></button>
+				<button class="btn-tit-next" ng-disabled="nextDisabled || processing" ng-click="GoPageNext();"></button>
+			</div>
 		</div>
 		<!-- //타이틀 -->
 
@@ -15,7 +19,7 @@
 
 		<!-- 페이지 0 -->
 		<div class="page step step-6" ng-show="misn.curPage === 0">
-			<button class="btn-ms-start" ng-click="GoPage(1);"></button>
+			<button class="btn-ms-start" ng-click="GoPage(1); PlayAudio('misn.mp3'); map.no = 1;"></button>
 		</div>
 		<!-- //페이지 0 -->
 
@@ -54,10 +58,9 @@
 				</div>
 				<div class="hint-wrap">
 					<button class="btn-hint-lg" ng-class="{blur: hintOpen6_1}" ng-click="hintOpen6_1 = true;" style="right: 25px; bottom: 24px;"></button>
-					<span class="hint-cnt-wrap" ng-show="hintOpen6_1">
+					<span class="hint-cnt-wrap noscroll" ng-show="hintOpen6_1">
 						<div class="cnt">
-							최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
-							ID 카드를 확인해보세요.
+							고촌 연구소의 선임 연구원들에게<br/>임상시험이 진행 중인 실험실을 물어보세요.
 						</div>
 						<button class="btn-close" ng-click="hintOpen6_1 = false;"></button>
 					</span>
@@ -77,23 +80,13 @@
 			</p>
 			<div class="mb-45">
 				<div class="alert text-left">
-					M005에서 획득한 시약병을 가져가야 실험이 가능합니다.
+					M005에서 획득한 시약병이 있어야 실험이 가능합니다.
 				</div>
 			</div>
 			<div class="btn-go-next-wrap">
 				<button class="btn-go-next btn-confirm" ng-click="GoPage(3);"></button>
 			</div>
 
-			<div class="hint-wrap">
-				<button class="btn-hint-lg" ng-class="{blur: hintOpen6_2}" ng-click="hintOpen6_2 = true;" style="right: 25px; bottom: 24px;"></button>
-				<span class="hint-cnt-wrap" ng-show="hintOpen6_2">
-					<div class="cnt">
-						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
-						ID 카드를 확인해보세요.
-					</div>
-					<button class="btn-close" ng-click="hintOpen6_2 = false;"></button>
-				</span>
-			</div>
 		</div>
 		<!-- //페이지 2 -->
 
@@ -101,16 +94,16 @@
 
 		<!-- 페이지 3 -->
 		<div class="page text-center" ng-show="misn.curPage === 3" ng-hide="misn.curPage !== 3">
-			<p class="txt-xl red b mt-20 mb-60">임상시험</p>
+			<p class="txt-xl red b mt-20 mb-60">임상시험을 위해 손세정제 실험을 완료하세요.</p>
 			<p class="txt-lg mb-35">
 				손세정제 제조를 통해 임상시험을 완료하고<br/>
 				선임연구원에게 확인 받으세요!
 			</p>
 
 			<form role="form" method="get" name="misn6CodeForm" ng-submit="misn.misn6Cure.CheckCode();" novalidate>
-				<input type="text" class="input-text lg" ng-model="misn.misn6Cure.code" placeholder="임상시험 확인 코드 입력" required>
+				<input type="password" class="input-text lg" ng-model="misn.misn6Cure.code" placeholder="임상시험 확인 코드 입력" required>
 				<div class="btn-go-next-wrap">
-					<button class="btn-go-next btn-email-write" ng-disabled="misn6CodeForm.$invalid"></button>
+					<button class="btn-go-next btn-confirm" ng-disabled="misn6CodeForm.$invalid"></button>
 				</div>
 			</form>
 
@@ -133,9 +126,9 @@
 					</span>
 				</div>
 				<p class="para mb-25">
-					선배 연구원의 지시에 따라 바이러스의 감염 여부를 확인하세요.
+					선임 연구원의 지시에 따라 바이러스의 감염 여부를 확인하세요.
 				</p>
-				<button class="btn-confirm" ng-click="GoPage(5);"></button>
+				<button class="btn-confirm" ng-click="GoPage(5); StopAudio();"></button>
 			</div>
 		</div>
 		<!-- //페이지 4 -->
@@ -155,9 +148,9 @@
 			</div>
 			<p class="para mb-25">
 				격리된 감염자를 치료하기 위한 미션을 수행해야 합니다.<br/>
-				선배 연구원의 지시에 따라 미션을 성공한 후, 감염자를 치료하세요.
+				선임 연구원의 지시에 따라 미션을 성공한 후, 감염자를 치료하세요.
 			</p>
-			<button class="btn-cure" ng-click="GoPage(6); GoStep(3);"></button>
+			<button class="btn-cure" ng-click="GoPage(6); GoStep(3); StopAudio();"></button>
 
 		</div>
 		<!-- //페이지 5 -->
@@ -168,8 +161,8 @@
 		<div class="page text-center" ng-show="misn.curPage === 6" style="padding-top: 116px;">
 			<p class="para mb-60">
 				CJR 바이러스 감염자 치료를 완료하였습니까?<br/><br/>
-				선배 연구원에게 임상시험 결과가 기록된 보고서를 받아<br/>
-				AR 미디어에 인식하여 주세요.
+				선임 연구원에게 임상시험 결과가 기록된 보고서를 받아<br/>
+				보고서의 로고를 인식하여 주세요.
 			</p>
 
 
@@ -177,16 +170,6 @@
 
 			<div class="btn-go-next-wrap">
 				<a class="btn-go-next btn-reco-3" href="javascript:app.loadARchitectWorld(getWordPath(0, 2));"></a>
-			</div>
-			<div class="hint-wrap">
-				<button class="btn-hint-lg" ng-class="{blur: hintOpen6_3}" ng-click="hintOpen6_3 = true;" style="right: 25px; bottom: 24px;"></button>
-				<span class="hint-cnt-wrap" ng-show="hintOpen6_3">
-					<div class="cnt">
-						최속청 연구원은 주로 1층 연구소에 자주 출몰합니다.<br/>
-						ID 카드를 확인해보세요.
-					</div>
-					<button class="btn-close" ng-click="hintOpen6_3 = false;"></button>
-				</span>
 			</div>
 		</div>
 		<!-- //페이지 6 -->
@@ -230,7 +213,7 @@
 		<!-- 페이지 8 -->
 		<div class="page text-center" ng-show="misn.curPage === 8" style="padding-top: 97px;">
 			<p class="para mb-15">
-				임무를 모두 완수했습니다!<br/>
+				미션을 모두 완료했습니다!<br/>
 				왼쪽 하단의 활성화된 “<span class="red b">물질 합성</span>” 버튼을 터치하여 백신 제조를 시작해주세요!
 			</p>
 			<div class="inven-frame-wrap">

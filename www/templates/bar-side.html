@@ -48,7 +48,7 @@
 
 
 	<!-- 영상 그래픽 -->
-	<img src="img/icon-xray.png" style="width: 150px; height: 120px;" class="icon-xray" />
+	<img src="img/icon-xray.gif" style="width: 150px; height: 120px;" class="icon-xray" />
 	<!-- //영상 그래픽 -->
 
 
@@ -60,7 +60,7 @@
 	<div class="btn-wrap">
 		<button type="button" class="btn-map" style="margin-bottom: 8px;" ng-click="$parent.map.open = true">지도</button>
 		<button type="button" class="btn-keymap mb-20" ng-click="$parent.keymap.open = true; keymap.Load()">키맵</button>
-		<button type="button" class="btn-compose" ng-click="GoCompose()" ng-disabled="(($parent.misn.list[0].curPer != 100) || ($parent.misn.list[1].curPer != 100) || ($parent.misn.list[2].curPer != 100) || ($parent.misn.list[3].curPer != 100) || ($parent.misn.list[4].curPer != 100) || ($parent.misn.list[5].curPer != 100))">물질 합성</button>
+		<button type="button" class="btn-compose" ng-click="GoCompose()" ng-disabled="!(($parent.misn.list[0].curPer != 100) || ($parent.misn.list[1].curPer != 100) || ($parent.misn.list[2].curPer != 100) || ($parent.misn.list[3].curPer != 100) || ($parent.misn.list[4].curPer != 100) || ($parent.misn.list[5].curPer != 100))">물질 합성</button>
 	</div>
 	<!-- // 버튼 -->
 

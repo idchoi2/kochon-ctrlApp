@@ -37,8 +37,8 @@
 				</div>
 				<div ng-show="processing2">
 					<p class="para mb-30">
-						물질 합성이 완료되었습니다.
-						백신 제조 코드를 획득하였습니다.
+						물질 합성이 완료되었습니다. 백신 제조 코드를 획득하였습니다.<br/>
+						<p class="txt-xl red b mt-20 mb-60">중앙 연구실로 이동하세요.</p>
 					</p>
 					<div style="margin-bottom: 120px">
 						<div class="code-wrap">
@@ -52,19 +52,19 @@
 
 
 
-		<div ng-show="misn.misn7Final.pg === 2" style="padding-top: 212px;">
+		<div ng-show="misn.misn7Final.pg === 2" style="padding-top: 162px;">
 			<form role="form" method="get" name="misn7FinalForm" ng-submit="misn.misn7Final.Step3();" novalidate>
 				<div class="text-center" style="position: relative">
 					<p class="para mb-35">
 						<span class="green b">백신 희석 비율</span>과 백신의 <span class="green b">새로운 이름</span>을 입력하여<br/>
-						백신 개발 프로그램에 전송해주세요.
+					<p class="txt-xl red b mt-20 mb-60">중앙 연구실의 백신 개발 프로그램에 전송해주세요.</p>
 					</p>
 
 					<div class="vac-name-wrap">
 						<input type="text" class="input-text lg input1" ng-model="misn.misn7Final.codeList[teamInfo.ctrlNo - 1]" readonly required>
 						<input type="text" class="input-text lg input2" ng-model="misn.misn7Final.input2" required>
 						<input type="text" class="input-text lg input3" ng-model="misn.misn7Final.input3" required>
-						<input type="text" class="input-text lg input4" ng-model="misn.misn7Final.input4" maxlength="10" size="10" placeholder="10자 이내로 입력해주세요" required>
+						<input type="text" class="input-text lg input4" ng-model="misn.misn7Final.input4" maxlength="10" size="10" placeholder="새로운 백신이름을 입력해주세요 (10자 이내)" required>
 					</div>
 
 					<div class="hint-wrap">
@@ -78,7 +78,7 @@
 						</span>
 					</div>
 
-					<button class="btn-submit" ng-disabled="misn7FinalForm.$invalid"></button>
+					<button class="btn-submit" ng-disabled="misn7FinalForm.$invalid || misn.misn7Final.isFinal === true"></button>
 				</div>
 			</form>
 

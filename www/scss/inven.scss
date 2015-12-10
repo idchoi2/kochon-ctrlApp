@@ -148,6 +148,10 @@
 								font-size: $font-size-en-xxxs;
 								line-height: $font-size-en-xxxs;
 								color: $color-green;
+
+								position: absolute;
+								top: 0;
+								left: 0;
 							}
 
 							.no {
@@ -156,6 +160,10 @@
 								line-height: $font-size-en-xs;
 								color: $color-white;
 								float: left;
+
+								position: absolute;
+								top: 13px;
+								left: 0;
 							}
 
 
@@ -163,7 +171,7 @@
 
 						.tit {
 							position: absolute;
-							top: 9px;
+							top: 0px;
 							left: 30px;
 							width: 100%;
 							line-height: $font-size-ko-xs;
@@ -236,6 +244,9 @@
 			}
 
 
+
+
+
 			li.completed {
 				a {
 
@@ -271,6 +282,27 @@
 						background: url("../img/inven/item-6.png") no-repeat center center;
 						background-size: cover;
 					}
+				}
+			}
+
+
+			li.blink:not(.completed) {
+
+				a {
+
+					.icon {
+						border: 1px solid $color-red;
+					}
+				}
+
+				-webkit-animation: pulsate 2s ease-out;
+				-webkit-animation-iteration-count: infinite;
+				opacity: 0.0;
+
+				@-webkit-keyframes pulsate {
+					0% { opacity: 0.0;}
+					50% {opacity: 1.0;}
+					100% { opacity: 0.0;}
 				}
 			}
 

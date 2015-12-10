@@ -174,6 +174,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
       left: 42px; }
 
 .dialog {
+  min-height: 80px;
   padding-left: 78px;
   background: url("../img/icon-kochon.png") no-repeat left bottom;
   background-size: 80px 80px;
@@ -291,6 +292,9 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
   font-size: 20px !important;
   line-height: 50px !important;
   height: 50px !important; }
+
+.input-text.error {
+  border: 2px solid #FF503E !important; }
 
 .btn, .btn-login, .btn-map, .btn-keymap, .btn-compose, .btn-hint, .btn-hint-lg, .btn-hint-more, .btn-hint-confirm, .btn-ms-start, .btn-confirm, .btn-confirm-fill, .btn-confirm-misn, .btn-input-complete, .btn-complete, .btn-close, .btn-save, .btn-next, .btn-reco, .btn-reco-2, .btn-reco-3, .btn-pc-unlock, .btn-map-f1, .btn-map-f2, .btn-email, .btn-email-submit, .btn-email-write, .btn-submit, .btn-submit-report, .btn-submit-code, .btn-go-quiz, .btn-misn5-complete, .btn-confirm-err, .btn-check-virus, .btn-check-answer, .btn-cure, .btn-tit-prev, .btn-tit-next {
   display: inline-block;

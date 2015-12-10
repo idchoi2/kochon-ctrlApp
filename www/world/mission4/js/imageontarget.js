@@ -18,16 +18,12 @@ var World = {
 			onLoaded: this.worldLoaded
 		});
 
-		var quiz3D = new AR.Model("assets/quiz_3D.wt3", {
-			onLoaded: this.worldLoaded,
-			scale: { x: 1, y: 1, z: 1}
-		});
-
 		/*
 		 The button is created similar to the overlay feature. An AR.ImageResource defines the look of the button and is reused for both buttons.
 		 */
 		this.imgButton = new AR.ImageResource("assets/btn-save-ar.png");
 
+		var imgQ = new AR.ImageResource("assets/quiz.png");
 
 
 		var img1 = new AR.ImageResource("assets/quiz.png");

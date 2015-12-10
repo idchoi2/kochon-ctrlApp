@@ -27,32 +27,32 @@ var World = {
 
 
 		var img1 = new AR.ImageResource("assets/ar_3_1.png");
-		var overlay1 = new AR.ImageDrawable(img1, 1, { offsetX: 0, offsetY: 0 });
+		var overlay1 = new AR.ImageDrawable(img1, 1.5, { offsetX: 0, offsetY: 0 });
 		var button1 = this.createWwwButton("3_0", "스티커 1", 0.3, { offsetX: 0, offsetY: -1 });
-		var page1 = new AR.Trackable2DObject(this.tracker, "3_1", { drawables: { cam: [overlay1, button1] } });
+		var page1 = new AR.Trackable2DObject(this.tracker, "3_01", { drawables: { cam: [overlay1, button1] } });
 
 		var img2 = new AR.ImageResource("assets/ar_3_2.png");
-		var overlay2 = new AR.ImageDrawable(img2, 1, { offsetX: 0, offsetY: 0 });
+		var overlay2 = new AR.ImageDrawable(img2, 1.5, { offsetX: 0, offsetY: 0 });
 		var button2 = this.createWwwButton("3_1", "스티커 2", 0.3, { offsetX: 0, offsetY: -1 });
-		var page2 = new AR.Trackable2DObject(this.tracker, "3_2", { drawables: { cam: [overlay2, button2] } });
+		var page2 = new AR.Trackable2DObject(this.tracker, "3_02", { drawables: { cam: [overlay2, button2] } });
 
 
 
 		var img3 = new AR.ImageResource("assets/ar_3_3.png");
-		var overlay3 = new AR.ImageDrawable(img3, 1, { offsetX: 0, offsetY: 0 });
-		var page3 = new AR.Trackable2DObject(this.tracker, "3_3", { drawables: { cam: [overlay3] } });
+		var overlay3 = new AR.ImageDrawable(img3, 1.5, { offsetX: 0, offsetY: 0 });
+		var page3 = new AR.Trackable2DObject(this.tracker, "3_03", { drawables: { cam: [overlay3] } });
 
 		var img4 = new AR.ImageResource("assets/ar_3_4.png");
-		var overlay4 = new AR.ImageDrawable(img4, 1, { offsetX: 0, offsetY: 0 });
-		var page4 = new AR.Trackable2DObject(this.tracker, "3_4", { drawables: { cam: [overlay4] } });
+		var overlay4 = new AR.ImageDrawable(img4, 1.5, { offsetX: 0, offsetY: 0 });
+		var page4 = new AR.Trackable2DObject(this.tracker, "3_04", { drawables: { cam: [overlay4] } });
 
 		var img5 = new AR.ImageResource("assets/ar_3_5.png");
-		var overlay5 = new AR.ImageDrawable(img5, 1, { offsetX: 0, offsetY: 0 });
-		var page5 = new AR.Trackable2DObject(this.tracker, "3_5", { drawables: { cam: [overlay5] } });
+		var overlay5 = new AR.ImageDrawable(img5, 1.5, { offsetX: 0, offsetY: 0 });
+		var page5 = new AR.Trackable2DObject(this.tracker, "3_05", { drawables: { cam: [overlay5] } });
 
 		var img6 = new AR.ImageResource("assets/ar_3_6.png");
-		var overlay6 = new AR.ImageDrawable(img6, 1, { offsetX: 0, offsetY: 0 });
-		var page6 = new AR.Trackable2DObject(this.tracker, "3_6", { drawables: { cam: [overlay6] } });
+		var overlay6 = new AR.ImageDrawable(img6, 1.5, { offsetX: 0, offsetY: 0 });
+		var page6 = new AR.Trackable2DObject(this.tracker, "3_06", { drawables: { cam: [overlay6] } });
 
 
 	},

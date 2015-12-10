@@ -153,6 +153,11 @@
 			}
 		}
 
+		.hint-cnt-wrap.noscroll {
+			position: absolute;
+			bottom: 19px;
+		}
+
 		.misn7-hint-cnt-wrap {
 			position: absolute;
 			margin-left: -363px;
@@ -343,10 +348,10 @@
 		position: absolute; top: 202px; left: 57px; width: 120px;
 	}
 	.input3 {
-		position: absolute; top: 242px; left: 162px; width: 76px;
+		position: absolute; top: 242px; left: 57px; width: 99px;
 	}
 	.input4 {
-		position: absolute; top: 242px; left: 596px; width: 94px;
+		position: absolute; top: 242px; left: 567px; width: 94px;
 	}
 
 	.misn-email-write {
@@ -773,7 +778,6 @@
 		height: 478px;
 		position: absolute;
 		left: 43px;
-		border: 1px solid $color-red;
 		video {
 			width: 937px;
 			height: 478px;

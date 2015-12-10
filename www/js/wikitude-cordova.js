@@ -76,32 +76,32 @@ var app = {
     // This function gets called if you call "document.location = architectsdk://" in your ARchitect World
     onUrlInvoke: function (url) {
 
-        var _MisnNo = url.substring(26, 27);
-        var _itemNo = url.substring(28);
+
+        if(url) {
 
 
 
+            var _MisnNo = url.substring(26, 27);
+            var _itemNo = url.substring(28);
 
-        var appElement = document.querySelector('[ng-controller=CoreCtrl]');
-        var $scope = angular.element(appElement).scope();
-        /*
-        $scope.$apply(function() {
-            $scope.ar3_1 = 1;
-        });
-        */
+            console.log("URL:"+url);
+            console.log("URL:"+url);
+            console.log("_itemNo:"+_itemNo);
 
-        // 미션 번호에 따라 함수 호출
-        if(_MisnNo == 3) {
-            $scope.misn.misn3Organ.GetARItem(_itemNo);
-        } else if(_MisnNo == 4) {
-            $scope.misn.misn4Quiz.GetARItem(_itemNo);
-        } else if(_MisnNo == 6) {
-            $scope.misn.misn6Cure.GetARItem();
-        } else {
+            var appElement = document.querySelector('[ng-controller=CoreCtrl]');
+            var $scope = angular.element(appElement).scope();
 
+            // 미션 번호에 따라 함수 호출
+            if(_MisnNo == 3) {
+                $scope.misn.misn3Organ.GetARItem(_itemNo);
+            } else if(_MisnNo == 4) {
+                $scope.misn.misn4Quiz.GetARItem(_itemNo);
+            } else if(_MisnNo == 6) {
+                $scope.misn.misn6Cure.GetARItem();
+            } else {
+                $scope.misn.misn4Quiz.isScan = false;
+            }
         }
-
-
 
         app.wikitudePlugin.close();
     },

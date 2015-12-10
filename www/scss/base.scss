@@ -189,6 +189,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 .dialog {
 
+	min-height: 80px;
 	padding-left: 78px;
 	background: url("../img/icon-kochon.png") no-repeat left bottom;
 	background-size: 80px 80px;
@@ -342,6 +343,10 @@ input[disabled], select[disabled], textarea[disabled], input[readonly]:not(.clon
 	font-size: $font-size-ko-ml !important;
 	line-height: 50px !important;
 	height: 50px !important;
+}
+
+.input-text.error {
+	border: 2px solid $color-red !important;
 }
 
 
